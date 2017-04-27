@@ -1,0 +1,37 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<data>
+  <!--<area id='beijing' title='北京' alpha='用来调节颜色' value='北京&lt;br&gt;2个活动点'  url='' target=''/>-->
+  <area id='beijing' title='北京' alpha='1' value='北京&lt;br&gt;2个活动点'  url='' target=''/>
+  <area id='tianjin' title='天津' alpha='0.3' value='天津&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='xinjiang' title='新疆' alpha='0.3' value='新疆&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='xizang' title='西藏' alpha='0.3' value='西藏&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='qinghai' title='青海' alpha='0.3' value='青海&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='gansu' title='甘肃' alpha='0.3' value='甘肃&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='neimenggu' title='内蒙古' alpha='0.3' value='内蒙古&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='ningxia' title='宁夏' alpha='0.3' value='宁夏&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='shanxi' title='山西' alpha='0.3' value='山西&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='liaoning' title='辽宁' alpha='0.3' value='辽宁&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='jilin' title='吉林' alpha='0.3' value='吉林&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='heilongjiang' title='黑龙江' alpha='0.3' value='黑龙江&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='hebei' title='河北' alpha='0.3' value='河北&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='shandong' title='山东' alpha='0.3' value='山东&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='henan' title='河南' alpha='0.3' value='河南&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='shannxi' title='陕西' alpha='0.3' value='陕西&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='sichuan' title='四川' alpha='0.3' value='四川&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='chongqing' title='重庆' alpha='0.3' value='重庆&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='hubei' title='湖北' alpha='1' value='湖北&lt;br&gt;1个活动点'  url='' target=''/>
+  <area id='anhui' title='安徽' alpha='0.3' value='安徽&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='jiangsu' title='江苏' alpha='0.3' value='江苏&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='shanghai' title='上海' alpha='1' value='上海&lt;br&gt;1个活动点'  url='' target=''/>
+  <area id='zhejiang' title='浙江' alpha='0.3' value='浙江&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='fujian' title='福建' alpha='0.3' value='福建&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='taiwan' title='台湾' alpha='0.3' value='台湾&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='jiangxi' title='江西' alpha='0.3' value='江西&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='hunan' title='湖南' alpha='0.3' value='湖南&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='guizhou' title='贵州' alpha='0.3' value='贵州&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='guangxi' title='广西' alpha='0.3' value='广西&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='guangdong' title='广东' alpha='0.3' value='广东&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='xianggang' title='香港' alpha='0.3' value='香港&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='hainan' title='海南' alpha='0.3' value='海南&lt;br&gt;无活动点'  url='' target=''/>
+  <area id='yunnan' title='云南' alpha='0.3' value='云南&lt;br&gt;无活动点'  url='' target=''/>
+</data>

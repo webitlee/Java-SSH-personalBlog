@@ -1,0 +1,67 @@
+.verticalcenter{
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.w64{
+    width:64px;
+}
+.w100p{
+    width:100%;
+}
+.h64{
+    height:64px;
+}
+.h100p{
+    height:100%;
+}
+.pos-ab{
+    position:absolute;
+}
+.top-0{
+    top:0;
+}
+.left-0{
+    left:0;
+}
+.bg-black-op50{
+    background-color:rgba(0,0,0,0.5);
+}
+.none{
+    display:none;
+}
+.z-9999{
+    z-index:9999;
+}
+.of-hidden{
+    overflow:hidden;
+}
+.text-center{
+    text-align: center;
+}
+.tc-black{
+    color:#000;
+}
+.pt-15{
+    padding-top:15px;
+}
+.loading:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    animation: ellipsis 1.5s infinite;
+    content: "\2026"; /* ascii code for the ellipsis character */
+}
+.strong{
+    font-weight: bold;
+}
+@keyframes ellipsis {
+    from {
+        width: 3px;
+    }
+    to {
+        width: 15px;
+    }
+}
