@@ -11,7 +11,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 	<!-- 配置自动扫描的包 -->
-	<context:component-scan base-package="com.blacklee" use-default-filters="false">
+	<context:component-scan base-package="com.blacklee">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
@@ -35,7 +35,7 @@
 		<!-- 配置Hibernate配置文件 -->
 		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
 		<!-- 配置Hibernate映射文件，允许使用通配符 -->
-		<!-- <property name="mappingLocations" value="com/blacklee/admin/entity/*.hbm.xml"></property> -->
+		<property name="mappingLocations" value="classpath:com/blacklee/admin/entity/*.hbm.xml"></property>
 	</bean>
 	
 	<!-- 配置spring的声明式事务 -->
