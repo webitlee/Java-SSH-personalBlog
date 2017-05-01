@@ -87,7 +87,7 @@
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="fa fa-laptop"></i> 控制面板</h3>
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="/myBlogs/admin/jsp/index.jsp">首页</a></li>
+						<li><i class="fa fa-home"></i><a href="/myBlogs/index?username=${requestScope.username}">首页</a></li>
 						<li><i class="fa fa-laptop"></i>控制面板</li>						  	
 					</ol>
 				</div>
