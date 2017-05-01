@@ -133,7 +133,7 @@
 				$(this).text('登陆中...');
 				$.post("/myBlogs/login", $form.serialize(), function(data){
 					if(data.success){
-						location.href="/myBlogs/admin/jsp/index.jsp";
+						location.href="/myBlogs/index?username=" + data.username;
 					}else{
 						$(_this).text('登陆');
 						$('#hint').removeClass('hidden');

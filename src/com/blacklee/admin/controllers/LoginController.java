@@ -21,10 +21,11 @@ public class LoginController {
 	
 	@RequestMapping("/login")
 	@ResponseBody
-	public Map<String, Boolean> loginController(Administrator administrator, HttpServletRequest request){
-		Map<String, Boolean> map = new HashedMap<>();
+	public Map<String, Object> loginController(Administrator administrator, HttpServletRequest request){
+		Map<String, Object> map = new HashedMap<>();
 		if(login.loginCheck(administrator.getUsername(), administrator.getPassword())){
 			map.put("success", true);
+			map.put("username", administrator.getUsername());
 			HttpSession session = request.getSession();
 			session.setAttribute("administrator", administrator);
 		}else{

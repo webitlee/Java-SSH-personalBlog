@@ -23,4 +23,14 @@ public class AdministratorDao {
 		session.close();
 		return password;
 	}
+	
+	//根据用户名获取id
+	public Integer getIdByUsername(String username){
+		String hql = "select a.id from Administrator a where a.username = ?";
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery(hql).setString(0, username);
+		Integer id = (Integer) query.uniqueResult();
+		session.close();
+		return id;
+	}
 }

@@ -45,12 +45,12 @@
 		<div class="container-fluid">		
 			
 			<ul class="nav navbar-nav navbar-actions navbar-left">
-				<li class="visible-md visible-lg"><a href="index.html#" id="main-menu-toggle"><i class="fa fa-th-large"></i></a></li>
-				<li class="visible-xs visible-sm"><a href="index.html#" id="sidebar-menu"><i class="fa fa-navicon"></i></a></li>			
+				<li class="visible-md visible-lg"><a href="javascript:;" id="main-menu-toggle"><i class="fa fa-th-large"></i></a></li>
+				<li class="visible-xs visible-sm"><a href="/myBlogs/admin/jsp/index.jsp" id="sidebar-menu"><i class="fa fa-navicon"></i></a></li>			
 			</ul>
 	        <ul class="nav navbar-nav navbar-right">
 				<li class="dropdown visible-md visible-lg">
-	        		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="user-avatar" src="/myBlogs/admin/proton/assets/img/avatar.jpg" alt="user-mail">jhonsmith@mail.com</a>
+	        		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="user-avatar" src="/myBlogs/admin/proton/assets/img/avatar.jpg" alt="user-mail">${requestScope.username}</a>
 	        		<ul class="dropdown-menu">
 						<li class="dropdown-menu-header">
 							<strong>Account</strong>
@@ -77,7 +77,7 @@
 				
 			<!-- start: Main Menu -->
 			
-			<%@include file="/admin/html/left_menu.html" %>
+			<%@include file="/admin/html/left_menu.html"%>
 			<!-- end: Main Menu -->
 		
 		<!-- start: Content -->
@@ -85,10 +85,10 @@
 		
 			<div class="row">
 				<div class="col-lg-12">
-					<h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+					<h3 class="page-header"><i class="fa fa-laptop"></i> 控制面板</h3>
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-						<li><i class="fa fa-laptop"></i>Dashboard</li>						  	
+						<li><i class="fa fa-home"></i><a href="/myBlogs/admin/jsp/index.jsp">首页</a></li>
+						<li><i class="fa fa-laptop"></i>控制面板</li>						  	
 					</ol>
 				</div>
 			</div>
