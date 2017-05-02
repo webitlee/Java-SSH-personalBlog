@@ -4,6 +4,7 @@ public class Administrator {
 	private Integer id;
 	private String username;
 	private String password;
+	private String image;
 	public Integer getId() {
 		return id;
 	}
@@ -22,9 +23,17 @@ public class Administrator {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	@Override
 	public String toString() {
-		return "Administrator [id=" + id + ", username=" + username + ", password=" + password + "]";
+		return "Administrator [id=" + id + ", username=" + username + ", password=" + password + ", image=" + image
+				+ "]";
 	}
 	
 }

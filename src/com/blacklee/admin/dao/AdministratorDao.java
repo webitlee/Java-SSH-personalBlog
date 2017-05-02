@@ -33,4 +33,13 @@ public class AdministratorDao {
 		session.close();
 		return id;
 	}
+	
+	//根据用户名获取头像
+	public String getImageByUsername(String username){
+		String hql="select a.image from Administrator a where a.username = ?";
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery(hql).setString(0, username);
+		String imageUrl = (String) query.uniqueResult();
+		return imageUrl;
+	}
 }

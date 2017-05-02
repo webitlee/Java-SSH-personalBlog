@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	if(session.getAttribute("administrator") == null){
 		response.sendRedirect("/myBlogs/admin/html/login.html");
@@ -50,7 +51,15 @@
 			</ul>
 	        <ul class="nav navbar-nav navbar-right">
 				<li class="dropdown visible-md visible-lg">
-	        		<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="user-avatar" src="/myBlogs/admin/proton/assets/img/avatar.jpg" alt="user-mail">${requestScope.username}</a>
+	        		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	        			<c:if test="${requestScope.imageUrl == null}">
+	        				<img class="user-avatar" src="/myBlogs/admin/proton/assets/img/avatar.jpg" alt="管理员头像">
+	        			</c:if>
+	        			<c:if test="${requestScope.imageUrl != null}">
+	        				<image class="user-avatar" src="${requestScope.imageUrl}" alt="管理员头像"/>
+	        			</c:if>
+	        			${requestScope.username}
+	        		</a>
 	        		<ul class="dropdown-menu">
 						<li class="dropdown-menu-header">
 							<strong>Account</strong>

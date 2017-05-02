@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-4-30 11:13:39 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 2017-5-2 21:48:46 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.blacklee.admin.entity.Administrator" table="ADMINISTRATOR">
         <id name="id" type="java.lang.Integer">
@@ -13,6 +13,9 @@
         </property>
         <property name="password" type="java.lang.String">
             <column name="PASSWORD" />
+        </property>
+        <property name="image" type="java.lang.String">
+            <column name="IMAGE" />
         </property>
     </class>
 </hibernate-mapping>

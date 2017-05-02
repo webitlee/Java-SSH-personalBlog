@@ -22,4 +22,12 @@
 	<!-- 处理静态资源 -->
 	<mvc:default-servlet-handler/>
 	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	<!-- 配置MultipartResolver -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设置默认编码方式 -->
+		<property name="defaultEncoding" value="utf-8"></property>
+		<!-- 设置最大上传字节数 -->
+		<property name="maxUploadSize" value="102000"></property>
+	</bean>
 </beans>
