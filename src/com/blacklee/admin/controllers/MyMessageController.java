@@ -42,10 +42,12 @@ public class MyMessageController {
 		String imageName = imageUrl.getOriginalFilename();
 		Map<String, Object> map = new HashedMap<>();
 		try{
-			String newImageUrl = request.getServletContext().getRealPath("/image") + File.separator + System.currentTimeMillis() + imageName.substring(imageName.indexOf("."));
+			String newImageName = System.currentTimeMillis() + imageName.substring(imageName.indexOf("."));
+			String newImageUrl = request.getServletContext().getRealPath("/image") + File.separator + newImageName;
 			File newImage = new File(newImageUrl);
 			imageUrl.transferTo(newImage);
-			myMessageService.updateImage(username, newImageUrl);
+			String contextUrl = request.getContextPath() + "/image/" + newImageName;
+			myMessageService.updateImage(username, contextUrl);
 			map.put("message", "文件上传成功");
 		}catch(Exception ex){
 			map.put("error", ex.getMessage());

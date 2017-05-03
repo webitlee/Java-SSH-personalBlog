@@ -14,7 +14,7 @@
 	        				<img class="user-avatar" src="/myBlogs/admin/proton/assets/img/avatar.jpg" alt="管理员头像">
 	        			</c:if>
 	        			<c:if test="${applicationScope.imageUrl != null}">
-	        				<img class="user-avatar" src="${requestScope.imageUrl}" alt="管理员头像"/>
+	        				<img class="user-avatar" src="${applicationScope.imageUrl}" alt="管理员头像"/>
 	        			</c:if>
 	        			${applicationScope.username}
 	        		</a>
