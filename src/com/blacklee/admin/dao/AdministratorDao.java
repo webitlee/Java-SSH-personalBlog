@@ -16,52 +16,48 @@ public class AdministratorDao {
 	@Resource
 	private SessionFactory sessionFactory;
 	
+	
 	//根据用户名获取密码
 	public String getPasswordByUsername(String username){
 		String hql = "select a.password from Administrator a where a.username = ?";
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery(hql).setString(0, username);
 		String password = (String) query.uniqueResult();
-		session.close();
 		return password;
 	}
 	
 	//根据用户名获取id
 	public Integer getIdByUsername(String username){
 		String hql = "select a.id from Administrator a where a.username = ?";
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery(hql).setString(0, username);
 		Integer id = (Integer) query.uniqueResult();
-		session.close();
-		System.out.println(id);
 		return id;
 	}
 	
 	//根据用户名获取头像
 	public String getImageByUsername(String username){
 		String hql="select a.image from Administrator a where a.username = ?";
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery(hql).setString(0, username);
 		String imageUrl = (String) query.uniqueResult();
-		session.close();
 		return imageUrl;
 	}
 	
 	//根据用户名获取用户信息
 	public Administrator getUserInfo(String username){
 		String hql = "from Administrator a where a. username = ?";
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery(hql).setString(0, username);
 		Administrator administrator = (Administrator) query.uniqueResult();
-		session.close();
 		return administrator;
 	}
 	
 	//修改头像
 	public void updateImage(Integer id, String imageUrl){
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		Administrator administrator = (Administrator) session.get(Administrator.class, id);
 		administrator.setImage(imageUrl);
-		session.close();
+		System.out.println(administrator);
 	}
 }
