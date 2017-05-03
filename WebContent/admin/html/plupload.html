@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript" src="/myBlogs/admin/proton/assets/plugins/plupload/plupload.full.min.js"></script>
+		<script type="text/javascript" src="/myBlogs/admin/proton/assets/plugins/plupload/i18n/zh_CN.js"></script>
+		<div id="drop_area"></div>
+		<div id="filelist"></div>
+		<div id="container">
+		    <a id="pickfiles" href="javascript:;"></a> 
+		    <a id="uploadfiles" href="javascript:;"></a>
+		</div>
+		<pre id="console"></pre>
+		<script type="text/javascript">
+		
+				var PageHandler = null;
+				var CurrentButton = null;
+				
+				function setCurrentButton(btnId)
+				{
+					CurrentButton = btnId;
+				}
+				
+				function obtainPageHandler()
+				{
+					if (parent && parent.UploadHandler) PageHandler = parent.UploadHandler;
+					if (PageHandler == null) setTimeout(obtainPageHandler, 200);
+					else initUploader();
+				}
+				
+				obtainPageHandler();
+				
+				var uploader = null;
+				
+				function initUploader()
+				{
+					uploader = new plupload.Uploader({
+						runtimes : 'html5,flash,silverlight,html4',
+						browse_button : 'pickfiles', // you can pass an id...
+						file_data_name : 'picture',
+						drop_element : 'drop_area',
+						multi_selection : typeof(PageHandler.multipleSelection) == 'undefined' ? false : PageHandler.multipleSelection,
+						container: document.getElementById('container'), // ... or DOM Element itself
+						url : '/adminuploader/save',
+						flash_swf_url : '/theme/plugins/plupload/Moxie.swf',
+						silverlight_xap_url : '/theme/plugins/plupload/Moxie.xap',
+						
+						multipart_params : 
+						{
+								login_admin_id : ${login_admin_id},
+								login_admin_name : '${login_admin_name}',
+								admin_token : '${admin_token}'
+						},
+						
+						filters : {
+							max_file_size : '10mb',
+							mime_types: [
+								{title : "Image files", extensions : "jpg,gif,png,jpeg,bmp"}
+							]
+						},
+					
+						init: {
+							PostInit: function() {
+								if (PageHandler.setDropAreaStyle) PageHandler.setDropAreaStyle(document.getElementById("drop_area"));
+								if (PageHandler.setFileListStyle) PageHandler.setFileListStyle(document.getElementById("filelist"));
+								if (PageHandler.externalStylesheet)
+								{
+									var css = document.createElement("link");
+									css.rel = "stylesheet";
+									css.href = PageHandler.externalStylesheet;
+									document.body.appendChild(css);
+								}
+								for (var i = 0; i < PageHandler.browseButtons.length; i++)
+								{
+									var btnId = PageHandler.browseButtons[i];
+									parent.document.getElementById(btnId).onclick = new Function("document.getElementById('pickfiles').click();setCurrentButton('" + btnId + "');");
+								}
+							},
+					
+							FilesAdded: function(up, files) {
+								plupload.each(files, function(file)
+								{
+									if (PageHandler.fileAdded) PageHandler.fileAdded(CurrentButton, file, document.getElementById("filelist"));
+								});
+								if (PageHandler.autoUpload) up.start();
+							},
+							
+							FileUploaded : function(up, file, responseObject)
+							{
+								// response
+								// status
+								// responseHeaders
+								// document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + responseObject.response + "</span>";
+								if (PageHandler.fileUploaded) PageHandler.fileUploaded(CurrentButton, file, responseObject.response);
+							},
+							
+							UploadComplete : function(up, files)
+							{
+								// 是全传完了再删呢？还是传完一个删一个？
+								up.files.length = 0;
+							},
+					
+							UploadProgress: function(up, file)
+							{
+								if (PageHandler.fileUploading) PageHandler.fileUploading(CurrentButton, file, file.percent);
+							},
+					
+							Error: function(up, err)
+							{
+								// document.getElementById('console').appendChild(document.createTextNode("\nError #" + err.code + ": " + err.message));
+								if (PageHandler.uploadError) PageHandler.uploadError(CurrentButton, uploader, err);
+							}
+						}
+					});
+					
+					uploader.init();
+				}
+				
+				</script>
+	</body>
+</html>

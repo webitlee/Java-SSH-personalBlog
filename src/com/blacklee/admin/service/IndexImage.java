@@ -11,7 +11,7 @@ import com.blacklee.admin.dao.AdministratorDao;
 public class IndexImage {
 	
 	@Autowired
-	AdministratorDao administratorDao;
+	private AdministratorDao administratorDao;
 	
 	public String getImageUrl(String username){
 		String imageUrl = administratorDao.getImageByUsername(username);

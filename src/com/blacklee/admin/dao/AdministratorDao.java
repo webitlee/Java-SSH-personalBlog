@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import com.blacklee.admin.entity.Administrator;
+
 
 @Repository
 public class AdministratorDao {
@@ -31,6 +33,7 @@ public class AdministratorDao {
 		Query query = session.createQuery(hql).setString(0, username);
 		Integer id = (Integer) query.uniqueResult();
 		session.close();
+		System.out.println(id);
 		return id;
 	}
 	
@@ -40,6 +43,25 @@ public class AdministratorDao {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery(hql).setString(0, username);
 		String imageUrl = (String) query.uniqueResult();
+		session.close();
 		return imageUrl;
+	}
+	
+	//根据用户名获取用户信息
+	public Administrator getUserInfo(String username){
+		String hql = "from Administrator a where a. username = ?";
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery(hql).setString(0, username);
+		Administrator administrator = (Administrator) query.uniqueResult();
+		session.close();
+		return administrator;
+	}
+	
+	//修改头像
+	public void updateImage(Integer id, String imageUrl){
+		Session session = sessionFactory.openSession();
+		Administrator administrator = (Administrator) session.get(Administrator.class, id);
+		administrator.setImage(imageUrl);
+		session.close();
 	}
 }

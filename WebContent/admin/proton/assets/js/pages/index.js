@@ -131,7 +131,6 @@ $(document).ready(function(){
 			}
 		]
 	});
-	
 	/*------- Moris Chart -------*/
 	Morris.Donut({
 		element: 'hero-donut',
@@ -146,7 +145,6 @@ $(document).ready(function(){
 		colors: ["#36A9E1", "#d1b993", "#bdea74", "#67c2ef", "#fabb3d", "#ff5454"],
 		formatter: function (y) { return y + "%" }
 	});
-	
 	
 	/*------- Realtime Update Chart -------*/
 	

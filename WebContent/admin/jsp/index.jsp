@@ -41,43 +41,7 @@
 
 <body>
 	<!-- start: Header -->
-	<div class="navbar" role="navigation">
-	
-		<div class="container-fluid">		
-			
-			<ul class="nav navbar-nav navbar-actions navbar-left">
-				<li class="visible-md visible-lg"><a href="javascript:;" id="main-menu-toggle"><i class="fa fa-th-large"></i></a></li>
-				<li class="visible-xs visible-sm"><a href="/myBlogs/admin/jsp/index.jsp" id="sidebar-menu"><i class="fa fa-navicon"></i></a></li>			
-			</ul>
-	        <ul class="nav navbar-nav navbar-right">
-				<li class="dropdown visible-md visible-lg">
-	        		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	        			<c:if test="${requestScope.imageUrl == null}">
-	        				<img class="user-avatar" src="/myBlogs/admin/proton/assets/img/avatar.jpg" alt="管理员头像">
-	        			</c:if>
-	        			<c:if test="${requestScope.imageUrl != null}">
-	        				<image class="user-avatar" src="${requestScope.imageUrl}" alt="管理员头像"/>
-	        			</c:if>
-	        			${requestScope.username}
-	        		</a>
-	        		<ul class="dropdown-menu">
-						<li class="dropdown-menu-header">
-							<strong>Account</strong>
-						</li>						
-						<li><a href="page-profile.html"><i class="fa fa-user"></i> Profile</a></li>
-						<li><a href="page-login.html"><i class="fa fa-wrench"></i> Settings</a></li>
-						<li><a href="page-invoice.html"><i class="fa fa-usd"></i> Payments <span class="label label-default">10</span></a></li>
-						<li><a href="gallery.html"><i class="fa fa-file"></i> File <span class="label label-primary">27</span></a></li>
-						<li class="divider"></li>						
-						<li><a href="index.html"><i class="fa fa-sign-out"></i> Logout</a></li>	
-	        		</ul>
-	      		</li>
-				<li><a href="index.html"><i class="fa fa-power-off"></i></a></li>
-			</ul>
-			
-		</div>
-		
-	</div>
+	<%@include file="/admin/html/header.html" %>
 	<!-- end: Header -->
 	
 	<div class="container-fluid content">
@@ -96,7 +60,7 @@
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="fa fa-laptop"></i> 控制面板</h3>
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="/myBlogs/index?username=${requestScope.username}">首页</a></li>
+						<li><i class="fa fa-home"></i><a href="/myBlogs/index?username=${applicationScope.username}">首页</a></li>
 						<li><i class="fa fa-laptop"></i>控制面板</li>						  	
 					</ol>
 				</div>

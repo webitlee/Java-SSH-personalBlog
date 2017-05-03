@@ -1,6 +1,7 @@
 package com.blacklee.admin.controllers;
 
-import java.util.Map;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +17,11 @@ public class IndexController {
 	IndexImage indexImage;
 	
 	@RequestMapping("/index")
-	public String toIndex(@RequestParam("username") String username, Map<String, Object> map){
-		map.put("username", username);
+	public String toIndex(@RequestParam("username") String username, HttpServletRequest request){
+		ServletContext servletContext = request.getServletContext();
 		String imageUrl = indexImage.getImageUrl(username);
-		map.put("imageUrl", imageUrl);
+		servletContext.setAttribute("username", username);
+		servletContext.setAttribute("imageUrl", imageUrl);
 		return "forward:/admin/jsp/index.jsp";
 	}
 }
