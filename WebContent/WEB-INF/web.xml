@@ -39,4 +39,9 @@
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 设置session超时时间 -->
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
 </web-app>

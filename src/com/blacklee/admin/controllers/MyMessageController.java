@@ -36,7 +36,7 @@ public class MyMessageController {
 	
 	@ResponseBody
 	@RequestMapping("/uploadImage")
-	public Map<String, Object> updateImageUrl(@RequestParam("image") MultipartFile imageUrl, HttpServletRequest request){
+	public Map<String, Object> updateImageUrl(@RequestParam("picture") MultipartFile imageUrl, HttpServletRequest request){
 		ServletContext context = request.getServletContext();
 		String username = (String) context.getAttribute("username");
 		String imageName = imageUrl.getOriginalFilename();
@@ -47,6 +47,7 @@ public class MyMessageController {
 			File newImage = new File(newImageUrl);
 			imageUrl.transferTo(newImage);
 			String contextUrl = request.getContextPath() + "/image/" + newImageName;
+			request.getServletContext().setAttribute("imageUrl", contextUrl);
 			myMessageService.updateImage(username, contextUrl);
 			map.put("message", "文件上传成功");
 		}catch(Exception ex){

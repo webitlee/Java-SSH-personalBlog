@@ -10,7 +10,7 @@
 		<div id="drop_area"></div>
 		<div id="filelist"></div>
 		<div id="container">
-		    <a id="pickfiles" href="javascript:;"></a> 
+		    <a id="pickfiles" href="javascript:;"></a>
 		    <a id="uploadfiles" href="javascript:;"></a>
 		</div>
 		<pre id="console"></pre>
@@ -26,9 +26,14 @@
 				
 				function obtainPageHandler()
 				{
-					if (parent && parent.UploadHandler) PageHandler = parent.UploadHandler;
-					if (PageHandler == null) setTimeout(obtainPageHandler, 200);
-					else initUploader();
+					if (parent && parent.UploadHandler){
+						PageHandler = parent.UploadHandler;
+					}
+					if (PageHandler == null){
+						setTimeout(obtainPageHandler, 200);
+					}else{
+						initUploader();
+					}
 				}
 				
 				obtainPageHandler();
@@ -44,16 +49,16 @@
 						drop_element : 'drop_area',
 						multi_selection : typeof(PageHandler.multipleSelection) == 'undefined' ? false : PageHandler.multipleSelection,
 						container: document.getElementById('container'), // ... or DOM Element itself
-						url : '/adminuploader/save',
+						url : '/myBlogs/uploadImage',
 						flash_swf_url : '/theme/plugins/plupload/Moxie.swf',
 						silverlight_xap_url : '/theme/plugins/plupload/Moxie.xap',
 						
-						multipart_params : 
+						/* multipart_params : 
 						{
-								login_admin_id : ${login_admin_id},
-								login_admin_name : '${login_admin_name}',
-								admin_token : '${admin_token}'
-						},
+								login_admin_id : 'jsp用户id：login_admin_id,
+								login_admin_name : 'login_admin_name',
+								admin_token : 'admin_token'
+						}, */
 						
 						filters : {
 							max_file_size : '10mb',

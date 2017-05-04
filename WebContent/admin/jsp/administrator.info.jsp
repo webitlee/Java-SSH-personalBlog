@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/admin/html/login_verification.html" %>
 <!DOCTYPE html>
 <html lang="zh_CN">
 	<head>
@@ -85,7 +86,7 @@
 										<label class="control-label  col-md-2">我的头像
 										</label>
 										<div class="col-md-6 col-lg-4">
-											<a class="upload-image inline-block bg-light-gray bd-ccc w100 h100" href="javascript:;">
+											<a id="upload_img" class="inline-block bg-light-gray bd-ccc w100 h100" href="javascript:;">
 												<c:choose>
 													<c:when test="${requestScope.information.image == null}">
 														<img class="verticalcenter max-w100 max-h100" src="/myBlogs/admin/proton/assets/img/avatar.jpg"/>
@@ -96,20 +97,9 @@
 												</c:choose>
 											</a>
 											<p style="padding-top:15px;">
-												<a class="upload-image btn btn-primary" href="javascript:;">重新上传头像</a>
+												<a id="btn_upload" class="btn btn-primary" href="javascript:;">重新上传头像</a>
 												<input id="file" name="image" type="file" style="opacity: 0;"/>
 											</p>
-										</div>
-									</div>
-									<div class=" form-group ">
-										<label class="control-label  col-md-2">
-										</label>
-										<div class="col-md-10 ">
-											<a id="btn_modified" class="btn btn-primary">
-												<i class="fa fa-cloud-upload  icon">
-												</i>
-												确认修改
-											</a>
 										</div>
 									</div>
 								</form>
@@ -156,27 +146,47 @@
 	<![endif]-->
 	<script src="/myBlogs/admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
 	<script src="/myBlogs/admin/proton/assets/js/bootstrap.min.js"></script>
+    <!-- page scripts -->
+   	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
+ 	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+
+   	<!-- theme scripts -->
+   	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
 	<script>
+		//上传插件
+	    var UploadHandler =
+	    {
+	        autoUpload : true,
+	        browseButtons : ['btn_upload', 'upload_img'],
+	        multipleSelection : false,
+	        fileAdded : function(browseButton, fileInfo, fileListElement)
+	        {
+	            var el = $('#' + browseButton);
+	            el.text('正在上传...');
+	        },
+	        fileUploading : function(browseButton, fileInfo, percent)
+	        {
+	            // ..
+	        },
+	        fileUploaded : function(browseButton, fileInfo, responseData)
+	        {
+	            var result = eval('(' + responseData + ')');
+	            alert(result.message);
+	            location.reload();
+	        },
+	        uploadError : function(browserButton, uploader, error)
+	        {
+	            alert('上传失败：' + error.message);
+	        }
+	    };
 		$(function(){
-			//重新上传头像
-			$('.upload-image').click(function(){
-				$('#file')[0].click();
-			})
 			
-			//确认修改
-			$('#btn_modified').click(function(){
-				var imageUrl = $('#file').val();
-				if(!imageUrl){
-					alert("您没有上传新头像");
-				}else{
-					/* $.post('/myBlogs/uploadImage', $('#form').serialize(), function(data){
-						console.log(data);
-					})  */
-					$('#form').submit();
-				}
-			})
 		})
 	</script>
+	<iframe src="/myBlogs/admin/html/plupload.html" width="200" height="200" frameborder="no" scrolling="no"></iframe>
 	<!-- end: JavaScript-->
 	
 </body>

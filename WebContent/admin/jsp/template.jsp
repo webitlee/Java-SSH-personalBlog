@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/admin/html/login_verification.html" %>
 <!DOCTYPE html>
 <html lang="zh_CN">
 	<head>
@@ -87,7 +88,16 @@
 	<![endif]-->
 	<script src="/myBlogs/admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
 	<script src="/myBlogs/admin/proton/assets/js/bootstrap.min.js"></script>
-	
+	<!-- page scripts -->
+   	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
+ 	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+
+   	<!-- theme scripts -->
+   	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
+   	
 	<!-- end: JavaScript-->
 	
 </body>

@@ -1,0 +1,7 @@
+<%@page pageEncoding="UTF-8"%>
+<%
+	if(session.getAttribute("administrator") == null){
+		response.sendRedirect("/myBlogs/admin/html/login.html");
+		return;
+	}
+%>
