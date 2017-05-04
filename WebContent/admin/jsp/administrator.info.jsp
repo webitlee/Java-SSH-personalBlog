@@ -26,6 +26,7 @@
 	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet"/>
+		<link href="/myBlogs/admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
 
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
@@ -150,6 +151,7 @@
    	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
  	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
    	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
 
    	<!-- theme scripts -->
    	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
@@ -174,8 +176,9 @@
 	        fileUploaded : function(browseButton, fileInfo, responseData)
 	        {
 	            var result = eval('(' + responseData + ')');
-	            alert(result.message);
-	            location.reload();
+	            jAlert('点击"OK"后会刷新当前页面！', function(){
+		            location.reload();
+	            }, "头像上传成功");
 	        },
 	        uploadError : function(browserButton, uploader, error)
 	        {

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>轻量级jQuery对话框插件 jQuery.dialog.js - 素材家园（www.sucaijiayuan.com）</title>
+<link rel="stylesheet" href="css/jquery.dialog.css">
+<script src="js/jquery.js"></script>
+<script src="js/jquery.dialog.js"></script>
+<style>
+	.btn{display:block;width:130px;height:40px;background:#3c8dbc;border:0;border-radius:3px;color:#fff;cursor:pointer;margin:30px auto auto;}
+</style>
+</head>
+<body>
+
+<button class="btn" id="js_alertPic">弹出一张图片</button>
+<button class="btn" id="js_alert">Alert</button>
+<button class="btn" id="js_confirm">Confirm</button>
+<button class="btn" id="js_prompt">Prompt</button>
+<button class="btn" id="js_wait">Wait</button>
+
+<script>
+$("#js_alertPic").on("click",function(){
+	var obj = '<img src="http://www.sucaijiayuan.com/uploads/file/content/2015/12/567ccdd14c121.jpg"/>';
+	$(obj).dialog({
+		title : "新年快乐图片",
+		buttons: {
+			"确定":function(){
+				alert("ok")
+			},
+			"取消" : function(){
+				alert("cancel")
+			}
+		},
+	});
+});
+
+$("#js_alert").on("click",function(){
+	jAlert('www.sucaijiayuan.com',function(){
+		alert("确定的回调");
+	},"素材家园");
+});
+
+$("#js_confirm").on("click",function(){
+	jConfirm('www.sucaijiayuan.com',function(){
+		alert("确定的回调");
+	},"素材家园");
+});
+	
+$("#js_prompt").on("click",function(){
+	jPrompt('请输入素材家园的网址','http://www.sucaijiayuan.com',function(event,val){
+		alert(val);
+	},"素材家园");
+});
+
+$("#js_wait").on("click",function(){
+	jWait('数据加载中');
+});
+	
+</script>
+</body>
+</html>
