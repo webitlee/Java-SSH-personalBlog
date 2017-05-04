@@ -11,9 +11,13 @@
 .h100{
     height:100px;
 }
+.h500{
+	height:500px;
+}
 .max-h100{
     max-height:100px;
 }
+
 .bg-light-gray{
     background-color:#f6f9fb;
 }

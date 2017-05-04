@@ -8,7 +8,7 @@
     	<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <title>博文列表</title>
+	    <title>创建新博文</title>
 
 		<!-- Fav and touch icons -->
 		<link rel="shortcut icon" href="/myBlogs/admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
@@ -26,7 +26,9 @@
 	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet"/>
-
+		<link href="/myBlogs/admin/proton/assets/plugins/blogs_editor/css/font-awesome.min.css" rel="stylesheet"/>
+		<link href="/myBlogs/admin/proton/assets/plugins/blogs_editor/css/froala_editor.min.css" rel="stylesheet"/>
+		
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -49,119 +51,71 @@
 		
 			<!-- start: Content -->
 			<div class="main">
-				<div class=" row ">
-	<div class="col-md-12">
-		<div class="page-header">
-			<h1 class="">
-				<i class="fa fa-book  icon">
-				</i>
-				博文列表
-			</h1>
-			<ol class=" breadcrumb ">
-				<li class="  ">
-					<a href="/myBlogs/index?username=${applicationScope.username}" class="">首页
-					</a>
-				</li>
-				<li class="  ">
-					<a href="javascript:;" class="">博文列表
-					</a>
-				</li>
-			</ol>
-			<div class="panel panel-default ">
-				<div class="panel-heading">
-					<i class="fa fa-book icon red" style="line-height:32px;">
-					</i>博文列表
-				</div>
-				<div class="panel-body ">
-					<div class=" table-responsive ">
-						<table class="table table-bordered table table-hover table table-striped ">
-							<tbody>
-								<tr>
-									<td class="text-center">id
-									</td>
-									<td class="text-center">标题
-									</td>
-									<td class="text-center">类型
-									</td>
-									<td class="text-center">分类
-									</td>
-									<td class="text-right">浏览量
-									</td>
-									<td class="text-right">点赞量
-									</td>
-									<td class="text-center">创建时间
-									</td>
-									<td class="text-center">最后修改时间
-									</td>
-									<td class="text-center">操作
-									</td>
-								</tr>
-								<tr class="">
-									<td class="text-center    middle">1
-									</td>
-									<td class="text-center    middle">的答复
-									</td>
-									<td class="text-center    middle">原创
-									</td>
-									<td class="text-center    middle">后台
-									</td>
-									<td class="middle text-right">2111
-									</td>
-									<td class="text-right middle">1544
-									</td>
-									<td class="text-center    middle">20150124
-									</td>
-									<td class="text-center    middle">20171101
-									</td>
-									<td class="text-center">
-										<div class="split-button btn-group">
-											<a class="btn btn-success" href="javascript:;">
-												编辑
-											</a>
-											<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-												<span class=" caret ">
-												</span>
-											</button>
-											<ul class=" dropdown-menu ">
-												<li class="">
-													<a href="javascript:;">这是一个超链接
-													</a>
-												</li>
-											</ul>
+				<div class="row">
+					<div class="col-md-12">
+						<div class=" page-header ">
+							<h1 class="">
+								<i class="fa fa-plus-square  icon">
+								</i>创建新博文
+							</h1>
+						</div>
+						<ol class="breadcrumb">
+							<li class="  ">
+								<a href="/myBlogs/index?username=${applicationScope.username}" class="">首页
+								</a>
+							</li>
+							<li class="  ">
+								<a href="javascript:;" class="">创建新博文
+								</a>
+							</li>
+						</ol>
+						<div class="panel panel-default ">
+							<div class="panel-heading">
+								<i class="fa fa-plus-square  icon">
+								</i>创建新博文
+							</div>
+							<div class="panel-body">
+								<form class=" form-horizontal " action="javascript:;">
+									<div class=" form-group ">
+										<label class="control-label  col-md-2">标题
+										</label>
+										<div class=" col-md-6">
+											<input type="text" class="form-control" placeholder="请输入博文标题">
 										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+									</div>
+									<div class=" form-group ">
+										<label class="control-label  col-md-2">类型
+										</label>
+										<div class=" col-md-6">
+											<label class="radio-inline">
+												<input type="radio" class="" name="type" checked>原创
+											</label>
+											<label class="radio-inline">
+												<input type="radio" class="" name="type">转载
+											</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2">正文
+										</label>
+										<div class="col-md-8">
+											<div id="editor"></div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label  col-md-2">
+										</label>
+										<div class="col-md-6">
+											<button class="btn btn-primary">提交
+											</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
 					</div>
-					<ul class="pagination">
-						<li class="  ">
-							<a href="javascript:;" class="">前一页
-							</a>
-						</li>
-						<li class="  ">
-							<a href="javascript:;" class="">1
-							</a>
-						</li>
-						<li class="  ">
-							<a href="javascript:;" class="">2
-							</a>
-						</li>
-						<li class="  ">
-							<a href="javascript:;" class="">3
-							</a>
-						</li>
-						<li class="  ">
-							<a href="javascript:;" class="">后一页
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
-
+					
 			</div>
 			<!-- end: Content -->
 			<br><br><br>
@@ -204,13 +158,23 @@
    	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
  	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
    	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/plugins/blogs_editor/js/froala_editor.min.js"></script>
 
    	<!-- theme scripts -->
    	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
    	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
    	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
    	<script>
-   		
+  		//删除对只能上传图片的限制，严重拖慢响应速度。
+		window.onload = function(){
+			$('#f-file-upload-1').removeAttr("accept");
+			$('.froala-elemen').height(400);
+			$('#f-upload-form-1').attr('action', "/myBlogs/uploadImage");
+			$('#f-file-upload-1').attr('name', "picture");
+		}
+		$(function(){
+			$('#editor').editable({inlineMode : false, alwaysBlank : true});
+		})
    	</script>
 	<!-- end: JavaScript-->
 	
