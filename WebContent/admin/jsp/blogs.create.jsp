@@ -166,14 +166,18 @@
    	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
    	<script>
   		//删除对只能上传图片的限制，严重拖慢响应速度。
-		window.onload = function(){
+		/* window.onload = function(){
 			$('#f-file-upload-1').removeAttr("accept");
-			$('.froala-elemen').height(400);
-			$('#f-upload-form-1').attr('action', "/myBlogs/uploadImage");
-			$('#f-file-upload-1').attr('name', "picture");
-		}
+		} */
 		$(function(){
-			$('#editor').editable({inlineMode : false, alwaysBlank : true});
+			$('#editor').editable({
+				inlineMode : false, 
+				alwaysBlank : true,
+				height : 400,
+				allowedImageTypes: ["jpeg", "jpg", "png", "gif"],
+				imageUploadURL: '/myBlogs/uploadImage',//上传到本地服务器
+				imageUploadParams: {picture: "edit"} 
+			});
 		})
    	</script>
 	<!-- end: JavaScript-->
