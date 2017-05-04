@@ -8,7 +8,7 @@
     	<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <title>BlackLee的博客</title>
+	    <title>博文列表</title>
 
 		<!-- Fav and touch icons -->
 		<link rel="shortcut icon" href="/myBlogs/admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
@@ -26,6 +26,8 @@
 	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet"/>
+		<link href="/myBlogs/admin/proton/assets/plugins/blogs_editor/css/font-awesome.min.css" rel="stylesheet"/>
+		<link href="/myBlogs/admin/proton/assets/plugins/blogs_editor/css/froala_editor.min.css" rel="stylesheet"/>
 
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
@@ -49,7 +51,120 @@
 		
 			<!-- start: Content -->
 			<div class="main">
-						
+				<div class=" row ">
+	<div class="col-md-12">
+		<div class="page-header">
+			<h1 class="">
+				<i class="fa fa-book  icon">
+				</i>
+				博文列表
+			</h1>
+			<ol class=" breadcrumb ">
+				<li class="  ">
+					<a href="/myBlogs/index?username=${applicationScope.username}" class="">首页
+					</a>
+				</li>
+				<li class="  ">
+					<a href="javascript:;" class="">博文列表
+					</a>
+				</li>
+			</ol>
+			<div class="panel panel-default ">
+				<div class="panel-heading">
+					<i class="fa fa-book  icon">
+					</i>
+					博文列表
+				</div>
+				<div class="panel-body ">
+					<div class=" table-responsive ">
+						<table class="table table-bordered table table-hover table table-striped ">
+							<tbody>
+								<tr>
+									<td class="text-center">id
+									</td>
+									<td class="text-center">标题
+									</td>
+									<td class="text-center">类型
+									</td>
+									<td class="text-center">分类
+									</td>
+									<td class="text-right">浏览量
+									</td>
+									<td class="text-right">点赞量
+									</td>
+									<td class="text-center">创建时间
+									</td>
+									<td class="text-center">最后修改时间
+									</td>
+									<td class="text-center">操作
+									</td>
+								</tr>
+								<tr class="">
+									<td class="text-center    middle">1
+									</td>
+									<td class="text-center    middle">的答复
+									</td>
+									<td class="text-center    middle">原创
+									</td>
+									<td class="text-center    middle">后台
+									</td>
+									<td class="middle text-right">2111
+									</td>
+									<td class="text-right middle">1544
+									</td>
+									<td class="text-center    middle">20150124
+									</td>
+									<td class="text-center    middle">20171101
+									</td>
+									<td class="text-center">
+										<div class="split-button btn-group">
+											<a class="btn btn-default" href="javascript:;">
+												编辑
+											</a>
+											<button class="btn btn-default  dropdown-toggle" data-toggle=" dropdown ">
+												<span class=" caret ">
+												</span>
+											</button>
+											<ul class=" dropdown-menu ">
+												<li class="">
+													<a href="javascript:;">这是一个超链接
+													</a>
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<ul class="pagination">
+						<li class="  ">
+							<a href="javascript:;" class="">前一页
+							</a>
+						</li>
+						<li class="  ">
+							<a href="javascript:;" class="">1
+							</a>
+						</li>
+						<li class="  ">
+							<a href="javascript:;" class="">2
+							</a>
+						</li>
+						<li class="  ">
+							<a href="javascript:;" class="">3
+							</a>
+						</li>
+						<li class="  ">
+							<a href="javascript:;" class="">后一页
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 			</div>
 			<!-- end: Content -->
 			<br><br><br>
@@ -92,12 +207,21 @@
    	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
  	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
    	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/blogs_editor/js/froala_editor.min.js"></script>
 
    	<!-- theme scripts -->
    	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
    	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
    	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
-   	
+   	<script>
+   		//删除对只能上传图片的限制，严重拖慢响应速度。
+   		window.onload = function(){
+   			$('#f-file-upload-1').removeAttr("accept");
+   		}
+   		$(function(){
+   			$('#editor').editable({inlineMode : false, alwaysBlank : true});
+   		})
+   	</script>
 	<!-- end: JavaScript-->
 	
 </body>

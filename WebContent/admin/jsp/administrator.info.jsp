@@ -27,6 +27,7 @@
 		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet"/>
 		<link href="/myBlogs/admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
+		
 
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
