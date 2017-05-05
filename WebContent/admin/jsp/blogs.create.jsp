@@ -95,6 +95,13 @@
 											</label>
 										</div>
 									</div>
+									<div class=" form-group ">
+										<label class="control-label  col-md-2">标签
+										</label>
+										<div class=" col-md-6">
+											<input type="text" class="form-control" placeholder="请输入博文标签">
+										</div>
+									</div>
 									<div class="form-group">
 										<label class="control-label col-md-2">正文
 										</label>
@@ -165,10 +172,12 @@
    	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
    	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
    	<script>
-  		//删除对只能上传图片的限制，严重拖慢响应速度。
-		/* window.onload = function(){
+		 window.onload = function(){
+	  		//删除对只能上传图片的限制，严重拖慢响应速度。
 			$('#f-file-upload-1').removeAttr("accept");
-		} */
+	  		//修改上传文件的input的name属性值
+			$('#f-file-upload-1').attr('name', 'picture');
+		} 
 		$(function(){
 			$('#editor').editable({
 				inlineMode : false, 
@@ -176,7 +185,6 @@
 				height : 400,
 				allowedImageTypes: ["jpeg", "jpg", "png", "gif"],
 				imageUploadURL: '/myBlogs/uploadImage',//上传到本地服务器
-				imageUploadParams: {picture: "edit"} 
 			});
 		})
    	</script>

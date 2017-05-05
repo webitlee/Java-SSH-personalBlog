@@ -16,7 +16,6 @@
 	    <!-- Css files -->
 	    <link href="/myBlogs/admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/climacons-font.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/plugins/xcharts/css/xcharts.min.css" rel=" stylesheet">
 		<link href="/myBlogs/admin/proton/assets/plugins/fullcalendar/css/fullcalendar.css" rel="stylesheet">
@@ -25,6 +24,8 @@
 		<link href="/myBlogs/admin/proton/assets/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
 	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
+		
 
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
