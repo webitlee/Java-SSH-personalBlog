@@ -1,9 +1,9 @@
 package com.blacklee.admin.entity;
 
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 @Scope("prototype")
 public class BlogsContent {
 	

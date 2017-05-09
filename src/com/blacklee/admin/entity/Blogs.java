@@ -5,9 +5,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 @Scope("prototype")
 public class Blogs {
 	private Integer id;

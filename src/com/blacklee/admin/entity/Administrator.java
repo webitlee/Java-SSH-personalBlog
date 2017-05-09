@@ -1,8 +1,8 @@
 package com.blacklee.admin.entity;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class Administrator {
 	private Integer id;
 	private String username;
