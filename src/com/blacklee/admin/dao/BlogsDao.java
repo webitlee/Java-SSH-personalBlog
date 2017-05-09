@@ -1,8 +1,15 @@
 package com.blacklee.admin.dao;
 
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import com.blacklee.admin.entity.Blogs;
@@ -21,16 +28,32 @@ public class BlogsDao {
 	private BlogsContent blogsContent;
 	@Resource
 	private BlogsType blogsType;
-	@Resource
-	private BlogsClassification blogsClassification;
+	
+	private Session getSession(){
+		return sessionFactory.getCurrentSession();
+	}
+	
 	//为博文表添加数据
-	public Boolean insert(String title, String label, String content, String type, String classification){
+	public Boolean insert(String title, String label, String content, String type, Integer classificationId){
 		blogs.setTitle(title);
 		blogs.setLabel(label);
 		blogsContent.setContent(content);
 		blogs.setContentId(blogsContent);
 		blogsContent.setBlogsId(blogs);
-		
-		return false;
+		blogsType.setName(type);
+		blogs.setTypeId(blogsType);
+		blogsType.setBlogsId(blogs);
+		BlogsClassification classification= (BlogsClassification) getSession().get(BlogsClassification.class, classificationId);
+		classification.getBlogs().add(blogs);
+		blogs.getClassification().add(classification);
+		blogs.setCreateTime(new Date());
+		blogs.setLastModified(new Date());
+		Integer result = (Integer) getSession().save(blogs);
+		if(result != null){
+			return true;
+		}else{
+			return false;
+		}
 	}
+	
 }

@@ -8,7 +8,7 @@
     	<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <title>创建新博文</title>
+	    <title>类别管理</title>
 
 		<!-- Fav and touch icons -->
 		<link rel="shortcut icon" href="/myBlogs/admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
@@ -26,9 +26,7 @@
 	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet"/>
-		<link href="/myBlogs/admin/proton/assets/plugins/blogs_editor/css/font-awesome.min.css" rel="stylesheet"/>
-		<link href="/myBlogs/admin/proton/assets/plugins/blogs_editor/css/froala_editor.min.css" rel="stylesheet"/>
-		
+
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -51,87 +49,61 @@
 		
 			<!-- start: Content -->
 			<div class="main">
-				<div class="row">
+				<div class=" row ">
 					<div class="col-md-12">
-						<div class=" page-header ">
+						<div class="page-header">
 							<h1 class="">
-								<i class="fa fa-plus-square  icon">
-								</i>创建新博文
+								<i class="fa fa-list-alt  icon">
+								</i>类别管理
 							</h1>
 						</div>
-						<ol class="breadcrumb">
-							<li class="  ">
-								<a href="/myBlogs/index?username=${applicationScope.username}" class="">首页
-								</a>
-							</li>
-							<li class="  ">
-								<a href="javascript:;" class="">创建新博文
-								</a>
-							</li>
-						</ol>
+					</div>
+					<div class="col-md-6">
 						<div class="panel panel-default ">
 							<div class="panel-heading">
-								<i class="fa fa-plus-square  icon">
-								</i>创建新博文
+								<i class="fa fa-list-alt  icon">
+								</i>修改类名
 							</div>
 							<div class="panel-body">
-								<form class=" form-horizontal " action="javascript:;">
-									<div class=" form-group ">
-										<label class="control-label  col-md-2">标题
-										</label>
-										<div class=" col-md-6">
-											<input type="text" class="form-control" placeholder="请输入博文标题">
-										</div>
-									</div>
-									<div class=" form-group ">
-										<label class="control-label  col-md-2">分类
-										</label>
-										<div class=" col-md-6">
-											<select class="form-control">
-												<option>xx00</option>
-											</select>
-										</div>
-									</div>
-									<div class=" form-group ">
-										<label class="control-label  col-md-2">类型
-										</label>
-										<div class=" col-md-6">
-											<label class="radio-inline">
-												<input type="radio" class="" name="type" checked>原创
+								<form class="form-inline" action="javascript:;">
+									<c:forEach var="classificationName" items="${requestScope.classificationName}">
+										<div class=" form-group ">
+											<label class="">类别名称
 											</label>
-											<label class="radio-inline">
-												<input type="radio" class="" name="type">转载
-											</label>
+											<input type="text" class="form-control" value="${classificationName}">
 										</div>
-									</div>
-									<div class=" form-group ">
-										<label class="control-label  col-md-2">标签
-										</label>
-										<div class=" col-md-6">
-											<input type="text" class="form-control" placeholder="请输入博文标签">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-2">正文
-										</label>
-										<div class="col-md-8">
-											<div id="editor"></div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label  col-md-2">
-										</label>
-										<div class="col-md-6">
-											<button class="btn btn-primary">提交
-											</button>
-										</div>
-									</div>
+										<button class="btn btn-info">
+											<i class="fa fa-level-up  icon">
+											</i>提交
+										</button>
+									</c:forEach>
+									
 								</form>
 							</div>
 						</div>
 					</div>
-</div>
-					
+					<div class="col-md-6">
+						<div class="panel panel-default ">
+							<div class="panel-heading">
+								<i class="fa fa-list-alt  icon">
+								</i>添加分类
+							</div>
+							<div class="panel-body">
+								<form class="form-inline" action="javascript:;">
+									<div class=" form-group ">
+										<label class="">添加分类
+										</label>
+										<input type="text" class="form-control " placeholder="填写分类名称">
+									</div>
+									<button class="btn btn-success">
+										<i class="fa fa-plus  icon">
+										</i>确认
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<!-- end: Content -->
 			<br><br><br>
@@ -174,29 +146,12 @@
    	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
  	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
    	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/blogs_editor/js/froala_editor.min.js"></script>
 
    	<!-- theme scripts -->
    	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
    	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
    	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
-   	<script>
-		 window.onload = function(){
-	  		//删除对只能上传图片的限制，严重拖慢响应速度。
-			$('#f-file-upload-1').removeAttr("accept");
-	  		//修改上传文件的input的name属性值
-			$('#f-file-upload-1').attr('name', 'picture');
-		} 
-		$(function(){
-			$('#editor').editable({
-				inlineMode : false, 
-				alwaysBlank : true,
-				height : 400,
-				allowedImageTypes: ["jpeg", "jpg", "png", "gif"],
-				imageUploadURL: '/myBlogs/uploadImage',//上传到本地服务器
-			});
-		})
-   	</script>
+   	
 	<!-- end: JavaScript-->
 	
 </body>
