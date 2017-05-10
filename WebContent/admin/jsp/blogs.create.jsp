@@ -193,12 +193,10 @@
 			$('#editor').editable({
 				inlineMode : false, 
 				alwaysBlank : true,
+				placeholderText: '请输入内容',  
 				height : 400,
-				placeholderText: '输入博文内容',
 				allowedImageTypes: ["jpeg", "jpg", "png", "gif"],
-				imageUploadURL: '/myBlogs/upload',//上传到本地服务器,
-				imageParams: { postId: "123" },
-				
+				imageUploadURL: '/myBlogs/upload'//上传到本地服务器,
 			});
 		})
    	</script>
