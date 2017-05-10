@@ -34,7 +34,7 @@ public class BlogsDao {
 	}
 	
 	//为博文表添加数据
-	public Boolean insert(String title, String label, String content, String type, Integer classificationId){
+	public void insert(String title, String label, String content, String type, Integer classificationId){
 		blogs.setTitle(title);
 		blogs.setLabel(label);
 		blogsContent.setContent(content);
@@ -48,12 +48,10 @@ public class BlogsDao {
 		blogs.getClassification().add(classification);
 		blogs.setCreateTime(new Date());
 		blogs.setLastModified(new Date());
-		Integer result = (Integer) getSession().save(blogs);
-		if(result != null){
-			return true;
-		}else{
-			return false;
-		}
+		getSession().save(blogs);
+		getSession().save(blogsContent);
+		getSession().save(blogsType);
+
 	}
 	
 }

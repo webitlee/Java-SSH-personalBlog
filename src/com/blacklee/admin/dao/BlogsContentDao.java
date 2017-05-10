@@ -17,24 +17,10 @@ public class BlogsContentDao {
 	private SessionFactory sessionFactory;
 	
 	@Autowired
-	private Blogs blogs;
-	@Autowired
 	private BlogsContent blogsContent;
 	
 	private Session getSession(){
 		return sessionFactory.getCurrentSession();
 	}
 	
-	//添加博文详细内容
-	
-	public Boolean insert(String content){
-		blogsContent.setContent(content);
-		blogsContent.setBlogsId(blogs);
-		Integer result = (Integer) getSession().save(blogsContent);
-		if(result != null){
-			return true;
-		}else{
-			return false;
-		}
-	}
 }

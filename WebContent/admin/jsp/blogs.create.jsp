@@ -75,20 +75,22 @@
 								</i>创建新博文
 							</div>
 							<div class="panel-body">
-								<form class=" form-horizontal " action="javascript:;">
+								<form id="form" class=" form-horizontal " action="javascript:;">
 									<div class=" form-group ">
 										<label class="control-label  col-md-2">标题
 										</label>
 										<div class=" col-md-6">
-											<input type="text" class="form-control" placeholder="请输入博文标题">
+											<input type="text" class="form-control" name="title" placeholder="请输入博文标题">
 										</div>
 									</div>
 									<div class=" form-group ">
 										<label class="control-label  col-md-2">分类
 										</label>
 										<div class=" col-md-6">
-											<select class="form-control">
-												<option>xx00</option>
+											<select class="form-control" name="classification">
+												<c:forEach var="classificationName" items="${requestScope.classificationName}">
+													<option value="${classificationName}">${classificationName}</option>
+												</c:forEach>
 											</select>
 										</div>
 									</div>
@@ -108,7 +110,7 @@
 										<label class="control-label  col-md-2">标签
 										</label>
 										<div class=" col-md-6">
-											<input type="text" class="form-control" placeholder="请输入博文标签">
+											<input type="text" class="form-control" name="label" placeholder="请输入博文标签">
 										</div>
 									</div>
 									<div class="form-group">
@@ -116,13 +118,14 @@
 										</label>
 										<div class="col-md-8">
 											<div id="editor"></div>
+											<input id="content" type="hidden" name="content"/>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label  col-md-2">
 										</label>
 										<div class="col-md-6">
-											<button class="btn btn-primary">提交
+											<button id="btn_save" class="btn btn-primary">提交
 											</button>
 										</div>
 									</div>
@@ -130,8 +133,7 @@
 							</div>
 						</div>
 					</div>
-</div>
-					
+				</div>	
 			</div>
 			<!-- end: Content -->
 			<br><br><br>
@@ -192,8 +194,11 @@
 				inlineMode : false, 
 				alwaysBlank : true,
 				height : 400,
+				placeholderText: '输入博文内容',
 				allowedImageTypes: ["jpeg", "jpg", "png", "gif"],
-				imageUploadURL: '/myBlogs/uploadImage',//上传到本地服务器
+				imageUploadURL: '/myBlogs/upload',//上传到本地服务器,
+				imageParams: { postId: "123" },
+				
 			});
 		})
    	</script>

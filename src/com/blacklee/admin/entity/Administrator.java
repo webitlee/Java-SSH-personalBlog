@@ -1,8 +1,10 @@
 package com.blacklee.admin.entity;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@Scope("prototype")
 public class Administrator {
 	private Integer id;
 	private String username;
