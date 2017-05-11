@@ -76,7 +76,7 @@
 												<i class="fa fa-level-up  icon">
 												</i> 提交
 											</button>
-											<button class="btn btn-danger btn-rename" data-id="${classification.id}">
+											<button class="btn btn-danger btn-remove" data-id="${classification.id}">
 												<i class="fa fa-minus icon">
 												</i> 删除
 											</button>
@@ -177,6 +177,19 @@
    		//修改分类名称
    		$('.btn-rename').click(function(){
    			$.post('/myBlogs/uploadClassification', {name : $(this).prev().children('.classification-name').val(), id : $(this).attr('data-id')}, function(data){
+   				if(data.error){
+   					jAlert(data.error);
+   				}else{
+   					jAlert(data.message, function(){
+   						location.reload();
+   					}, '成功啦');
+   				}
+   			})
+   		})
+   		
+   		//删除分类
+   		$('.btn-remove').click(function(){
+   			$.post('/myBlogs/deleteClassification',{id : $(this).attr('data-id')}, function(data){
    				if(data.error){
    					jAlert(data.error);
    				}else{

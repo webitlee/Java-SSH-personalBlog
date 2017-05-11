@@ -27,4 +27,9 @@ public class ClassificationService {
 	public void update(Integer id, String name){
 		classificationDao.update(id, name);
 	}
+	
+	//删除分类
+	public void delete(Integer id){
+		classificationDao.delete(id);
+	}
 }

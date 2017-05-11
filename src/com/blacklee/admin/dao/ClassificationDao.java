@@ -48,4 +48,10 @@ public class ClassificationDao {
 		BlogsClassification classification = (BlogsClassification) getSession().get(BlogsClassification.class, id);
 		classification.setName(name);
 	}
+	
+	//根据id删除分类
+	public void delete(Integer id){
+		BlogsClassification classification = (BlogsClassification) getSession().get(BlogsClassification.class, id);
+		getSession().delete(classification);
+	}
 }

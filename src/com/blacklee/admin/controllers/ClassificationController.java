@@ -22,7 +22,7 @@ public class ClassificationController {
 	
 	@RequestMapping("/getClassification")
 	public String getClassification(HttpServletRequest request){
-		request.setAttribute("classification", classificationService.getClassificationName());
+		request.setAttribute("classification", classificationService.getClassification());
 		return "forward:/admin/jsp/blogs.classification.edit.jsp";
 	}
 	
@@ -46,6 +46,19 @@ public class ClassificationController {
 		try{
 			classificationService.update(id, name);
 			map.put("message", "修改分类成功");
+		}catch(Exception e){
+			map.put("error", e.getMessage());
+		}
+		return map;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/deleteClassification")
+	public Map<String, Object> delete(@RequestParam("id") Integer id){
+		Map<String, Object> map = new HashMap<>();
+		try{
+			classificationService.delete(id);
+			map.put("message", "删除分类成功");
 		}catch(Exception e){
 			map.put("error", e.getMessage());
 		}
