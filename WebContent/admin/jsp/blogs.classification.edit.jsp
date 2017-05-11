@@ -26,6 +26,7 @@
 	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet"/>
+		<link href="/myBlogs/admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
 
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
@@ -66,16 +67,23 @@
 							</div>
 							<div class="panel-body">
 								<form class="form-inline" action="javascript:;">
-									<c:forEach var="classificationName" items="${requestScope.classificationName}">
+									<c:forEach var="classification" items="${requestScope.classification}" varStatus="status">
 										<div class=" form-group ">
 											<label class="">类别名称
 											</label>
-											<input type="text" class="form-control" value="${classificationName}">
+											<input type="text" class="form-control classification-name" data-id="${classification.id}" value="${classification.name}" <c:if test="${status.index == 0}">disabled</c:if>/>
+											<button class="btn btn-info btn-rename" data-id="${classification.id}">
+												<i class="fa fa-level-up  icon">
+												</i> 提交
+											</button>
+											<button class="btn btn-danger btn-rename" data-id="${classification.id}">
+												<i class="fa fa-minus icon">
+												</i> 删除
+											</button>
 										</div>
-										<button class="btn btn-info">
-											<i class="fa fa-level-up  icon">
-											</i>提交
-										</button>
+										<c:if test="${requestScope.classification.size() > 1}">
+											<hr/>
+										</c:if>
 									</c:forEach>
 									
 								</form>
@@ -89,13 +97,13 @@
 								</i>添加分类
 							</div>
 							<div class="panel-body">
-								<form class="form-inline" action="javascript:;">
+								<form id="add_form" class="form-inline" action="javascript:;">
 									<div class=" form-group ">
 										<label class="">添加分类
 										</label>
-										<input type="text" class="form-control " placeholder="填写分类名称">
+										<input type="text" class="form-control" name="name" placeholder="填写分类名称">
 									</div>
-									<button class="btn btn-success">
+									<button id="btn_add" class="btn btn-success">
 										<i class="fa fa-plus  icon">
 										</i>确认
 									</button>
@@ -146,12 +154,39 @@
    	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
  	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
    	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
 
    	<!-- theme scripts -->
    	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
    	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
    	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
-   	
+   	<script>
+   		//添加分类
+   		$('#btn_add').click(function(){
+   			$.post('/myBlogs/addClassification', $('#add_form').serialize(), function(data){
+   				if(data.error){
+   					jAlert(data.error);
+   				}else{
+   					jAlert(data.message, function(){
+   						location.reload();
+   					}, '成功啦');
+   				}
+   			})
+   		})
+   		
+   		//修改分类名称
+   		$('.btn-rename').click(function(){
+   			$.post('/myBlogs/uploadClassification', {name : $(this).prev().children('.classification-name').val(), id : $(this).attr('data-id')}, function(data){
+   				if(data.error){
+   					jAlert(data.error);
+   				}else{
+   					jAlert(data.message, function(){
+   						location.reload();
+   					}, '成功啦');
+   				}
+   			})
+   		})
+   	</script>
 	<!-- end: JavaScript-->
 	
 </body>

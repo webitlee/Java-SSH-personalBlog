@@ -11,11 +11,8 @@ public class BlogsService {
 
 	@Autowired
 	private BlogsDao blogsDao;
-	@Autowired
-	private ClassificationDao classificationDao;
 	
-	public void saveBlogs(String title, String label, String content, String type, String classification){
-		Integer classificationId = classificationDao.getIdByClassificationName(classification);
+	public void saveBlogs(String title, String label, String content, String type, Integer classificationId){
 		blogsDao.insert(title, label, content, type, classificationId);
 	}
 

@@ -24,7 +24,7 @@ public class BlogsController {
 	
 	@RequestMapping("/createBlogs")
 	public String showClassification(HttpServletRequest request){
-		request.setAttribute("classificationName", classificationService.getClassificationName());
+		request.setAttribute("classification", classificationService.getClassification());
 		return "forward:/admin/jsp/blogs.create.jsp";
 	}
 	
@@ -34,11 +34,11 @@ public class BlogsController {
 			@RequestParam("label") String label,
 			@RequestParam("content") String content, 
 			@RequestParam("type") String type, 
-			@RequestParam("classification") String classification,
+			@RequestParam("classificationId") Integer classificationId,
 			HttpServletRequest request){
 		Map<String, Object> map = new HashedMap<>();
 		try {
-			blogsService.saveBlogs(title, label, content, type, classification);
+			blogsService.saveBlogs(title, label, content, type, classificationId);
 			map.put("message", "添加成功");
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -28,6 +28,7 @@
 		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet"/>
 		<link href="/myBlogs/admin/proton/assets/plugins/blogs_editor/css/font-awesome.min.css" rel="stylesheet"/>
 		<link href="/myBlogs/admin/proton/assets/plugins/blogs_editor/css/froala_editor.min.css" rel="stylesheet"/>
+		<link href="/myBlogs/admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
 		
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
@@ -80,16 +81,17 @@
 										<label class="control-label  col-md-2">标题
 										</label>
 										<div class=" col-md-6">
-											<input type="text" class="form-control" name="title" placeholder="请输入博文标题">
+											<input type="text" id="title" class="form-control" name="title" placeholder="请输入博文标题">
 										</div>
 									</div>
 									<div class=" form-group ">
 										<label class="control-label  col-md-2">分类
 										</label>
 										<div class=" col-md-6">
-											<select class="form-control" name="classification">
-												<c:forEach var="classificationName" items="${requestScope.classificationName}">
-													<option value="${classificationName}">${classificationName}</option>
+											<select id="classification" class="form-control" name="classificationId">
+												<option value="0">--请选择--</option>
+												<c:forEach var="classification" items="${requestScope.classification}">
+													<option value="${classification.id}">${classification.name}</option>
 												</c:forEach>
 											</select>
 										</div>
@@ -99,10 +101,10 @@
 										</label>
 										<div class=" col-md-6">
 											<label class="radio-inline">
-												<input type="radio" class="" name="type" checked>原创
+												<input id="type" type="radio" class="" name="type" value="原创" checked>原创
 											</label>
 											<label class="radio-inline">
-												<input type="radio" class="" name="type">转载
+												<input type="radio" class="" name="type" value="转载">转载
 											</label>
 										</div>
 									</div>
@@ -110,7 +112,7 @@
 										<label class="control-label  col-md-2">标签
 										</label>
 										<div class=" col-md-6">
-											<input type="text" class="form-control" name="label" placeholder="请输入博文标签">
+											<input type="text" id="label" class="form-control" name="label" placeholder="请输入博文标签">
 										</div>
 									</div>
 									<div class="form-group">
@@ -135,6 +137,7 @@
 					</div>
 				</div>	
 			</div>
+			<div id="test"></div>	
 			<!-- end: Content -->
 			<br><br><br>
 		</div>			
@@ -177,6 +180,7 @@
  	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
    	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
 	<script src="/myBlogs/admin/proton/assets/plugins/blogs_editor/js/froala_editor.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
 
    	<!-- theme scripts -->
    	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
@@ -186,18 +190,45 @@
 		 window.onload = function(){
 	  		//删除对只能上传图片的限制，严重拖慢响应速度。
 			$('#f-file-upload-1').removeAttr("accept");
-	  		//修改上传文件的input的name属性值
-			$('#f-file-upload-1').attr('name', 'picture');
 		} 
 		$(function(){
 			$('#editor').editable({
 				inlineMode : false, 
 				alwaysBlank : true,
-				placeholderText: '请输入内容',  
 				height : 400,
 				allowedImageTypes: ["jpeg", "jpg", "png", "gif"],
 				imageUploadURL: '/myBlogs/upload'//上传到本地服务器,
 			});
+			
+			
+			//提交按钮
+			$('#btn_save').click(function(){
+				var title = $.trim($('#title').val());
+				var classification = $.trim($('#classification>option:selected'));
+				var label = $.trim($('#label').val());
+				$('#content').val($('#editor>.froala-element').html());
+				var content = $.trim($('#content').val());
+				if(!title){
+					jAlert('请填写博文标题后再提交');
+				}else if(!classification){
+					jAlert('请选择博文分类后再提交');
+				}else if(!label){
+					jAlert('请填写博文标签后再提交');
+				}else if(!content){
+					jAlert('请填写博文内容后再提交');
+				}else{
+					$.post('/myBlogs/saveBlogs', $('#form').serialize(), function(data){
+						if(data.error){
+							jAlert(data.error, '出错啦！');
+						}else{
+							jAlert(data.message, '成功！', function(){
+								location.reload();
+							});
+						}
+					})
+				}
+				
+			})
 		})
    	</script>
 	<!-- end: JavaScript-->
