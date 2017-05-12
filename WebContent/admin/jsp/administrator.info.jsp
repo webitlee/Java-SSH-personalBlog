@@ -62,11 +62,13 @@
 						</div>
 						<ol class=" breadcrumb ">
 							<li class="  ">
-								<a href="/myBlogs/index?username=${applicationScope.username}" class="">首页
+								<a href="/myBlogs/index?username=${applicationScope.username}" class="">
+									<i class="fa fa-home"></i> 首页
 								</a>
 							</li>
 							<li class="  ">
-								<a href="javascript:;" class="">我的信息
+								<a href="javascript:;" class="">
+									<i class="fa fa-user"></i> 我的信息
 								</a>
 							</li>
 						</ol>

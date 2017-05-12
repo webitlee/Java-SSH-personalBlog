@@ -62,17 +62,19 @@
 						</div>
 						<ol class="breadcrumb">
 							<li class="  ">
-								<a href="/myBlogs/index?username=${applicationScope.username}" class="">首页
+								<a href="/myBlogs/index?username=${applicationScope.username}" class="">
+								<i class="fa fa-home"></i> 首页
 								</a>
 							</li>
 							<li class="  ">
-								<a href="javascript:;" class="">创建新博文
+								<a href="javascript:;" class="">
+								<i class="fa fa-plus-square"></i> 创建新博文
 								</a>
 							</li>
 						</ol>
 						<div class="panel panel-default ">
 							<div class="panel-heading">
-								<i class="fa fa-plus-square  icon">
+								<i class="fa fa-plus-square red">
 								</i>创建新博文
 							</div>
 							<div class="panel-body">
@@ -88,12 +90,23 @@
 										<label class="control-label  col-md-2">分类
 										</label>
 										<div class=" col-md-6">
-											<select id="classification" class="form-control" name="classificationId">
-												<option value="0">--请选择--</option>
-												<c:forEach var="classification" items="${requestScope.classification}">
-													<option value="${classification.id}">${classification.name}</option>
-												</c:forEach>
-											</select>
+											<c:forEach var="classification" items="${requestScope.classification}" varStatus="status">
+												<c:if test="${status.index == 0}">
+													<div class="checkbox">
+											        <label>
+											          <input type="checkbox" name="classification" value="${classification.id}" checked disabled> ${classification.name}
+										              <input type="hidden" name="classification" value="${classification.id}"/>
+											        </label>
+										      	</div>
+												</c:if>
+												<c:if test="${status.index != 0}">
+													<div class="checkbox">
+												        <label>
+												          <input type="checkbox" name="classification" value="${classification.id}"> ${classification.name}
+												        </label>
+											      	</div>
+												</c:if>
+											</c:forEach>
 										</div>
 									</div>
 									<div class=" form-group ">

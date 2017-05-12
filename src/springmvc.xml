@@ -18,6 +18,10 @@
 		<property name="prefix" value="/admin/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/blogs/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
 	
 	<!-- 处理静态资源 -->
 	<mvc:default-servlet-handler/>

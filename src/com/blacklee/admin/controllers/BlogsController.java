@@ -1,5 +1,6 @@
 package com.blacklee.admin.controllers;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,11 +35,11 @@ public class BlogsController {
 			@RequestParam("label") String label,
 			@RequestParam("content") String content, 
 			@RequestParam("type") String type, 
-			@RequestParam("classificationId") Integer classificationId,
+			@RequestParam("classification") List<Integer> classificationIds,
 			HttpServletRequest request){
 		Map<String, Object> map = new HashedMap<>();
 		try {
-			blogsService.saveBlogs(title, label, content, type, classificationId);
+			blogsService.saveBlogs(title, label, content, type, classificationIds);
 			map.put("message", "添加成功");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -46,5 +47,14 @@ public class BlogsController {
 		}
 		map.put("message", "添加成功");
 		return map;
+	}
+	
+	public String getBlogs(HttpServletRequest request){
+		String firstResult = request.getParameter("firstResult");
+		String maxResult = request.getParameter("maxResult");
+		if(firstResult == null || maxResult == null){
+			
+		}
+		return "blogs.list";
 	}
 }

@@ -59,10 +59,22 @@
 							</h1>
 						</div>
 					</div>
+					<ol class="breadcrumb">
+							<li class="  ">
+								<a href="/myBlogs/index?username=${applicationScope.username}" class="">
+								<i class="fa fa-home"></i> 首页
+								</a>
+							</li>
+							<li class="  ">
+								<a href="javascript:;" class="">
+								<i class="fa fa-plus-square"></i> 类别管理
+								</a>
+							</li>
+						</ol>
 					<div class="col-md-6">
 						<div class="panel panel-default ">
 							<div class="panel-heading">
-								<i class="fa fa-list-alt  icon">
+								<i class="fa fa-list-alt red">
 								</i>修改类名
 							</div>
 							<div class="panel-body">
@@ -93,7 +105,7 @@
 					<div class="col-md-6">
 						<div class="panel panel-default ">
 							<div class="panel-heading">
-								<i class="fa fa-list-alt  icon">
+								<i class="fa fa-list-alt red">
 								</i>添加分类
 							</div>
 							<div class="panel-body">

@@ -57,106 +57,108 @@
 				</i>
 				博文列表
 			</h1>
-			<ol class=" breadcrumb ">
+		</div>
+		<ol class=" breadcrumb ">
 				<li class="  ">
-					<a href="/myBlogs/index?username=${applicationScope.username}" class="">首页
+					<a href="/myBlogs/index?username=${applicationScope.username}" class="">
+						<i class="fa fa-home"></i> 首页
 					</a>
 				</li>
 				<li class="  ">
-					<a href="javascript:;" class="">博文列表
+					<a href="javascript:;" class="">
+						<i class="fa fa-book"></i> 博文列表
 					</a>
 				</li>
 			</ol>
-			<div class="panel panel-default ">
-				<div class="panel-heading">
-					<i class="fa fa-book icon red" style="line-height:32px;">
-					</i>博文列表
+		<div class="panel panel-default ">
+			<div class="panel-heading">
+				<i class="fa fa-book icon red" style="line-height:32px;">
+				</i>博文列表
+			</div>
+			<div class="panel-body ">
+				<div class=" table-responsive ">
+					<table class="table table-bordered table table-hover table table-striped ">
+						<tbody>
+							<tr>
+								<td class="text-center">id
+								</td>
+								<td class="text-center">标题
+								</td>
+								<td class="text-center">类型
+								</td>
+								<td class="text-center">分类
+								</td>
+								<td class="text-right">浏览量
+								</td>
+								<td class="text-right">点赞量
+								</td>
+								<td class="text-center">创建时间
+								</td>
+								<td class="text-center">最后修改时间
+								</td>
+								<td class="text-center">操作
+								</td>
+							</tr>
+							<tr class="">
+								<td class="text-center    middle">1
+								</td>
+								<td class="text-center    middle">的答复
+								</td>
+								<td class="text-center    middle">原创
+								</td>
+								<td class="text-center    middle">后台
+								</td>
+								<td class="middle text-right">2111
+								</td>
+								<td class="text-right middle">1544
+								</td>
+								<td class="text-center    middle">20150124
+								</td>
+								<td class="text-center    middle">20171101
+								</td>
+								<td class="text-center">
+									<div class="split-button btn-group">
+										<a class="btn btn-success" href="javascript:;">
+											编辑
+										</a>
+										<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+											<span class=" caret ">
+											</span>
+										</button>
+										<ul class=" dropdown-menu ">
+											<li class="">
+												<a href="javascript:;">这是一个超链接
+												</a>
+											</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-				<div class="panel-body ">
-					<div class=" table-responsive ">
-						<table class="table table-bordered table table-hover table table-striped ">
-							<tbody>
-								<tr>
-									<td class="text-center">id
-									</td>
-									<td class="text-center">标题
-									</td>
-									<td class="text-center">类型
-									</td>
-									<td class="text-center">分类
-									</td>
-									<td class="text-right">浏览量
-									</td>
-									<td class="text-right">点赞量
-									</td>
-									<td class="text-center">创建时间
-									</td>
-									<td class="text-center">最后修改时间
-									</td>
-									<td class="text-center">操作
-									</td>
-								</tr>
-								<tr class="">
-									<td class="text-center    middle">1
-									</td>
-									<td class="text-center    middle">的答复
-									</td>
-									<td class="text-center    middle">原创
-									</td>
-									<td class="text-center    middle">后台
-									</td>
-									<td class="middle text-right">2111
-									</td>
-									<td class="text-right middle">1544
-									</td>
-									<td class="text-center    middle">20150124
-									</td>
-									<td class="text-center    middle">20171101
-									</td>
-									<td class="text-center">
-										<div class="split-button btn-group">
-											<a class="btn btn-success" href="javascript:;">
-												编辑
-											</a>
-											<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-												<span class=" caret ">
-												</span>
-											</button>
-											<ul class=" dropdown-menu ">
-												<li class="">
-													<a href="javascript:;">这是一个超链接
-													</a>
-												</li>
-											</ul>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<ul class="pagination">
-						<li class="  ">
-							<a href="javascript:;" class="">前一页
-							</a>
-						</li>
-						<li class="  ">
-							<a href="javascript:;" class="">1
-							</a>
-						</li>
-						<li class="  ">
-							<a href="javascript:;" class="">2
-							</a>
-						</li>
-						<li class="  ">
-							<a href="javascript:;" class="">3
-							</a>
-						</li>
-						<li class="  ">
-							<a href="javascript:;" class="">后一页
-							</a>
-						</li>
-					</ul>
-				</div>
+				<ul class="pagination">
+					<li class="  ">
+						<a href="javascript:;" class="">前一页
+						</a>
+					</li>
+					<li class="  ">
+						<a href="javascript:;" class="">1
+						</a>
+					</li>
+					<li class="  ">
+						<a href="javascript:;" class="">2
+						</a>
+					</li>
+					<li class="  ">
+						<a href="javascript:;" class="">3
+						</a>
+					</li>
+					<li class="  ">
+						<a href="javascript:;" class="">后一页
+						</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>

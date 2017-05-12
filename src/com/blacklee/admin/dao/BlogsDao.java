@@ -34,7 +34,7 @@ public class BlogsDao {
 	}
 	
 	//为博文表添加数据
-	public void insert(String title, String label, String content, String type, Integer classificationId){
+	public void insert(String title, String label, String content, String type, List<Integer> classificationIds){
 		blogs.setTitle(title);
 		blogs.setLabel(label);
 		blogsContent.setContent(content);
@@ -43,15 +43,25 @@ public class BlogsDao {
 		blogsType.setName(type);
 		blogs.setTypeId(blogsType);
 		blogsType.setBlogsId(blogs);
-		BlogsClassification classification= (BlogsClassification) getSession().get(BlogsClassification.class, classificationId);
-		classification.getBlogs().add(blogs);
-		blogs.getClassification().add(classification);
+		for(int i = 0; i < classificationIds.size(); i++){
+			BlogsClassification classification= (BlogsClassification) getSession().get(BlogsClassification.class, classificationIds.get(i));
+			classification.getBlogs().add(blogs);
+			blogs.getClassification().add(classification);
+		}
 		blogs.setCreateTime(new Date());
 		blogs.setLastModified(new Date());
 		getSession().save(blogs);
 		getSession().save(blogsContent);
 		getSession().save(blogsType);
-
+	}
+	
+	//获取前20条博文数据
+	public List<Blogs> getBlogs(int firstResult, int maxResult){
+		String hql="from Blogs";
+		Query query = getSession().createQuery(hql);
+		List<Blogs> list =  query.setFirstResult(firstResult).setMaxResults(maxResult).list();
+		System.out.println(list);
+		return list;
 	}
 	
 }
