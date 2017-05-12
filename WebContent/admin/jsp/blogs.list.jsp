@@ -99,22 +99,31 @@
 								<td class="text-center">操作
 								</td>
 							</tr>
+							<c:forEach var="blogs" items="${requestScope.blogs}">
 							<tr class="">
-								<td class="text-center    middle">1
+								<td class="text-center middle">${blogs.id}
 								</td>
-								<td class="text-center    middle">的答复
+								<td class="text-center middle">${blogs.title}
 								</td>
-								<td class="text-center    middle">原创
+								<td class="text-center middle">${blogs.typeId.name}
 								</td>
-								<td class="text-center    middle">后台
+								<td class="text-center middle">
+								<c:forEach var="classification" items="${blogs.classification}" varStatus="status">
+									<c:if test="${!status.last}">
+										${classification.name}, 
+									</c:if>
+									<c:if test="${status.last}">
+										${classification.name}
+									</c:if>
+								</c:forEach>
 								</td>
-								<td class="middle text-right">2111
+								<td class="middle text-right">${blogs.visit}
 								</td>
-								<td class="text-right middle">1544
+								<td class="text-right middle">${blogs.support}
 								</td>
-								<td class="text-center    middle">20150124
+								<td class="text-center middle">${blogs.createTime}
 								</td>
-								<td class="text-center    middle">20171101
+								<td class="text-center middle">${blogs.lastModified}
 								</td>
 								<td class="text-center">
 									<div class="split-button btn-group">
@@ -122,10 +131,10 @@
 											编辑
 										</a>
 										<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-											<span class=" caret ">
+											<span class="caret">
 											</span>
 										</button>
-										<ul class=" dropdown-menu ">
+										<ul class=" dropdown-menu">
 											<li class="">
 												<a href="javascript:;">这是一个超链接
 												</a>
@@ -134,6 +143,7 @@
 									</div>
 								</td>
 							</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>

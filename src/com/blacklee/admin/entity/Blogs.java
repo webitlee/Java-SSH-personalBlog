@@ -81,5 +81,11 @@ public class Blogs {
 	public void setLastModified(Date lastModified) {
 		this.lastModified = lastModified;
 	}
+	@Override
+	public String toString() {
+		return "Blogs [id=" + id + ", title=" + title + ", label=" + label + ", typeId=" + typeId + ", classification="
+				+ classification + ", contentId=" + contentId + ", support=" + support + ", visit=" + visit
+				+ ", createTime=" + createTime + ", lastModified=" + lastModified + "]";
+	}
 	
 }

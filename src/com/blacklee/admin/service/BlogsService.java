@@ -21,8 +21,13 @@ public class BlogsService {
 	}
 	
 	//获取指定条数的博文数据
-	public List<Blogs> getBlogs(int firstResult, int maxResult){
-		return blogsDao.getBlogs(firstResult, maxResult);
+	public List<Blogs> getBlogs(int maxResult, int pageIndex){
+		Integer count = blogsDao.getBlogsCount();
+		if(count < maxResult * (pageIndex + 1)){
+			return blogsDao.getBlogs(maxResult * pageIndex, count - maxResult * pageIndex);
+		}else{
+			return blogsDao.getBlogs(maxResult * pageIndex, maxResult);
+		}
 	}
 
 }

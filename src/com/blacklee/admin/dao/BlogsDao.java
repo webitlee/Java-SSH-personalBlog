@@ -54,7 +54,13 @@ public class BlogsDao {
 		getSession().save(blogsContent);
 		getSession().save(blogsType);
 	}
-	
+	//查询记录的总条数
+	public Integer getBlogsCount(){
+		String hql = "select count(*) from Blogs";
+		Query query = getSession().createQuery(hql);
+		Integer count = query.list().size();
+		return count;
+	}
 	//获取前20条博文数据
 	public List<Blogs> getBlogs(int firstResult, int maxResult){
 		String hql="from Blogs";

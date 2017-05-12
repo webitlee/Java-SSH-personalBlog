@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.blacklee.admin.entity.Blogs;
 import com.blacklee.admin.service.BlogsService;
 import com.blacklee.admin.service.ClassificationService;
 
@@ -49,12 +50,17 @@ public class BlogsController {
 		return map;
 	}
 	
+	@RequestMapping("/getBlogs")
 	public String getBlogs(HttpServletRequest request){
 		String firstResult = request.getParameter("firstResult");
 		String maxResult = request.getParameter("maxResult");
+		List<Blogs> list = null;
 		if(firstResult == null || maxResult == null){
-			
+			list = blogsService.getBlogs(20, 0);
+		}else{
+			list = blogsService.getBlogs(Integer.parseInt(firstResult), Integer.parseInt(maxResult));
 		}
+		request.setAttribute("blogs", list);
 		return "blogs.list";
 	}
 }
