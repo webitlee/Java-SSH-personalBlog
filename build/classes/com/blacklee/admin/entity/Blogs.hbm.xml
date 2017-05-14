@@ -15,7 +15,7 @@
             <column name="LABEL" />
         </property>
         <one-to-one name="typeId" class="com.blacklee.admin.entity.BlogsType"></one-to-one>
-        <set name="classification" table="BLOGS_CLASSIFICATION" inverse="false">
+        <set name="classification" table="BLOGS_CLASSIFICATION" inverse="false" >
             <key>
                 <column name="BLOGS_ID" />
             </key>

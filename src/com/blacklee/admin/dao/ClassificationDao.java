@@ -1,6 +1,8 @@
 package com.blacklee.admin.dao;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -9,6 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import com.blacklee.admin.entity.Blogs;
 import com.blacklee.admin.entity.BlogsClassification;
 
 @Repository
@@ -26,7 +29,7 @@ public class ClassificationDao {
 	//获取博文所有分类
 	@SuppressWarnings("unchecked")
 	public List<Object> getClassification(){
-		String hql = "from BlogsClassification b";
+		String hql = "from BlogsClassification";
 		Query query = getSession().createQuery(hql);
 		return query.list();
 	}
@@ -53,5 +56,21 @@ public class ClassificationDao {
 	public void delete(Integer id){
 		BlogsClassification classification = (BlogsClassification) getSession().get(BlogsClassification.class, id);
 		getSession().delete(classification);
+	}
+	
+	//移除分类对应的某个blogs对象
+	public void removeBlogs(Blogs blogs){
+		String hql = "from BlogsClassification";
+		Query query = getSession().createQuery(hql);
+		List<BlogsClassification> list = query.list();
+		for(int i = 0; i < list.size(); i++){
+			Set<Blogs> set = list.get(i).getBlogs();
+			Iterator<Blogs> iterator = set.iterator();
+			while(iterator.hasNext()){
+				if(iterator.next().getId() == blogs.getId()){
+					iterator.remove();
+				}
+			}
+		}
 	}
 }

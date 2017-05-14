@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
@@ -28,6 +29,8 @@ public class BlogsDao {
 	private BlogsContent blogsContent;
 	@Resource
 	private BlogsType blogsType;
+	@Autowired
+	private ClassificationDao classificationDao;
 	
 	private Session getSession(){
 		return sessionFactory.getCurrentSession();
@@ -43,6 +46,7 @@ public class BlogsDao {
 		blogsType.setName(type);
 		blogs.setTypeId(blogsType);
 		blogsType.setBlogsId(blogs);
+		classificationDao.removeBlogs(blogs);
 		for(int i = 0; i < classificationIds.size(); i++){
 			BlogsClassification classification= (BlogsClassification) getSession().get(BlogsClassification.class, classificationIds.get(i));
 			classification.getBlogs().add(blogs);
@@ -62,12 +66,36 @@ public class BlogsDao {
 		return count;
 	}
 	//获取前20条博文数据
-	public List<Blogs> getBlogs(int firstResult, int maxResult){
+	public List<Blogs> getBlogs(int maxResult, int pageIndex){
 		String hql="from Blogs";
 		Query query = getSession().createQuery(hql);
-		List<Blogs> list =  query.setFirstResult(firstResult).setMaxResults(maxResult).list();
+		List<Blogs> list =  query.setFirstResult(maxResult * pageIndex).setMaxResults(maxResult).list();
 		System.out.println(list);
 		return list;
+	}
+	
+	//根据id获取指定记录
+	public Blogs getBlogById(Integer id){
+		Blogs blog = (Blogs) getSession().get(Blogs.class, id);
+		return blog;
+	}
+	
+	//更新博文信息
+	public void update(Blogs blog, String title, String label, String content, String type, List<Integer> classificationIds){
+		blog.setTitle(title);
+		blog.setLabel(label);
+		blogsContent.setContent(content);
+		blog.setContentId(blogsContent);
+		blogsContent.setBlogsId(blog);
+		blogsType.setName(type);
+		blog.setTypeId(blogsType);
+		blogsType.setBlogsId(blog);
+		for(int i = 0; i < classificationIds.size(); i++){
+			BlogsClassification classification= (BlogsClassification) getSession().get(BlogsClassification.class, classificationIds.get(i));
+			classification.getBlogs().add(blog);
+			blog.getClassification().add(classification);
+		}
+		blog.setLastModified(new Date());
 	}
 	
 }

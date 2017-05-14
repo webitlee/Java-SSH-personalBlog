@@ -29,5 +29,16 @@ public class BlogsService {
 			return blogsDao.getBlogs(maxResult * pageIndex, maxResult);
 		}
 	}
-
+	
+	//根据id获取指定记录
+	public Blogs getBlogById(Integer id){
+		return blogsDao.getBlogById(id);
+	}
+	
+	//更新博文数据
+	public void update(Integer id, String title, String label, String content, String type, List<Integer> classificationIds){
+		Blogs blog = blogsDao.getBlogById(id);
+		blogsDao.update(blog, title, label, content, type, classificationIds);
+	}
+		
 }

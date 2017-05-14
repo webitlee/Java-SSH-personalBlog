@@ -50,6 +50,7 @@ public class BlogsController {
 		return map;
 	}
 	
+	//获取blogs表中前20条数据
 	@RequestMapping("/getBlogs")
 	public String getBlogs(HttpServletRequest request){
 		String firstResult = request.getParameter("firstResult");
@@ -62,5 +63,29 @@ public class BlogsController {
 		}
 		request.setAttribute("blogs", list);
 		return "blogs.list";
+	}
+	
+	//根据id获取指定记录
+	@RequestMapping("/getBlogById")
+	public String getBlogById(@RequestParam("id") Integer id, HttpServletRequest request){
+		Blogs blog = blogsService.getBlogById(id);
+		List<Object> list = classificationService.getClassification();
+		request.setAttribute("blog", blog);
+		request.setAttribute("classification", list);
+		return "blogs.edit";
+	}
+	
+	//更新博文数据
+	@ResponseBody
+	@RequestMapping("/updateBlogs")
+	public Map<String, Object> update(Integer id, String title, String label, String content, String type, List<Integer> classificationIds){
+		Map<String, Object> map = new HashedMap<>();
+		try{
+			blogsService.update(id, title, label, content, type, classificationIds);
+			map.put("message", "修改成功");
+		}catch(Exception ex){
+			map.put("error", ex.getMessage());
+		}
+		return map;
 	}
 }

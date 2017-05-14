@@ -127,7 +127,7 @@
 								</td>
 								<td class="text-center">
 									<div class="split-button btn-group">
-										<a class="btn btn-success" href="javascript:;">
+										<a class="btn btn-success" href="/myBlogs/getBlogById?id=${blogs.id}">
 											编辑
 										</a>
 										<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
