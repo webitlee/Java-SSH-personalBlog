@@ -90,31 +90,33 @@
 										<label class="control-label  col-md-2">分类
 										</label>
 										<div class=" col-md-6">
-											<c:forEach var="allClassification" items="${requestScope.classification}">
-												<c:forEach var="classification" items="${requestScope.blog.classification}" varStatus="status">
-													<c:if test="${status.index == 0}">
+											<c:forEach var="classification" items="${requestScope.classification}" varStatus="status">
+												<c:choose>
+													<c:when test="${classification.flag}">
+														<c:if test="${status.index == 0}">
+															<div class="checkbox">
+														        <label>
+														          <input type="checkbox" name="classification" value="${classification.classification.id}" checked disabled/> ${classification.classification.name}
+													              <input type="hidden" name="classification" value="${classification.classification.id}"/>
+														        </label>
+													      	</div>
+														</c:if>	
+														<c:if test="${status.index != 0}">
+															<div class="checkbox">
+														        <label>
+														          <input type="checkbox" name="classification" value="${classification.classification.id}" checked/> ${classification.classification.name}
+														        </label>
+													      	</div>
+														</c:if>
+													</c:when>
+													<c:otherwise>
 														<div class="checkbox">
 													        <label>
-													          <input type="checkbox" name="classification" value="${classification.id}" checked disabled> ${classification.name}
-												              <input type="hidden" name="classification" value="${classification.id}"/>
+													          <input type="checkbox" name="classification" value="${classification.classification.id}"/> ${classification.classification.name}
 													        </label>
 												      	</div>
-													</c:if>
-													<c:if test="${status.index != 0 && allClassification.name == classification.name}">
-														<div class="checkbox">
-													        <label>
-													          <input type="checkbox" name="classification" value="${classification.id}" checked> ${classification.name}
-													        </label>
-												      	</div>
-													</c:if>
-													<c:if test="${status.index != 0 && allClassification.name != classification.name}">
-														<div class="checkbox">
-													        <label>
-													          <input type="checkbox" name="classification" value="${classification.id}"> ${classification.name}
-													        </label>
-												      	</div>
-													</c:if>
-												</c:forEach>
+													</c:otherwise>
+												</c:choose>
 											</c:forEach>
 										</div>
 									</div>

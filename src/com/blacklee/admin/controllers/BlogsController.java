@@ -1,7 +1,10 @@
 package com.blacklee.admin.controllers;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.blacklee.admin.entity.Blogs;
+import com.blacklee.admin.entity.BlogsClassification;
 import com.blacklee.admin.service.BlogsService;
 import com.blacklee.admin.service.ClassificationService;
 
@@ -65,12 +69,33 @@ public class BlogsController {
 		return "blogs.list";
 	}
 	
-	//根据id获取指定记录
+	//根据id获取指定记录,并把分类信息及选中情况放入request中
 	@RequestMapping("/getBlogById")
 	public String getBlogById(@RequestParam("id") Integer id, HttpServletRequest request){
 		Blogs blog = blogsService.getBlogById(id);
-		List<Object> list = classificationService.getClassification();
+		List<Object> allClassification = classificationService.getClassification();
 		request.setAttribute("blog", blog);
+		Set<BlogsClassification> checkedClassification = blog.getClassification();
+		Iterator<BlogsClassification> it = checkedClassification.iterator();
+		List<Object> list = new ArrayList<Object>();
+		for(int i = 0; i < allClassification.size(); i++){
+			Map<String, Object> map = new HashedMap<>();
+			map.put("classification", allClassification.get(i));
+			Boolean flag = false;
+			while(it.hasNext()){
+				if(it.next().getName().equals(((BlogsClassification) allClassification.get(i)).getName())){
+					map.put("flag", true);
+					flag = true;
+					break;
+				}else{
+					flag = false;
+				}
+			}
+			if(!flag){
+				map.put("flag", false);
+			}
+			list.add(map);
+		}
 		request.setAttribute("classification", list);
 		return "blogs.edit";
 	}

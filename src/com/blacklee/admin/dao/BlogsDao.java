@@ -1,6 +1,7 @@
 package com.blacklee.admin.dao;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -90,6 +91,7 @@ public class BlogsDao {
 		blogsType.setName(type);
 		blog.setTypeId(blogsType);
 		blogsType.setBlogsId(blog);
+		blog.setClassification(null);
 		for(int i = 0; i < classificationIds.size(); i++){
 			BlogsClassification classification= (BlogsClassification) getSession().get(BlogsClassification.class, classificationIds.get(i));
 			classification.getBlogs().add(blog);

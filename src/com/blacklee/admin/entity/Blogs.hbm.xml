@@ -15,7 +15,7 @@
             <column name="LABEL" />
         </property>
         <one-to-one name="typeId" class="com.blacklee.admin.entity.BlogsType" cascade="save-update"></one-to-one>
-        <set name="classification" table="BLOGS_CLASSIFICATION" inverse="false" cascade="save-update">
+        <set name="classification" table="BLOGS_CLASSIFICATION" inverse="false" lazy="false" cascade="save-update">
             <key>
                 <column name="BLOGS_ID" />
             </key>
