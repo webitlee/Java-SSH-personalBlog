@@ -83,6 +83,7 @@
 										<label class="control-label  col-md-2">标题
 										</label>
 										<div class=" col-md-6">
+											<input type="hidden" name="id" value="${requestScope.blog.id}"/>
 											<input type="text" id="title" class="form-control" name="title" value="${requestScope.blog.title}" placeholder="请输入博文标题">
 										</div>
 									</div>

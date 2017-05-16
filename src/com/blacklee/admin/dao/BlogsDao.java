@@ -30,6 +30,8 @@ public class BlogsDao {
 	private BlogsContent blogsContent;
 	@Resource
 	private BlogsType blogsType;
+	@Resource
+	private BlogsClassification blogsClassification;
 	@Autowired
 	private ClassificationDao classificationDao;
 	
@@ -47,7 +49,6 @@ public class BlogsDao {
 		blogsType.setName(type);
 		blogs.setTypeId(blogsType);
 		blogsType.setBlogsId(blogs);
-		classificationDao.removeBlogs(blogs);
 		for(int i = 0; i < classificationIds.size(); i++){
 			BlogsClassification classification= (BlogsClassification) getSession().get(BlogsClassification.class, classificationIds.get(i));
 			classification.getBlogs().add(blogs);
@@ -82,22 +83,23 @@ public class BlogsDao {
 	}
 	
 	//更新博文信息
-	public void update(Blogs blog, String title, String label, String content, String type, List<Integer> classificationIds){
-		blog.setTitle(title);
-		blog.setLabel(label);
+	public void update(Integer blogId, String title, String label, String content, String type, List<Integer> classificationIds){
+		blogs.setTitle(title);
+		blogs.setLabel(label);
 		blogsContent.setContent(content);
-		blog.setContentId(blogsContent);
-		blogsContent.setBlogsId(blog);
+		blogs.setContentId(blogsContent);
+		blogsContent.setBlogsId(blogs);
 		blogsType.setName(type);
-		blog.setTypeId(blogsType);
-		blogsType.setBlogsId(blog);
-		blog.setClassification(null);
+		blogs.setTypeId(blogsType);
+		blogsType.setBlogsId(blogs);
+		classificationDao.removeBlogs(blogs);
 		for(int i = 0; i < classificationIds.size(); i++){
 			BlogsClassification classification= (BlogsClassification) getSession().get(BlogsClassification.class, classificationIds.get(i));
-			classification.getBlogs().add(blog);
-			blog.getClassification().add(classification);
+			classification.getBlogs().add(blogs);
+			blogs.getClassification().add(classification);
 		}
-		blog.setLastModified(new Date());
+		blogs.setCreateTime(new Date());
+		blogs.setLastModified(new Date());
 	}
 	
 }

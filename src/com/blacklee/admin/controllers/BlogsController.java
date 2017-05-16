@@ -76,9 +76,9 @@ public class BlogsController {
 		List<Object> allClassification = classificationService.getClassification();
 		request.setAttribute("blog", blog);
 		Set<BlogsClassification> checkedClassification = blog.getClassification();
-		Iterator<BlogsClassification> it = checkedClassification.iterator();
 		List<Object> list = new ArrayList<Object>();
 		for(int i = 0; i < allClassification.size(); i++){
+			Iterator<BlogsClassification> it = checkedClassification.iterator();
 			Map<String, Object> map = new HashedMap<>();
 			map.put("classification", allClassification.get(i));
 			Boolean flag = false;
@@ -103,7 +103,7 @@ public class BlogsController {
 	//更新博文数据
 	@ResponseBody
 	@RequestMapping("/updateBlogs")
-	public Map<String, Object> update(Integer id, String title, String label, String content, String type, List<Integer> classificationIds){
+	public Map<String, Object> update(@RequestParam("id")Integer id, @RequestParam("title")String title, @RequestParam("label")String label, @RequestParam("content")String content, @RequestParam("type")String type, @RequestParam("classification")List<Integer> classificationIds){
 		Map<String, Object> map = new HashedMap<>();
 		try{
 			blogsService.update(id, title, label, content, type, classificationIds);
