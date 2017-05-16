@@ -114,10 +114,10 @@
 										</label>
 										<div class=" col-md-6">
 											<label class="radio-inline">
-												<input id="type" type="radio" class="" name="type" value="原创" checked>原创
+												<input id="type" type="radio" name="type" value="原创" checked/>原创
 											</label>
 											<label class="radio-inline">
-												<input type="radio" class="" name="type" value="转载">转载
+												<input type="radio" class="" name="type" value="转载"/>转载
 											</label>
 										</div>
 									</div>

@@ -37,7 +37,8 @@ public class BlogsService {
 	
 	//更新博文数据
 	public void update(Integer id, String title, String label, String content, String type, List<Integer> classificationIds){
-		blogsDao.update(id, title, label, content, type, classificationIds);
+		Blogs blog = blogsDao.getBlogById(id);
+		blogsDao.update(blog, title, label, content, type, classificationIds);
 	}
 		
 }
