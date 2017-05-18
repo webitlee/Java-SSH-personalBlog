@@ -22,6 +22,7 @@ import com.blacklee.admin.service.BlogsService;
 import com.blacklee.admin.service.ClassificationService;
 
 @Controller
+@Scope("prototype")
 public class BlogsController {
 
 	@Autowired
@@ -57,14 +58,14 @@ public class BlogsController {
 	
 	//获取blogs表中前20条数据
 	@RequestMapping("/getBlogs")
-	public String getBlogs(HttpServletRequest request){
-		String firstResult = request.getParameter("firstResult");
-		String maxResult = request.getParameter("maxResult");
+	public String getBlogs(@RequestParam(value="pageIndex", required = false)Integer pageIndex, HttpServletRequest request){
+		//每页20条
+		Integer maxResult = 20;
 		List<Blogs> list = null;
-		if(firstResult == null || maxResult == null){
+		if(pageIndex == null){
 			list = blogsService.getBlogs(20, 0);
 		}else{
-			list = blogsService.getBlogs(Integer.parseInt(firstResult), Integer.parseInt(maxResult));
+			list = blogsService.getBlogs(maxResult, pageIndex);
 		}
 		request.setAttribute("blogs", list);
 		return "blogs.list";

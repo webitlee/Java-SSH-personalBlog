@@ -14,7 +14,7 @@
         <property name="label" type="java.lang.String">
             <column name="LABEL" />
         </property>
-        <one-to-one name="typeId" class="com.blacklee.admin.entity.BlogsType" cascade="save-update" lazy="false"></one-to-one>
+        <one-to-one name="typeId" class="com.blacklee.admin.entity.BlogsType" cascade="save-update" property-ref="blogsId"></one-to-one>
         <set name="classification" table="BLOGS_CLASSIFICATION" inverse="false" lazy="false" cascade="save-update">
             <key>
                 <column name="BLOGS_ID" />
@@ -23,7 +23,7 @@
             	<column name="CLASSIFICATION_ID"></column>
             </many-to-many>
         </set>
-        <one-to-one name="contentId" class="com.blacklee.admin.entity.BlogsContent" cascade="save-update" lazy="false"></one-to-one>
+        <one-to-one name="contentId" class="com.blacklee.admin.entity.BlogsContent" cascade="save-update" property-ref="blogsId"></one-to-one>
         <property name="support" type="java.lang.Integer">
             <column name="SUPPORT" />
         </property>
