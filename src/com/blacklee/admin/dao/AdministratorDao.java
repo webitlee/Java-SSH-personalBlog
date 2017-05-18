@@ -5,12 +5,14 @@ import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import com.blacklee.admin.entity.Administrator;
 
 
 @Repository
+@Scope("prototype")
 public class AdministratorDao {
 
 	@Resource

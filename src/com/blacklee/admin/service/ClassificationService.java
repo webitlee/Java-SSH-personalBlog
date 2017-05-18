@@ -3,11 +3,13 @@ package com.blacklee.admin.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.blacklee.admin.dao.ClassificationDao;
 
 @Service
+@Scope("prototype")
 public class ClassificationService {
 	
 	@Autowired

@@ -6,8 +6,8 @@ import java.util.Set;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
-@Repository
 @Scope("prototype")
+@Repository
 public class BlogsClassification {
 
 	private Integer id;

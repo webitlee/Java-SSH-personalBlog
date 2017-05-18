@@ -6,12 +6,14 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import com.blacklee.admin.entity.Blogs;
 import com.blacklee.admin.entity.BlogsContent;
 
 @Repository
+@Scope("prototype")
 public class BlogsContentDao {
 
 	@Resource

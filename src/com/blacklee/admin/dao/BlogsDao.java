@@ -2,9 +2,7 @@ package com.blacklee.admin.dao;
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -21,17 +19,18 @@ import com.blacklee.admin.entity.BlogsContent;
 import com.blacklee.admin.entity.BlogsType;
 
 @Repository
+@Scope("prototype")
 public class BlogsDao {
 
 	@Resource
 	private SessionFactory sessionFactory;
-	@Resource
+	@Autowired
 	private Blogs blogs;
-	@Resource
+	@Autowired
 	private BlogsContent blogsContent;
-	@Resource
+	@Autowired
 	private BlogsType blogsType;
-	@Resource
+	@Autowired
 	private BlogsClassification blogsClassification;
 	@Autowired
 	private BlogsContentDao blogsContentDao;

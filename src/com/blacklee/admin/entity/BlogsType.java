@@ -3,8 +3,8 @@ package com.blacklee.admin.entity;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
-@Repository
 @Scope("prototype")
+@Repository
 public class BlogsType {
 
 	private Integer id;
