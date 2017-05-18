@@ -42,10 +42,10 @@
                     <dd class="h20 lh-20 text-center tc-333">${requestScope.admin.username}</dd>
                 </dl>
                 <ul class="pt-20 pb-20 bd-bottom-dotted-ccc ts-0">
-                    <li class="inline-block h25 lh-25 w50p ts-12 tc-999">原创：100篇</li>
-                    <li class="inline-block h25 lh-25 w50p ts-12 tc-999">转载：100篇</li>
-                    <li class="inline-block h25 lh-25 w50p ts-12 tc-999">阅读：98554次</li>
-                    <li class="inline-block h25 lh-25 w50p ts-12 tc-999">点赞：98451次</li>
+                    <li class="inline-block h25 lh-25 w50p ts-12 tc-999">原创：${requestScope.typeOriginalSum}篇</li>
+                    <li class="inline-block h25 lh-25 w50p ts-12 tc-999">转载：${requestScope.typeCopySum}篇</li>
+                    <li class="inline-block h25 lh-25 w50p ts-12 tc-999">阅读：${requestScope.visitSum}次</li>
+                    <li class="inline-block h25 lh-25 w50p ts-12 tc-999">点赞：${requestScope.supportSum}次</li>
                 </ul>
                 <ul class="pt-20 pb-20 bd-bottom-dotted-ccc ts-12">
                     <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">文章分类</li>
@@ -138,13 +138,13 @@
                 	</c:forEach>
                 </ul>
                 <p class="h60 pt-10 pb-10 ts-12 tc-999 text-center">
-                    <span class="inline-block h30 lh-30 pr-5 v-top">20条</span>
-                    <span class="inline-block h30 lh-30 pr-5 v-top">共200页</span>
+                    <span class="inline-block h30 lh-30 pr-5 v-top">${requestScope.blogs.size()}条</span>
+                    <span class="inline-block h30 lh-30 pr-5 v-top">共${requestScope.blogsCount}页</span>
                     <a class="inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top bg-green tc-white" href="/myBlogs/getAll/1">1</a>
                     <a class="inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="javascript:;">2</a>
                     <a class="inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="javascript:;">3</a>
                     <a class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="javascript:;">下一页</a>
-                    <a class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="javascript:;">首页</a>
+                    <a class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1">首页</a>
                     <a class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="javascript:;">尾页</a>
                 </p>
             </div>

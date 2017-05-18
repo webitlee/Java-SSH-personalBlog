@@ -15,6 +15,7 @@ import com.blacklee.admin.entity.Administrator;
 import com.blacklee.admin.entity.Blogs;
 import com.blacklee.blogs.service.FrontendAdministratorService;
 import com.blacklee.blogs.service.FrontendBlogsService;
+import com.blacklee.blogs.service.FrontendTypeService;
 
 @Controller
 public class FrontendBlogsController {
@@ -22,6 +23,8 @@ public class FrontendBlogsController {
 	private FrontendBlogsService frontendBlogsService;
 	@Autowired
 	private FrontendAdministratorService frontendAdministratorService;
+	@Autowired
+	private FrontendTypeService frontendTypeService;
 	
 	@RequestMapping(value="/getAll/{id}", method=RequestMethod.GET)
 	public String getAllMsg(@PathVariable("id") Integer id, @RequestParam(value="pageIndex", required=false) Integer pageIndex, HttpServletRequest request){
@@ -35,6 +38,16 @@ public class FrontendBlogsController {
 		request.setAttribute("blogs", blogs);
 		Administrator admin = frontendAdministratorService.getUserInfo(id);
 		request.setAttribute("admin", admin);
+		Long typeOriginalSum = frontendTypeService.getOriginal();
+		request.setAttribute("typeOriginalSum", typeOriginalSum);
+		Long typeCopySum = frontendTypeService.getCopy();
+		request.setAttribute("typeCopySum", typeCopySum);
+		Long visitSum = frontendBlogsService.getVistSum();
+		request.setAttribute("visitSum", visitSum);
+		Long supportSum = frontendBlogsService.getSupportSum();
+		request.setAttribute("supportSum", supportSum);
+		Integer blogsCount = frontendBlogsService.getBlogsCount();
+		request.setAttribute("blogsCount", blogsCount);
 		return "frontend.blogs.list";
 	}
 }

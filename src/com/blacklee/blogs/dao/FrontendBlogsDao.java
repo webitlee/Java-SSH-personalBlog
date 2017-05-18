@@ -25,7 +25,7 @@ public class FrontendBlogsDao {
 	public Integer getBlogsCount(){
 		String hql = "select count(*) from Blogs";
 		Query query = getSession().createQuery(hql);
-		Integer count = query.list().size();
+		int count = (int) query.uniqueResult();
 		return count;
 	}
 	//获取指定条数的博文数据
@@ -35,5 +35,21 @@ public class FrontendBlogsDao {
 		List<Blogs> list =  query.setFirstResult(maxResult * pageIndex).setMaxResults(maxResult).list();
 		System.out.println(list);
 		return list;
+	}
+	
+	//获取博客阅读总数量
+	public Long getVisitSum(){
+		String hql = "select sum(b.visit) from Blogs b";
+		Query query = getSession().createQuery(hql);
+		Long sum = (Long) query.uniqueResult();
+		return sum;
+	}
+	
+	//获取博客点赞总数量
+	public Long getSupportSum(){
+		String hql = "select sum(b.support) from Blogs b";
+		Query query = getSession().createQuery(hql);
+		Long sum = (Long) query.uniqueResult();
+		return sum;
 	}
 }

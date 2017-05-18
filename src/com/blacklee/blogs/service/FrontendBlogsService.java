@@ -22,4 +22,20 @@ public class FrontendBlogsService {
 			return frontendBlogsDao.getBlogs(maxResult * pageIndex, maxResult);
 		}
 	}
+	
+	//查询记录的总条数
+	public Integer getBlogsCount(){
+		return frontendBlogsDao.getBlogsCount();
+	}
+	
+	
+	//获取博客阅读总数量
+	public Long getVistSum(){
+		return frontendBlogsDao.getVisitSum();
+	}
+	
+	//获取博客点在总数量
+	public Long getSupportSum(){
+		return frontendBlogsDao.getSupportSum();
+	}
 }
