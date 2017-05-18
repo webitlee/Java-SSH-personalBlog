@@ -52,7 +52,7 @@
 	</tx:advice>
 	<!-- 配置事务切点，并把事务切点和事务属性关联 -->
 	<aop:config>
-		<aop:pointcut expression="execution(* com.blacklee.admin.service.*.*(..))" id="txPointcut"/>
+		<aop:pointcut expression="execution(* com.blacklee.*.service.*.*(..))" id="txPointcut"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
 	</aop:config>
 </beans>

@@ -17,10 +17,13 @@
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/admin/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
+		<property name="order" value="2"></property>
 	</bean>
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/blogs/"></property>
+		<property name="viewNames" value="frontend*"></property>
+		<property name="prefix" value="/blogs/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
+		<property name="order" value="1"></property>
 	</bean>
 	
 	<!-- 处理静态资源 -->
