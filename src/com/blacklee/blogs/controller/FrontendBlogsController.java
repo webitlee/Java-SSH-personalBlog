@@ -15,6 +15,7 @@ import com.blacklee.admin.entity.Administrator;
 import com.blacklee.admin.entity.Blogs;
 import com.blacklee.blogs.service.FrontendAdministratorService;
 import com.blacklee.blogs.service.FrontendBlogsService;
+import com.blacklee.blogs.service.FrontendClassificationService;
 import com.blacklee.blogs.service.FrontendTypeService;
 
 @Controller
@@ -25,6 +26,8 @@ public class FrontendBlogsController {
 	private FrontendAdministratorService frontendAdministratorService;
 	@Autowired
 	private FrontendTypeService frontendTypeService;
+	@Autowired
+	private FrontendClassificationService frontendClassificationService;
 	
 	@RequestMapping(value="/getAll/{id}", method=RequestMethod.GET)
 	public String getAllMsg(@PathVariable("id") Integer id, @RequestParam(value="pageIndex", required=false) Integer pageIndex, HttpServletRequest request){
@@ -46,8 +49,16 @@ public class FrontendBlogsController {
 		request.setAttribute("visitSum", visitSum);
 		Long supportSum = frontendBlogsService.getSupportSum();
 		request.setAttribute("supportSum", supportSum);
-		Integer blogsCount = frontendBlogsService.getBlogsCount();
-		request.setAttribute("blogsCount", blogsCount);
+		Integer pagesCount = (int) Math.ceil((float)frontendBlogsService.getBlogsCount() / maxResult);
+		request.setAttribute("pagesCount", pagesCount);
+		List<String> classificationName = frontendClassificationService.getClassificationName();
+		request.setAttribute("classificationName", classificationName);
+		List<Object> titleByVisit = frontendBlogsService.getTitleByVisit();
+		request.setAttribute("titleByVisit", titleByVisit);
+		List<Object> titleBySupport = frontendBlogsService.getTitleBySupport();
+		request.setAttribute("titleBySupport", titleBySupport);
+		List<Object> titleById = frontendBlogsService.getTitleById();
+		request.setAttribute("titleById", titleById);
 		return "frontend.blogs.list";
 	}
 }

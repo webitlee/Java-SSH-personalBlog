@@ -15,7 +15,7 @@ public class FrontendBlogsService {
 	
 	//获取指定条数的博文数据
 	public List<Blogs> getBlogs(int maxResult, int pageIndex){
-		Integer count = frontendBlogsDao.getBlogsCount();
+		Integer count = frontendBlogsDao.getBlogsCount().intValue();
 		if(count < maxResult * (pageIndex + 1)){
 			return frontendBlogsDao.getBlogs(maxResult * pageIndex, count - maxResult * pageIndex);
 		}else{
@@ -34,8 +34,23 @@ public class FrontendBlogsService {
 		return frontendBlogsDao.getVisitSum();
 	}
 	
+	//获取阅读数前10的标题
+	public List<Object> getTitleByVisit(){
+		return frontendBlogsDao.getTitleByVisit();
+	}
+	
 	//获取博客点在总数量
 	public Long getSupportSum(){
 		return frontendBlogsDao.getSupportSum();
+	}
+	
+	//获取点在前10的标题
+	public List<Object> getTitleBySupport(){
+		return frontendBlogsDao.getTitleBySupport();
+	}
+	
+	//获取按id倒序前10个标题
+	public List<Object> getTitleById(){
+		return frontendBlogsDao.getTitleById();
 	}
 }

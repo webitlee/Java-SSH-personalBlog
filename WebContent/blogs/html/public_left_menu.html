@@ -1,0 +1,51 @@
+<%@page pageEncoding="UTF-8"%>
+ <div class="inline-block w200 pd-5 bd-ccc ts-14">
+    <p class="pl-5 bg-ccc h25 lh-25 tc-333">博主资料</p>
+    <dl class="pb-20 bd-bottom-dotted-ccc">
+        <dt>
+            <img class="block mt-15 w150 h150 mg-auto" src="${requestScope.admin.image}" alt="博主头像"/>
+        </dt>
+        <dd class="h20 lh-20 text-center tc-333">${requestScope.admin.username}</dd>
+    </dl>
+    <ul class="pt-20 pb-20 bd-bottom-dotted-ccc ts-0">
+        <li class="inline-block h25 lh-25 w50p ts-12 tc-999">原创：${requestScope.typeOriginalSum}篇</li>
+        <li class="inline-block h25 lh-25 w50p ts-12 tc-999">转载：${requestScope.typeCopySum}篇</li>
+        <li class="inline-block h25 lh-25 w50p ts-12 tc-999">阅读：${requestScope.visitSum}次</li>
+        <li class="inline-block h25 lh-25 w50p ts-12 tc-999">点赞：${requestScope.supportSum}次</li>
+    </ul>
+    <ul class="pt-20 pb-20 bd-bottom-dotted-ccc ts-12">
+        <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">文章分类</li>
+        <c:forEach var="names" items="${requestScope.classificationName}">
+	        <li class="h25 lh-25 ts-0">
+	            <a class="inline-block ts-12" href="javascript:;">${names}</a>
+	        </li>
+        </c:forEach>
+    </ul>
+    <ul class="pt-20 pb-20 bd-bottom-dotted-ccc ts-12">
+        <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">阅读排行</li>
+        <c:forEach var="titles" items="${requestScope.titleByVisit}">
+	        <li class="h25 lh-25 ts-0">
+	            <a class="inline-block w70p t-ellipsis ts-12" href="javascript:;">${titles[0]}</a>
+	            <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(${titles[1]})</span>
+	        </li>
+        </c:forEach>
+    </ul>
+    <ul class="pt-20 pb-20 bd-bottom-dotted-ccc ts-12">
+        <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">点赞排行</li>
+        <c:forEach var="titles" items="${requestScope.titleBySupport}">
+	        <li class="h25 lh-25 ts-0">
+	            <a class="inline-block w70p t-ellipsis ts-12" href="javascript:;">${titles[0]}</a>
+	            <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(${titles[1]})</span>
+	        </li>
+        </c:forEach>
+    </ul>
+    <ul class="pt-20 pb-20 bd-bottom-dotted-ccc ts-12">
+        <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">推荐文章</li>
+        <c:forEach var="titles" items="${requestScope.titleById}">
+	        <li class="h25 lh-25 ts-0">
+	            <a class="inline-block w70p t-ellipsis ts-12" href="javascript:;">${titles[0]}</a>
+	            <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(${titles[1]})</span>
+	        </li>
+        </c:forEach>
+    </ul>
+</div>

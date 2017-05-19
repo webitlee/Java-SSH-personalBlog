@@ -5,10 +5,40 @@ $(function(){
     //文章内容多余省略
     $('.content').each(function(){
         var lh = parseInt($(this).css('line-height'));
-        if($(this).height() >= lh){
+        console.log($(this).height());
+        if($(this).height() >= lh * 3){
             $(this).addClass('of-hidden').height(lh * 3);
             $(this).children('.omit').removeClass('none');
         }
+    });
+    //文章内容只显示文字，去掉img
+    $('.content').find('img').remove();
+
+    //根据总页生成分页
+    var pages = parseInt($('#pages').attr('data-pages'));
+    var $paging = $('#paging');
+    for(var i = 0; i < pages; i++){
+        if(i == 0){
+            $paging.append('<a class="page inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top bg-green tc-white" href="/myBlogs/getAll/1?pageIndex='+i+'">'+(i+1)+'</a>');
+        }else{
+            $paging.append('<a class="page inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1?pageIndex='+i+'">'+(i+1)+'</a>')
+        }
+    }
+    $paging.append('<a id="page_first" class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1">首页</a>');
+    $paging.append('<a id="page_last" class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1?pageIndex='+(pages-1)+'">尾页</a>');
+
+    //页码点击跳转
+    $(document).on('click', '.page', function(){
+        $(this).siblings('.page').removeClass('bg-green tc-white');
+        $(this).addClass('bg-green tc-white');
+    });
+    $(document).on('click', '#page_first', function(){
+        $('.page').removeClass('bg-green tc-white');
+        $('.page').first().addClass('bg-green tc-white');
+    });
+    $(document).on('click', '#page_last', function(){
+        $('.page').removeClass('bg-green tc-white');
+        $('.page').last().addClass('bg-green tc-white');
     });
 
     //csdn博客

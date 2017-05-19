@@ -1,3 +1,4 @@
+<%@page import="com.fasterxml.jackson.annotation.JsonInclude.Include"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -10,7 +11,7 @@
     <link rel="shortcut icon" href="/myBlogs/blogs/image/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/myBlogs/blogs/css/reset.css"/>
     <link href="/myBlogs/blogs/css/blogs.css" type="text/css" rel="stylesheet"/>
-    <title>-BlackLee的博客 -- 专注全栈开发</title>
+    <title>BlackLee的博客 -- 专注全栈开发</title>
 </head>
 <body>
 <header class="h40 bg-333">
@@ -33,75 +34,9 @@
     <div class="wrap">
         <h1 class="pt-50 h200 ts-30 tc-white">${requestScope.admin.username}的博客</h1>
         <div class="bd-ccc pd-5 pos-rel top-n30 bg-white ts-0">
-            <div class="inline-block w200 pd-5 bd-ccc ts-14">
-                <p class="pl-5 bg-ccc h25 lh-25 tc-333">博主资料</p>
-                <dl class="pb-20 bd-bottom-dotted-ccc">
-                    <dt>
-                        <img class="block mt-15 w150 h150 mg-auto" src="${requestScope.admin.image}" alt="博主头像"/>
-                    </dt>
-                    <dd class="h20 lh-20 text-center tc-333">${requestScope.admin.username}</dd>
-                </dl>
-                <ul class="pt-20 pb-20 bd-bottom-dotted-ccc ts-0">
-                    <li class="inline-block h25 lh-25 w50p ts-12 tc-999">原创：${requestScope.typeOriginalSum}篇</li>
-                    <li class="inline-block h25 lh-25 w50p ts-12 tc-999">转载：${requestScope.typeCopySum}篇</li>
-                    <li class="inline-block h25 lh-25 w50p ts-12 tc-999">阅读：${requestScope.visitSum}次</li>
-                    <li class="inline-block h25 lh-25 w50p ts-12 tc-999">点赞：${requestScope.supportSum}次</li>
-                </ul>
-                <ul class="pt-20 pb-20 bd-bottom-dotted-ccc ts-12">
-                    <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">文章分类</li>
-                    <li class="h25 lh-25 ts-0">
-                        <a class="inline-block ts-12" href="javascript:;">java</a>
-                    </li>
-                    <li class="h25 lh-25 ts-0">
-                        <a class="inline-block ts-12" href="javascript:;">Spring</a>
-                    </li>
-                </ul>
-                <ul class="pt-20 pb-20 bd-bottom-dotted-ccc ts-12">
-                    <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">阅读排行</li>
-                    <li class="h25 lh-25 ts-0">
-                        <a class="inline-block w70p t-ellipsis ts-12" href="javascript:;">论母猪的产后护理论母猪的产后护理</a>
-                        <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(21541)</span>
-                    </li>
-                    <li class="h25 lh-25 ts-0">
-                        <a class="inline-block w70p t-ellipsis ts-12" href="javascript:;">一路和和广佛艾芬达放大法3</a>
-                        <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(980)</span>
-                    </li>
-                    <li class="h25 lh-25 ts-0">
-                        <a class="inline-block w70p t-ellipsis ts-12" href="javascript:;">发地方1欧迪芬地方的</a>
-                        <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(300)</span>
-                    </li>
-                </ul>
-                <ul class="pt-20 pb-20 bd-bottom-dotted-ccc ts-12">
-                    <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">点赞排行</li>
-                    <li class="h25 lh-25 ts-0">
-                        <a class="inline-block w70p t-ellipsis ts-12" href="javascript:;">论母猪的产后护理论母猪的产后护理</a>
-                        <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(21541)</span>
-                    </li>
-                    <li class="h25 lh-25 ts-0">
-                        <a class="inline-block w70p t-ellipsis ts-12" href="javascript:;">一路和和广佛艾芬达放大法3</a>
-                        <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(980)</span>
-                    </li>
-                    <li class="h25 lh-25 ts-0">
-                        <a class="inline-block w70p t-ellipsis ts-12" href="javascript:;">发地方1欧迪芬地方的</a>
-                        <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(300)</span>
-                    </li>
-                </ul>
-                <ul class="pt-20 pb-20 bd-bottom-dotted-ccc ts-12">
-                    <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">推荐文章</li>
-                    <li class="h25 lh-25 ts-0">
-                        <a class="inline-block w70p t-ellipsis ts-12" href="javascript:;">论母猪的产后护理论母猪的产后护理</a>
-                        <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(21541)</span>
-                    </li>
-                    <li class="h25 lh-25 ts-0">
-                        <a class="inline-block w70p t-ellipsis ts-12" href="javascript:;">一路和和广佛艾芬达放大法3</a>
-                        <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(980)</span>
-                    </li>
-                    <li class="h25 lh-25 ts-0">
-                        <a class="inline-block w70p t-ellipsis ts-12" href="javascript:;">发地方1欧迪芬地方的</a>
-                        <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(300)</span>
-                    </li>
-                </ul>
-            </div>
+           <!-- 左侧菜单 -->
+           <%@include file="/blogs/html/public_left_menu.html"%>
+           
             <div class="inline-block pl-20 pr-20 ml-5 w983 bd-ccc ts-14 v-top">
                 <ul>
                 	<c:forEach var="blog" items="${requestScope.blogs}">
@@ -119,10 +54,10 @@
 	                                ${blog.title}
 	                            </a>
 	                        </h3>
-	                        <p class="content ts-14 tc-999 lh-30 pos-rel">
+	                        <div class="content ts-14 tc-999 lh-30 pos-rel">
 	                        	${blog.contentId.content}
 	                            <span class="omit pos-ab bottom-0 right-0 ts-12 w28 bg-white none">...</span>
-	                        </p>
+	                        </div>
 	                        <p class="ts-12 h40 lh-40">
 	                            <a class="pull-right pr-20" href="javascript:;">
 	                              	  阅读
@@ -137,16 +72,12 @@
 	                    </li>
                 	</c:forEach>
                 </ul>
-                <p class="h60 pt-10 pb-10 ts-12 tc-999 text-center">
+                <div class="h60 pt-10 pb-10 ts-12 tc-999 text-center">
                     <span class="inline-block h30 lh-30 pr-5 v-top">${requestScope.blogs.size()}条</span>
-                    <span class="inline-block h30 lh-30 pr-5 v-top">共${requestScope.blogsCount}页</span>
-                    <a class="inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top bg-green tc-white" href="/myBlogs/getAll/1">1</a>
-                    <a class="inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="javascript:;">2</a>
-                    <a class="inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="javascript:;">3</a>
-                    <a class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="javascript:;">下一页</a>
-                    <a class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1">首页</a>
-                    <a class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="javascript:;">尾页</a>
-                </p>
+                    <span id="pages" class="inline-block h30 lh-30 pr-5 v-top" data-pages="${requestScope.pagesCount}">共${requestScope.pagesCount}页</span>
+                    <div id="paging" class="inline-block">
+                    </div>		
+                </div>
             </div>
         </div>
     </div>
