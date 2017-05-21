@@ -8,6 +8,9 @@ KISSY CSS Reset
 *{
     box-sizing: border-box;
 }
+i{
+    font-style:normal !important;
+}
 a{
     color:#337ab7;
 }

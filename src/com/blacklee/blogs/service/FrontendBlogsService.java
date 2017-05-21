@@ -53,4 +53,19 @@ public class FrontendBlogsService {
 	public List<Object> getTitleById(){
 		return frontendBlogsDao.getTitleById();
 	}
+	
+	//根据id获取博文数据
+	public Blogs getBlogById(Integer id){
+		return frontendBlogsDao.getBlogById(id);
+	}
+	
+	//点赞数加一
+	public void addVist(Integer id){
+		frontendBlogsDao.addVisit(id);
+	}
+	
+	//点赞数加一
+	public void addSupport(Integer id){
+		frontendBlogsDao.addSupport(id);
+	}
 }

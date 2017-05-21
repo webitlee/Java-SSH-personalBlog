@@ -20,7 +20,7 @@ public class FrontendClassificationDao {
 	
 	//获取所有分类名称
 	public List<String> getClassificationName(){
-		String hql = "select c.name from BlogsClassification c";
+		String hql = "select c.name, c.id from BlogsClassification c";
 		Query query = getSession().createQuery(hql);
 		List<String> names = query.list();
 		return names;

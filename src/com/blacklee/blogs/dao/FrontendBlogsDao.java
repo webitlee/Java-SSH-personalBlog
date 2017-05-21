@@ -46,7 +46,7 @@ public class FrontendBlogsDao {
 	
 	//获取阅读数前10的标题
 	public List<Object> getTitleByVisit(){
-			String hql = "select b.title, b.visit from Blogs b order by b.visit desc limit 10";
+			String hql = "select b.title, b.visit, b.id from Blogs b order by b.visit desc limit 10";
 			Query query = getSession().createQuery(hql);
 			List<Object> titleByVisit = query.list();
 			return titleByVisit;
@@ -54,7 +54,7 @@ public class FrontendBlogsDao {
 	
 	//获取点赞前10的标题
 	public List<Object> getTitleBySupport(){
-		String hql = "select b.title, b.support from Blogs b order by b.support desc limit 10";
+		String hql = "select b.title, b.support, b.id from Blogs b order by b.support desc limit 10";
 		Query query = getSession().createQuery(hql);
 		List<Object> titleBySupport = query.list();
 		return titleBySupport;
@@ -62,7 +62,7 @@ public class FrontendBlogsDao {
 	
 	//获取按id倒序前10个标题
 	public List<Object> getTitleById(){
-		String hql = "select b.title,b.visit from Blogs b order by b.id desc limint 10";
+		String hql = "select b.title,b.visit, b.id from Blogs b order by b.id desc limint 10";
 		Query query = getSession().createQuery(hql);
 		List<Object> titleById = query.list();
 		return titleById;
@@ -75,4 +75,25 @@ public class FrontendBlogsDao {
 		Long sum = (Long) query.uniqueResult();
 		return sum;
 	}
+	
+	//根据id获取博文数据
+	public Blogs getBlogById(Integer id){
+		return (Blogs) getSession().get(Blogs.class, id);
+	}
+	
+	//访问量加一
+	public void addVisit(Integer id){
+		Blogs blog = (Blogs) getSession().get(Blogs.class, id);
+		Integer visit = blog.getVisit();
+		blog.setVisit(visit + 1);
+	}
+	
+	//点赞数加一
+	public void addSupport(Integer id){
+		Blogs blog = (Blogs) getSession().get(Blogs.class, id);
+		Integer support = blog.getSupport();
+		blog.setSupport(support + 1);
+	}
+	
+	
 }

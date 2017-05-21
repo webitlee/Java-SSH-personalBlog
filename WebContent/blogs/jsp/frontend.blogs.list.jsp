@@ -42,7 +42,7 @@
                 	<c:forEach var="blog" items="${requestScope.blogs}">
 	                	<li class="pb-20 bd-bottom-dotted-ccc">
 	                        <h3 class="h40 lh-40">
-	                            <a href="javascript:;">
+	                            <a href="/myBlogs/getBlog/${blog.id}">
 	                            	<c:choose>
 	                            		<c:when test="${blog.typeId.name == '原创'}">
 	                            			<i class="inline-block w20 h35 bg-yuan pr-20 v-top"></i>
