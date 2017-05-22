@@ -17,7 +17,7 @@
         <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">文章分类</li>
         <c:forEach var="names" items="${requestScope.classificationName}">
 	        <li class="h25 lh-25 ts-0">
-	            <a class="inline-block ts-12" href="/myBlogs/getBlogsByClassificationId/${names[1]}">${names[0]}</a>
+	            <a class="inline-block ts-12" href="/myBlogs/getAll/1?classificationId=${names[1]}">${names[0]}</a>
 	        </li>
         </c:forEach>
     </ul>

@@ -41,5 +41,10 @@ public class BlogsService {
 		Blogs blog = blogsDao.getBlogById(id);
 		blogsDao.update(blog, title, label, content, type, classificationIds);
 	}
+	
+	//获取博客阅读总数量、点赞总数量
+		public List<Object> getVisitSupportSum(){
+			return blogsDao.getVisitSupportSum();
+		}
 		
 }

@@ -5,7 +5,6 @@ $(function(){
     //文章内容多余省略
     $('.content').each(function(){
         var lh = parseInt($(this).css('line-height'));
-        console.log($(this).height());
         if($(this).height() >= lh * 3){
             $(this).addClass('of-hidden').height(lh * 3);
             $(this).children('.omit').removeClass('none');
@@ -14,18 +13,40 @@ $(function(){
     //文章内容只显示文字，去掉img
     $('.content').find('img').remove();
 
-    //根据总页生成分页
+    //根据总页数生成分页
     var pages = parseInt($('#pages').attr('data-pages'));
-    var $paging = $('#paging');
-    for(var i = 0; i < pages; i++){
-        if(i == 0){
-            $paging.append('<a class="page inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top bg-green tc-white" href="/myBlogs/getAll/1?pageIndex='+i+'">'+(i+1)+'</a>');
-        }else{
-            $paging.append('<a class="page inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1?pageIndex='+i+'">'+(i+1)+'</a>')
+    var pageingClassification = $('#pages').attr('data-classification');
+    var arguments = location.search.substring('1').split('&');
+    var classificationId = null;
+    for(var i = 0; i < arguments.length; i++){
+        var arr = arguments[i].split('=');
+        if(arr[0] == 'classificationId'){
+            classificationId = arr[1];
         }
     }
-    $paging.append('<a id="page_first" class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1">首页</a>');
-    $paging.append('<a id="page_last" class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1?pageIndex='+(pages-1)+'">尾页</a>');
+    var $paging = $('#paging');
+    if(pageingClassification){
+        for(var i = 0; i < pages; i++){
+            if(i == 0){
+                $paging.append('<a class="page inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top bg-green tc-white" href="/myBlogs/getAll/1?pageIndex='+i+'&classificationId='+classificationId+'">'+(i+1)+'</a>');
+            }else{
+                $paging.append('<a class="page inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1?pageIndex='+i+'&classificationId='+classificationId+'">'+(i+1)+'</a>');
+            }
+        }
+        $paging.append('<a id="page_first" class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1?classificationId='+classificationId+'">首页</a>');
+        $paging.append('<a id="page_last" class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1?pageIndex='+(pages-1)+'&classificationId='+classificationId+'">尾页</a>');
+
+    }else{
+        for(var i = 0; i < pages; i++){
+            if(i == 0){
+                $paging.append('<a class="page inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top bg-green tc-white" href="/myBlogs/getAll/1?pageIndex='+i+'">'+(i+1)+'</a>');
+            }else{
+                $paging.append('<a class="page inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1?pageIndex='+i+'">'+(i+1)+'</a>')
+            }
+        }
+        $paging.append('<a id="page_first" class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1">首页</a>');
+        $paging.append('<a id="page_last" class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1?pageIndex='+(pages-1)+'">尾页</a>');
+    }
 
     //页码点击跳转
     $(document).on('click', '.page', function(){

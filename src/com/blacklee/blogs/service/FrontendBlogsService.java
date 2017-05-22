@@ -1,6 +1,7 @@
 package com.blacklee.blogs.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,11 @@ public class FrontendBlogsService {
 		}else{
 			return frontendBlogsDao.getBlogs(maxResult * pageIndex, maxResult);
 		}
+	}
+	
+	//根据分类id获取指定条数的博文数据
+	public Set<Blogs> getBlogsByClassificationId(Integer classificationId, Integer maxResult, Integer pageIndex){
+		return frontendBlogsDao.getBlogsByClassificationId(classificationId, maxResult, pageIndex);
 	}
 	
 	//查询记录的总条数

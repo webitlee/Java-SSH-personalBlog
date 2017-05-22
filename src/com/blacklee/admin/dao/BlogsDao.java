@@ -109,5 +109,13 @@ public class BlogsDao {
 		}
 		blog.setLastModified(new Date());
 	}
+	
+	//获取博客阅读总数量、点赞总数量
+	public List<Object> getVisitSupportSum(){
+		String hql = "select sum(b.visit), sum(b.support) from Blogs b";
+		Query query = getSession().createQuery(hql);
+		List<Object> sum = query.list();
+		return sum;
+	}
 
 }

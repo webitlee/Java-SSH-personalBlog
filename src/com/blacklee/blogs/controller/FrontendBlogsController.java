@@ -1,8 +1,10 @@
 package com.blacklee.blogs.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -34,13 +36,23 @@ public class FrontendBlogsController {
 	
 	//博文列表、排名、管理员信息页面
 	@RequestMapping(value="/getAll/{id}", method=RequestMethod.GET)
-	public String getAllMsg(@PathVariable("id") Integer id, @RequestParam(value="pageIndex", required=false) Integer pageIndex, HttpServletRequest request){
+	public String getAllMsg(@PathVariable("id") Integer id,@RequestParam(value="classificationId", required=false)Integer classificationId, @RequestParam(value="pageIndex", required=false) Integer pageIndex, HttpServletRequest request){
 		Integer maxResult = 20;
 		List<Blogs> blogs = null;
-		if(pageIndex == null){
-			blogs = frontendBlogsService.getBlogs(20, 0);
+		if(classificationId == null){
+			request.setAttribute("pagingClassification", false);
+			if(pageIndex == null){
+				blogs = frontendBlogsService.getBlogs(maxResult, 0);
+			}else{
+				blogs = frontendBlogsService.getBlogs(maxResult, pageIndex);
+			}
 		}else{
-			blogs = frontendBlogsService.getBlogs(maxResult, pageIndex);
+			request.setAttribute("pagingClassification", true);
+			if(pageIndex == null){
+				blogs = new ArrayList<>(frontendBlogsService.getBlogsByClassificationId(classificationId, maxResult, 0));
+			}else{
+				blogs = new ArrayList<>(frontendBlogsService.getBlogsByClassificationId(classificationId, maxResult, pageIndex));
+			}
 		}
 		request.setAttribute("blogs", blogs);
 		Administrator admin = frontendAdministratorService.getUserInfo(id);

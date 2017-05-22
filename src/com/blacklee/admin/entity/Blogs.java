@@ -1,5 +1,6 @@
 package com.blacklee.admin.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +15,7 @@ public class Blogs {
 	private String title;
 	private String label;
 	private BlogsType typeId;
-	private Set<BlogsClassification> classification = new HashSet<>();
+	private Set<BlogsClassification> classification =new HashSet<>();
 	private BlogsContent contentId;
 	private Integer support;
 	private Integer visit;

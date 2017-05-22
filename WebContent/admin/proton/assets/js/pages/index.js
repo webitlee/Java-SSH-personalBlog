@@ -27,37 +27,6 @@ $(document).ready(function(){
 	
 	
 	
-	
-	/* ---------- Map ---------- */
-	$(function(){
-	  $('#map').vectorMap({
-	    map: 'world_mill_en',
-	    series: {
-	      regions: [{
-	        values: gdpData,
-	        scale: ['#000', '#000'],
-	        normalizeFunction: 'polynomial'
-	      }]
-	    },
-		backgroundColor: '#fff',
-	    onLabelShow: function(e, el, code){
-	      el.html(el.html()+' (GDP - '+gdpData[code]+')');
-	    }
-	  });
-	});
-	
-	/* ---------- Placeholder Fix for IE ---------- */
-	$('input, textarea').placeholder();
-
-	/* ---------- Auto Height texarea ---------- */
-	$('textarea').autosize();
-	
-	$('#recent a:first').tab('show');
-	$('#recent a').click(function (e) {
-	  e.preventDefault();
-	  $(this).tab('show');
-	}); 
-	
 	/*------- Main Calendar -------*/
 	$('#external-events div.external-event').each(function() {
 
@@ -131,18 +100,14 @@ $(document).ready(function(){
 			}
 		]
 	});
-	/*------- Moris Chart -------*/
+	/*------- Moris chart -------*/
 	Morris.Donut({
 		element: 'hero-donut',
 		data: [
-			{label: 'Chrome', value: 17 },
-			{label: 'Opera', value: 18 },
-	      	{label: 'Firefox', value: 23 },
-	      	{label: 'Safari', value: 12 },
-	      	{label: 'IE', value: 8 },
-			{label: 'Other', value: 22 }
+			{label: '原创', value: Math.round(parseInt($('#original').attr('data-sum')) * 100 / (parseInt($('#original').attr('data-sum')) + parseInt( $('#copy').attr('data-sum'))))},
+			{label: '转载', value: Math.round(parseInt($('#copy').attr('data-sum')) * 100 / (parseInt($('#original').attr('data-sum')) + parseInt( $('#copy').attr('data-sum'))))},
 	    ],
-		colors: ["#36A9E1", "#d1b993", "#bdea74", "#67c2ef", "#fabb3d", "#ff5454"],
+		colors: ["#fabb3d", "#ff5454"],
 		formatter: function (y) { return y + "%" }
 	});
 	
@@ -215,52 +180,7 @@ $(document).ready(function(){
 	}
 	
 });
-
-
-	/*------- Page View Chart -------*/
-	(function () {
-var data = [{"xScale":"ordinal","comp":[],"main":[{"className":".main.l1","data":[{"y":15,"x":"2012-11-19T00:00:00"},{"y":11,"x":"2012-11-20T00:00:00"},{"y":8,"x":"2012-11-21T00:00:00"},{"y":10,"x":"2012-11-22T00:00:00"},{"y":1,"x":"2012-11-23T00:00:00"},{"y":6,"x":"2012-11-24T00:00:00"},{"y":8,"x":"2012-11-25T00:00:00"}]},{"className":".main.l2","data":[{"y":29,"x":"2012-11-19T00:00:00"},{"y":33,"x":"2012-11-20T00:00:00"},{"y":13,"x":"2012-11-21T00:00:00"},{"y":16,"x":"2012-11-22T00:00:00"},{"y":7,"x":"2012-11-23T00:00:00"},{"y":18,"x":"2012-11-24T00:00:00"},{"y":8,"x":"2012-11-25T00:00:00"}]}],"type":"line-dotted","yScale":"linear"},{"xScale":"ordinal","comp":[],"main":[{"className":".main.l1","data":[{"y":12,"x":"2012-11-19T00:00:00"},{"y":18,"x":"2012-11-20T00:00:00"},{"y":8,"x":"2012-11-21T00:00:00"},{"y":7,"x":"2012-11-22T00:00:00"},{"y":6,"x":"2012-11-23T00:00:00"},{"y":12,"x":"2012-11-24T00:00:00"},{"y":8,"x":"2012-11-25T00:00:00"}]},{"className":".main.l2","data":[{"y":29,"x":"2012-11-19T00:00:00"},{"y":33,"x":"2012-11-20T00:00:00"},{"y":13,"x":"2012-11-21T00:00:00"},{"y":16,"x":"2012-11-22T00:00:00"},{"y":7,"x":"2012-11-23T00:00:00"},{"y":18,"x":"2012-11-24T00:00:00"},{"y":8,"x":"2012-11-25T00:00:00"}]}],"type":"cumulative","yScale":"linear"},{"xScale":"ordinal","comp":[],"main":[{"className":".main.l1","data":[{"y":12,"x":"2012-11-19T00:00:00"},{"y":18,"x":"2012-11-20T00:00:00"},{"y":8,"x":"2012-11-21T00:00:00"},{"y":7,"x":"2012-11-22T00:00:00"},{"y":6,"x":"2012-11-23T00:00:00"},{"y":12,"x":"2012-11-24T00:00:00"},{"y":8,"x":"2012-11-25T00:00:00"}]},{"className":".main.l2","data":[{"y":29,"x":"2012-11-19T00:00:00"},{"y":33,"x":"2012-11-20T00:00:00"},{"y":13,"x":"2012-11-21T00:00:00"},{"y":16,"x":"2012-11-22T00:00:00"},{"y":7,"x":"2012-11-23T00:00:00"},{"y":18,"x":"2012-11-24T00:00:00"},{"y":8,"x":"2012-11-25T00:00:00"}]}],"type":"bar","yScale":"linear"}];
-var order = [0, 1, 0, 2],
-  i = 0,
-  xFormat = d3.time.format('%A'),
-  chart = new xChart('line-dotted', data[order[i]], '#chart', {
-    axisPaddingTop: 5,
-    dataFormatX: function (x) {
-      return new Date(x);
-    },
-    tickFormatX: function (x) {
-      return xFormat(x);
-    },
-    timing: 1250
-  }),
-  rotateTimer,
-  toggles = d3.selectAll('.multi button'),
-  t = 3500;
-
-function updateChart(i) {
-  var d = data[i];
-  chart.setData(d);
-  toggles.classed('toggled', function () {
-    return (d3.select(this).attr('data-type') === d.type);
-  });
-  return d;
-}
-
-toggles.on('click', function (d, i) {
-  clearTimeout(rotateTimer);
-  updateChart(i);
-});
-
-function rotateChart() {
-  i += 1;
-  i = (i >= order.length) ? 0 : i;
-  var d = updateChart(order[i]);
-  rotateTimer = setTimeout(rotateChart, t);
-}
-rotateTimer = setTimeout(rotateChart, t);
-}());
-	
-	
+		
 	/*------- Gauge -------*/
 	var opts = {
 	  	lines: 11, // The number of lines to draw
@@ -281,7 +201,7 @@ rotateTimer = setTimeout(rotateChart, t);
 	var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
 	gauge.maxValue = 2000; // set max gauge value
 	gauge.animationSpeed = 40; // set animation speed (32 is default value)
-	gauge.set(1000); // set actual value
+	gauge.set(parseFloat($('#gauge1').attr('data-percentage')) * gauge.maxValue); // set actual value
 	
 	var opts2 = {
 	  	lines: 11, // The number of lines to draw
@@ -302,7 +222,7 @@ rotateTimer = setTimeout(rotateChart, t);
 	var gauge = new Gauge(target).setOptions(opts2); // create sexy gauge!
 	gauge.maxValue = 2000; // set max gauge value
 	gauge.animationSpeed = 80; // set animation speed (32 is default value)
-	gauge.set(1500); // set actual value
+	gauge.set(parseFloat($('#gauge2').attr('data-percentage')) * gauge.maxValue); // set actual value
 	
 });
 

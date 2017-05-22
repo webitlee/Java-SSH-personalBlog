@@ -11,7 +11,7 @@
         <property name="name" type="java.lang.String">
             <column name="NAME" length="50"/>
         </property>
-        <set name="blogs" table="BLOGS_CLASSIFICATION" inverse="true">
+        <set name="blogs" table="BLOGS_CLASSIFICATION" inverse="true" lazy="false">
             <key>
                 <column name="CLASSIFICATION_ID"/>
             </key>

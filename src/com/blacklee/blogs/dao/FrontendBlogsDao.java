@@ -1,6 +1,9 @@
 package com.blacklee.blogs.dao;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -9,7 +12,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import com.blacklee.admin.dao.ClassificationDao;
 import com.blacklee.admin.entity.Blogs;
+import com.blacklee.admin.entity.BlogsClassification;
 
 @Repository
 public class FrontendBlogsDao {
@@ -34,6 +39,23 @@ public class FrontendBlogsDao {
 		Query query = getSession().createQuery(hql);
 		List<Blogs> list =  query.setFirstResult(maxResult * pageIndex).setMaxResults(maxResult).list();
 		return list;
+	}
+	
+	//根据分类id获取指定条数的博文数据
+	public Set<Blogs> getBlogsByClassificationId(Integer classificationId, Integer maxResult, Integer pageIndex){
+		BlogsClassification classification = (BlogsClassification) getSession().get(BlogsClassification.class, classificationId); 
+		Set<Blogs> blogs = classification.getBlogs();
+		Set<Blogs> pagingBlogs = new HashSet<>();
+		int i = 0;
+		Iterator<Blogs> it = blogs.iterator();
+		while(it.hasNext()){
+			i++;
+			Blogs blog = it.next();
+			if(i >= maxResult * pageIndex && i <= maxResult * pageIndex + maxResult){
+				pagingBlogs.add(blog);
+			}
+		}
+		return pagingBlogs;
 	}
 	
 	//获取博客阅读总数量
