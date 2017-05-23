@@ -18,13 +18,14 @@
 		<link href="/myBlogs/admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/climacons-font.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/plugins/xcharts/css/xcharts.min.css" rel=" stylesheet">
-		<link href="/myBlogs/admin/proton/assets/plugins/fullcalendar/css/fullcalendar.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/plugins/morris/css/morris.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
 	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
 		<link href="/myBlogs/admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
+		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet">
 		
 
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -145,469 +146,189 @@
 				</div><!--/.col-->
 			</div><!--/.row-->	
 				
-			<div class="row">			
-				
-				<div class="col-lg-6 col-md-12">
-					
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h2><i class="fa fa-spinner red"></i><strong>In Progress</strong></h2>
-							<div class="panel-actions">
-								<a href="index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
-								<a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-								<a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
+			<div class="row">	
+				<div class="col-lg-12 col-md-12">
+						<div class="panel panel-default">	
+							<div class="panel-heading">
+								<h2><i class="fa fa-bars red"></i><strong>分类情况</strong></h2>
 							</div>
-							<ul class="nav nav-tabs" id="recent">
-							  	<li class="active"><a href="index.html#tasks">Tasks</a></li>
-							  	<li><a href="index.html#tickets">Tickets</a></li>
-							</ul>
+							<div class="panel-body" style="background-color:#e6e8ea;">
+								<c:forEach var="classification" items="${requestScope.classifications}" varStatus="c">
+									<c:if test="${(c.index + 1)%4 == 1}">
+										<div class="col-md-3">
+											<div class="social-box facebook">
+												<i class="fa fa-sitemap"></i>
+												<ul>
+													<li>
+														<strong>${classification.name}</strong>
+														<span>分类名称</span>
+													</li>
+													<li>
+														<strong>${classification.blogs.size()}</strong>
+														<span>博客篇数</span>
+													</li>
+												</ul>
+											</div><!--/social-box-->			
+											
+										</div><!--/col-->
+									</c:if>
+									<c:if test="${(c.index + 1)%4 == 2}">
+										<div class="col-md-3">
+											<div class="social-box twitter">
+												<i class="fa fa-sitemap"></i>
+												<ul>
+													<li>
+														<strong>${classification.name}</strong>
+														<span>分类名称</span>
+													</li>
+													<li>
+														<strong>${classification.blogs.size()}</strong>
+														<span>博客篇数</span>
+													</li>
+												</ul>
+											</div><!--/social-box-->			
+											
+										</div><!--/col-->
+									</c:if>
+									<c:if test="${(c.index + 1)%4 == 3}">
+										<div class="col-md-3">
+											
+											<div class="social-box linkedin">
+												<i class="fa fa-sitemap"></i>
+												<ul>
+													<li>
+														<strong>${classification.name}</strong>
+														<span>分类名称</span>
+													</li>
+													<li>
+														<strong>${classification.blogs.size()}</strong>
+														<span>博客篇数</span>
+													</li>
+												</ul>
+											</div><!--/social-box-->			
+											
+										</div><!--/col-->
+									</c:if>
+									<c:if test="${(c.index + 1)%4 == 0}">
+										<div class="col-md-3">
+											
+											<div class="social-box google-plus">
+												<i class="fa fa-sitemap"></i>
+												<ul>
+													<li>
+														<strong>${classification.name}</strong>
+														<span>分类名称</span>
+													</li>
+													<li>
+														<strong>${classification.blogs.size()}</strong>
+														<span>博客篇数</span>
+													</li>
+												</ul>
+											</div><!--/social-box-->			
+											
+										</div><!--/col-->
+									</c:if>					
+								</c:forEach>
+							</div>
 						</div>
-						<div class="panel-body">
-							<div class="tab-content">
-								<div class="tab-pane active" id="tasks">
-									<table class="table bootstrap-datatable datatable small-font">
-										<thead>
-											  <tr>
-												  <th>Task</th>
-												  <th>Assigned to</th>
-												  <th>Progress</th>
-												  <th class="center">Status</th>
-											  </tr>
-										  </thead>   
-										  <tbody>
-											<tr>
-												<td>Package Usage</td>
-												<td>Jenny Coe</td>
-												<td>
-													<div class="progress thin">
-													  	<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" style="width: 73%">
-													    	<span class="sr-only">73% Complete (success)</span>
-													  	</div>
-													</div>
-												</td>
-												<td class="text-center text-info">
-													Active
-												</td>
-											</tr>
-											<tr>
-												<td>Payment Process</td>
-												<td>Jack Key</td>
-												<td>
-													<div class="progress thin">
-													  	<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
-													    	<span class="sr-only">95% Complete (success)</span>
-													  	</div>
-													</div>
-												</td>
-												<td class="text-center text-success">
-													Active
-												</td>
-											</tr>
-											<tr>
-												<td>Web Development</td>
-												<td>Jossy</td>
-												<td>
-													<div class="progress thin">
-													  	<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100" style="width: 27%">
-													    	<span class="sr-only">27% Complete (success)</span>
-													  	</div>
-													</div>
-												</td>
-												<td class="text-center text-warning">
-													Pending
-												</td>
-											</tr>
-											<tr>
-												<td>Web Error</td>
-												<td>Alex Bram</td>
-												<td>
-													<div class="progress thin">
-													  	<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-													    	<span class="sr-only">50% Complete (success)</span>
-													  	</div>
-													</div>
-												</td>
-												<td class="text-center text-primary">
-													Active
-												</td>
-											</tr>
-											<tr>
-												<td>Storage Capacity</td>
-												<td>Jimmy Doe</td>
-												<td>
-													<div class="progress thin">
-													  	<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" style="width: 73%">
-													    	<span class="sr-only">73% Complete (success)</span>
-													  	</div>
-													</div>
-												</td>
-												<td class="text-center text-danger">
-													Canceled
-												</td>
-											</tr>
-											<tr>
-												<td>Disk Performance</td>
-												<td>Marcell</td>
-												<td>
-													<div class="progress thin">
-													  	<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-													    	<span class="sr-only">40% Complete (success)</span>
-													  	</div>
-													</div>
-												</td>
-												<td class="text-center text-primary">
-													Active
-												</td>
-											</tr>
-											<tr>
-												<td>Yearly Services</td>
-												<td>Morgan</td>
-												<td>
-													<div class="progress thin">
-													  	<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100" style="width: 27%">
-													    	<span class="sr-only">27% Complete (success)</span>
-													  	</div>
-													</div>
-												</td>
-												<td class="text-center text-warning">
-													Pending
-												</td>
-											</tr>											
-										</tbody>
-									</table>
-								</div>	
-							  	<div class="tab-pane" id="tickets">
-									<table class="table bootstrap-datatable datatable small-font">
-										<thead>
-											<tr>
-												<th>Status</th>
-												<th>Date</th>
-												<th>Description</th>
-												<th>User</th>
-												<th>Number</th>
-											</tr>
-										</thead>   
-										<tbody>
-											<tr>
-												<td><span class="label label-success">Complete</span></td>
-												<td>May 10, 2014 18:05</td>
-												<td>Disk problem</td>
-												<td>Gerry</td>
-												<td><b>[#26915]</b></td>
-											</tr>
-											<tr>
-												<td><span class="label label-warning">Suspended</span></td>
-												<td>May 10, 2014 18:05</td>
-												<td>Hosting Update</td>
-												<td>Sarah</td>
-												<td><b>[#25986]</b></td>
-											</tr>
-											<tr>
-												<td><span class="label label-danger">Rejected</span></td>
-												<td>May 10, 2014 18:05</td>
-												<td>Trouble Connection</td>
-												<td>Smith</td>
-												<td><b>[#23695]</b></td>
-											</tr>
-											<tr>
-												<td><span class="label label-info">In progress</span></td>
-												<td>May 10, 2014 18:05</td>
-												<td>Domain Performance </td>
-												<td>George</td>
-												<td><b>[#24587]</b></td>
-											</tr>
-											<tr>
-												<td><span class="label label-success">Complete</span></td>
-												<td>May 10, 2014 18:05</td>
-												<td>Paypal Registration</td>
-												<td>Justin</td>
-												<td><b>[#25698]</b></td>
-											</tr>
-											<tr>
-												<td><span class="label label-success">Complete</span></td>
-												<td>May 10, 2014 18:05</td>
-												<td>Server Problem</td>
-												<td>Elie</td>
-												<td><b>[#25367]</b></td>
-											</tr>
-											<tr>
-												<td><span class="label label-info">In progress</span></td>
-												<td>May 10, 2014 18:05</td>
-												<td>Design Error</td>
-												<td>Reinald</td>
-												<td><b>[#25639]</b></td>
-											</tr>
-																					
-										</tbody>
-									</table>
-							  	</div>
-							</div>	 	
-						</div>
-					</div>
-					
-				</div><!--/col-->
-				<div class="col-md-3">
-					
-					<div class="social-box facebook">
-						<i class="fa fa-facebook"></i>
-						<ul>
-							<li>
-								<strong>256k</strong>
-								<span>friends</span>
-							</li>
-							<li>
-								<strong>359</strong>
-								<span>feeds</span>
-							</li>
-						</ul>
-					</div><!--/social-box-->			
-					
-				</div><!--/col-->
-				
-				<div class="col-md-3">
-					
-					<div class="social-box twitter">
-						<i class="fa fa-twitter"></i>
-						<ul>
-							<li>
-								<strong>1562k</strong>
-								<span>followers</span>
-							</li>
-							<li>
-								<strong>2562</strong>
-								<span>tweets</span>
-							</li>
-						</ul>
-					</div><!--/social-box-->			
-					
-				</div><!--/col-->
-				
-				<div class="col-md-3">
-					
-					<div class="social-box linkedin">
-						<i class="fa fa-linkedin"></i>
-						<ul>
-							<li>
-								<strong>8926</strong>
-								<span>contacts</span>
-							</li>
-							<li>
-								<strong>6253</strong>
-								<span>feeds</span>
-							</li>
-						</ul>
-					</div><!--/social-box-->			
-					
-				</div><!--/col-->
-				
-				<div class="col-md-3">
-					
-					<div class="social-box google-plus">
-						<i class="fa fa-google-plus"></i>
-						<ul>
-							<li>
-								<strong>962</strong>
-								<span>followers</span>
-							</li>
-							<li>
-								<strong>256</strong>
-								<span>circles</span>
-							</li>
-						</ul>
-					</div><!--/social-box-->			
-					
-				</div><!--/col-->
+					</div><!--/col-->
 					
 			</div><!--/row-->	
 
 			<div class="row">
 				
-				<div class="col-lg-4 col-md-12">
-					<div class="panel panel-default calendar">	
-						<div class="calendar-small"></div>
-						<div class="list">
-							<ul>
-								<li>
-									<label class="custom-checkbox-item">
-										<input class="custom-checkbox" type="checkbox"/>
-										<span class="custom-checkbox-mark"></span>
-										<span class="custom-checkbox-desc">Lunch With Clients</span>
-										<i class="fa fa-thumbs-o-up"></i>
-									</label>
-								</li>
-								<li>
-									<label class="custom-checkbox-item">
-										<input class="custom-checkbox" type="checkbox"/>
-										<span class="custom-checkbox-mark"></span>
-										<span class="custom-checkbox-desc">Meeting With All Staff</span>
-										<i class="fa fa-space-shuttle"></i>
-									</label>
-								</li>
-								<li>
-									<label class="custom-checkbox-item">
-										<input class="custom-checkbox" type="checkbox"/>
-										<span class="custom-checkbox-mark"></span>
-										<span class="custom-checkbox-desc">Factory Birthday</span>
-										<i class="fa fa-star-half-o"></i>
-									</label>
-								</li>
-							</ul>
-							<div class="row">
-								<div class="col-xs-6">
-									<button type="button" class="btn btn-success btn-block">Accept</button>
-								</div><!--/col-->
-								<div class="col-xs-6">
-									<button type="button" class="btn btn-default btn-block">Discard</button>
-								</div><!--/col-->
-							</div><!--/row-->
-						</div>				
+				<div class="col-lg-6 col-md-12">
+					<div class="panel panel-default" style="height:530px;text-align:center;">	
+						<div class="panel-heading" style="text-align:left;">
+							<h2><i class="fa fa-spinner red"></i><strong>万年历</strong></h2>
+						</div>
+						<!-- 万年历 -->
+						<div style="display:inline-block;">
+						<iframe src="/myBlogs/admin/proton/assets/plugins/calendar/index.html" scrolling="no" frameborder="0" width="640" height="470" style="margin:0 auto;"></iframe>
+						</div>
 					</div>
 				</div><!--/col-->
 				
-				<div class="col-lg-8 col-md-12">
+				<div class="col-lg-6 col-md-12">
 
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h2><i class="fa fa-check red"></i><strong>To Do</strong></h2>
-							<div class="panel-actions">
-								<a href="index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
-								<a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-								<a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
-							</div>
+							<h2><i class="fa fa-check red"></i><strong>待办事项</strong></h2>
 						</div>
-						<div class="panel-body no-padding">
-							<div class="todo-list">									
-								<div class="header">Today</div>
-								<ul id="todo-2" class="todo-list-tasks">
-									<li>
-										<label class="custom-checkbox-item pull-left">
-											<input class="custom-checkbox" type="checkbox"/>
-											<span class="custom-checkbox-mark"></span>
-										</label>
-										<span class="desc">Add slider home to creative template</span> 
-									</li>
-									<li>
-										<label class="custom-checkbox-item pull-left">
-											<input class="custom-checkbox" type="checkbox"/>
-											<span class="custom-checkbox-mark"></span>
-										</label>
-										<span class="desc">Change portfolio image with new animation</span> 
-									</li>
-									<li>
-										<label class="custom-checkbox-item pull-left">
-											<input class="custom-checkbox" type="checkbox"/>
-											<span class="custom-checkbox-mark"></span>
-										</label>
-										<span class="desc">Fixed JavaScript problem for index page</span> 
-									</li>
-								</ul>
-								<div class="header">Tommorow</div>
-								<ul id="todo-3" class="todo-list-tasks">
-									<li>
-										<label class="custom-checkbox-item pull-left">
-											<input class="custom-checkbox" type="checkbox"/>
-											<span class="custom-checkbox-mark"></span>
-										</label>
-										<span class="desc">Update sliding menu with newest</span> 
-									</li>
-									<li>
-										<label class="custom-checkbox-item pull-left">
-											<input class="custom-checkbox" type="checkbox"/>
-											<span class="custom-checkbox-mark"></span>
-										</label>
-										<span class="desc">Change navigation structure on header</span> 
-									</li>
-								</ul>
-								<div class="header">Completed</div>
-								<ul class="completed"></ul>		
-							</div>
+						<div class="panel-body">
+							<h5>未完成</h5>
+							<c:forEach var="todo" items="${requestScope.unfinishedList}" varStatus="todoList">
+								<form class="todo-list form-inline " action="javascript:;" <c:if test="${todoList.index != 0}">style="padding-top:15px;"</c:if>>								<div class="form-group">
+										<input type="text" class="form-control" name="content" style="height:34px;width:400px;" value="${todo.content}" disabled>
+									</div>
+									<button class="btn-complete btn btn-info" data-id="${todo.id}" data-toggle="modal" data-target="#myModal">
+										<i class="fa fa-check  icon">
+										</i> 完成
+									</button>
+								</form>
+							</c:forEach>
+							<hr/>
+							<h5>已完成</h5>
+							<c:forEach var="todo" items="${requestScope.finishedList}" varStatus="todoList">
+								<form class="form-inline " action="javascript:;" <c:if test="${todoList.index != 0}">style="padding-top:15px;"</c:if>>
+									<div class="form-group">
+										<input type="text" class="form-control" style="height:34px;width:400px;" value="${todo.content}" disabled>
+									</div>
+									<button class="btn btn-default" disabled>
+										<i class="fa fa-check  icon">
+										</i> 已完成
+									</button>
+								</form>
+							</c:forEach>
+							<hr/>
+							<h5>操作</h5>
+							<form id="add_todo" class="form-inline " action="javascript:;">
+								<div class="form-group">
+									<input type="text" class="form-control" name="content" style="height:34px;width:400px;">
+								</div>
+								<button id="btn_add" class="btn btn-info">
+									<i class="fa fa-plus-square  icon">
+									</i> 添加
+								</button>
+							</form>
 						</div>
-						<div class="panel-footer">
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Add new task">
-							</div>
-							<div class="btn-group">
-								<button type="button" class="btn btn-link"><i class="fa fa-wheelchair"></i></button>
-								<button type="button" class="btn btn-link"><i class="fa fa-file-text"></i></button>
-								<button type="button" class="btn btn-link"><i class="fa fa-heart"></i></button>
-							</div>
-							
-							<div class="pull-right">
-								<button type="button" class="btn btn-primary">Submit</button>
-							</div>	
-						</div>						
-					</div>
-
+					</div>	
 				</div><!--/col-->
 				
 			</div><!--/row-->     
 					
 		</div>
 		<!-- end: Content -->
-		<br><br><br>
-		
-		
-		<div id="usage">
-			<ul>
-				<li>
-					<div class="title">Memory</div>
-					<div class="bar">
-						<div class="progress">
-						  	<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
-						</div>
-					</div>			
-					<div class="desc">4GB of 8GB</div>
-				</li>
-				<li>
-					<div class="title">HDD</div>
-					<div class="bar">
-						<div class="progress">
-						  	<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
-						</div>
-					</div>			
-					<div class="desc">250GB of 1TB</div>
-				</li>
-				<li>
-					<div class="title">SSD</div>
-					<div class="bar">
-						<div class="progress">
-					  		<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%"></div>
-						</div>
-					</div>			
-					<div class="desc">700GB of 1TB</div>
-				</li>
-				<li>
-					<div class="title">Bandwidth</div>
-					<div class="bar">
-						<div class="progress">
-					  		<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
-						</div>
-					</div>			
-					<div class="desc">90TB of 100TB</div>
-				</li>				
-			</ul>	
-		</div>			
+		<br><br><br>		
 		
 	</div><!--/container-->
 		
 	</div>
-	<div class="modal fade" id="myModal">
-		<div class="modal-dialog">
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Warning Title</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;
+						</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">提示消息
+					</h4>
 				</div>
 				<div class="modal-body">
-					<p>Here settings can be configured...</p>
+					<h4>确认将此任务标记为"已完成状态吗？"</h4>
+					<h4>注：此操作不可逆!</h4>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">放弃
+					</button>
+					<button id="btn_complete" data-id="0" type="button" class="btn btn-primary">确认
+					</button>
 				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
+			</div>
+		</div>
+	</div>
+
 	
 	<div class="clearfix"></div>
 	
@@ -648,7 +369,6 @@
 	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
 	<script src="/myBlogs/admin/proton/assets/plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
 	<script src="/myBlogs/admin/proton/assets/plugins/moment/moment.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/fullcalendar/js/fullcalendar.min.js"></script>
 	<!--[if lte IE 8]>
 		<script language="javascript" type="text/javascript" src="assets/plugins/excanvas/excanvas.min.js"></script>
 	<![endif]-->
@@ -669,6 +389,7 @@
 	<script src="/myBlogs/admin/proton/assets/plugins/jvectormap/js/jquery-jvectormap-world-mill-en.js"></script>
 	<script src="/myBlogs/admin/proton/assets/plugins/jvectormap/js/gdp-data.js"></script>
 	<script src="/myBlogs/admin/proton/assets/plugins/gauge/gauge.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
 	
 	
 	<!-- theme scripts -->
@@ -679,7 +400,39 @@
 	
 	<!-- inline scripts related to this page -->
 	<script src="/myBlogs/admin/proton/assets/js/pages/index.js"></script>
-	
+	<script>
+		$(function(){
+			//添加任务
+			$('#btn_add').click(function(){
+				$(this).text('操作中...');
+				$.post('/myBlogs/addTodo', $('#add_todo').serialize(), function(data){
+					if(data.error){
+						jAlert(data.error);
+					}else{
+						jAlert(data.message, '成功！', function(){
+							location.reload();
+						})
+					}
+				})
+			})
+			
+			//完成任务
+			$('.btn-complete').click(function(){
+				$('#btn_complete').attr('data-id', $(this).attr('data-id'));
+			})
+			$('#btn_complete').click(function(){
+				$.post('/myBlogs/completeTodo', {'id' : $(this).attr('data-id')}, function(data){
+					if(data.error){
+						jAlert(data.error);
+					}else{
+						jAlert(data.message, '成功！', function(){
+							location.reload();
+						});
+					}
+				})
+			})
+		})
+	</script>
 	<!-- end: JavaScript-->
 	
 </body>

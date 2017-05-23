@@ -10,19 +10,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.blacklee.admin.entity.Todo;
 import com.blacklee.admin.service.BlogsService;
 import com.blacklee.admin.service.BlogsTypeService;
+import com.blacklee.admin.service.ClassificationService;
 import com.blacklee.admin.service.IndexImage;
+import com.blacklee.admin.service.TodoService;
 
 @Controller
 public class IndexController {
 	
 	@Autowired
-	IndexImage indexImage;
+	private IndexImage indexImage;
 	@Autowired
-	BlogsService blogsService;
+	private BlogsService blogsService;
 	@Autowired
-	BlogsTypeService blogsTypeService;
+	private BlogsTypeService blogsTypeService;
+	@Autowired
+	private TodoService todoService;
+	@Autowired
+	private ClassificationService classificationService;
 	
 	@RequestMapping("/index")
 	public String toIndex(@RequestParam("username") String username, HttpServletRequest request){
@@ -39,6 +46,17 @@ public class IndexController {
 		request.setAttribute("originalSum", originalSum);
 		Integer copySum = blogsTypeService.getTypeSum("转载");
 		request.setAttribute("copySum", copySum);
+		//获取所有未完成的任务
+		Boolean state = false;
+		List<Todo> unfinishedList = todoService.getTodoUnfinished(state);
+		request.setAttribute("unfinishedList", unfinishedList);
+		//获取所有已完成的任务
+		state = true;
+		List<Todo> finishedList = todoService.getTodoFinished(state);
+		request.setAttribute("finishedList", finishedList);
+		//获取所有分类
+		List<Object> classifications = classificationService.getClassification();
+		request.setAttribute("classifications", classifications);
 		return "forward:/admin/jsp/index.jsp";
 	}
 }
