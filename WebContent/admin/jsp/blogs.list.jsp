@@ -147,25 +147,13 @@
 						</tbody>
 					</table>
 				</div>
-				<ul class="pagination">
-					<li class="  ">
-						<a href="javascript:;" class="">前一页
+				<ul id="pages" data-pages="${requestScope.pages}" class="pagination">
+					<li id="btn_prev">
+						<a href="/myBlogs/getBlogs" class="">&lt;&lt;前一页
 						</a>
 					</li>
-					<li class="  ">
-						<a href="javascript:;" class="">1
-						</a>
-					</li>
-					<li class="  ">
-						<a href="javascript:;" class="">2
-						</a>
-					</li>
-					<li class="  ">
-						<a href="javascript:;" class="">3
-						</a>
-					</li>
-					<li class="  ">
-						<a href="javascript:;" class="">后一页
+					<li id="btn_next">
+						<a href="/myBlogs/getBlogs" class="">后一页&gt;&gt;
 						</a>
 					</li>
 				</ul>
@@ -222,7 +210,41 @@
    	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
    	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
    	<script>
-   		
+   		$(function(){
+   			//分页
+   			var $pages = $('#pages');
+   			var sum = parseInt($pages.attr('data-pages'));
+   			var page = location.search.substring(1)
+   			for(var i = 0; i < sum; i++){
+   				if(i <= 0){
+   					$('#btn_next').before('<li class="pages active" data-index="'+i+'"><a href="/myBlogs/getBlogs?pageIndex='+i+'">'+(i+1)+'</a></li>');
+   				}else{
+	   				$('#btn_next').before('<li class="pages"><a href="/myBlogs/getBlogs?pageIndex='+i+'">'+(i+1)+'</a></li>');
+   				}
+   			}
+   			//选择页码
+   			$('.pages').click(function(){
+   				$(this).siblings().removeClass('active');
+   				$(this).addClass('active');
+   			})
+   			//前一页
+   			$(document).on('click', '#btn_prev',function(){
+   				var pageIndex = parseInt($($('.pages.active')[0]).attr('data-index'));
+   				if(pageIndex > 0){
+   					pageIndex--;
+   				}
+   				$(this).children('a').attr('href', '/myBlogs/getBlogs?pageIndex=' + pageIndex);
+   			})
+   			//后一页
+   			$('#btn_next').click(function(){
+   				var pageIndex = parseInt($($('.pages.active')[0]).attr('data-index'));
+   				var sum = parseInt($('#pages').attr('data-pages'));
+   				if(pageIndex < (sum - 1)){
+   					pageInde++;
+   				}
+   				$(this).children('a').attr('href', '/myBlogs/getBlogs?pageIndex=' + pageIndex);
+   			})
+   		})
    	</script>
 	<!-- end: JavaScript-->
 	

@@ -20,6 +20,10 @@ public class BlogsService {
 	public void saveBlogs(String title, String label, String content, String type, List<Integer> classificationIds){
 		blogsDao.insert(title, label, content, type, classificationIds);
 	}
+	//查询记录的总条数
+	public Integer getBlogsCount(){
+		return blogsDao.getBlogsCount();
+	}
 	
 	//获取指定条数的博文数据
 	public List<Blogs> getBlogs(int maxResult, int pageIndex){

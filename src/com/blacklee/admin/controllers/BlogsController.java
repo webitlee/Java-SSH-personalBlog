@@ -68,6 +68,9 @@ public class BlogsController {
 			list = blogsService.getBlogs(maxResult, pageIndex);
 		}
 		request.setAttribute("blogs", list);
+		request.setAttribute("maxResult", maxResult);
+		Integer pages = blogsService.getBlogsCount();
+		request.setAttribute("pages", (int)Math.ceil((double)pages/maxResult));
 		return "blogs.list";
 	}
 	
