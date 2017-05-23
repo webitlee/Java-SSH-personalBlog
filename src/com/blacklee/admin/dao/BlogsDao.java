@@ -75,7 +75,7 @@ public class BlogsDao {
 	}
 	//获取前20条博文数据
 	public List<Blogs> getBlogs(int maxResult, int pageIndex){
-		String hql="from Blogs b order by b.id desc";
+		String hql="select distinct b from Blogs b order by b.id desc left join fetch b.typeId left join fetch b.classification left join fetch b.contentId";
 		Query query = getSession().createQuery(hql);
 		List<Blogs> list =  query.setFirstResult(maxResult * pageIndex).setMaxResults(maxResult).list();
 		System.out.println(list);
