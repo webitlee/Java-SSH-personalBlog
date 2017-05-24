@@ -238,13 +238,13 @@
 			<div class="row">
 				
 				<div class="col-lg-6 col-md-12">
-					<div class="panel panel-default" style="height:530px;text-align:center;">	
+					<div class="panel panel-default" style="height:660px;text-align:center;">	
 						<div class="panel-heading" style="text-align:left;">
 							<h2><i class="fa fa-spinner red"></i><strong>万年历</strong></h2>
 						</div>
 						<!-- 万年历 -->
 						<div style="display:inline-block;">
-						<iframe src="/myBlogs/admin/proton/assets/plugins/calendar/index.html" scrolling="no" frameborder="0" width="640" height="470" style="margin:0 auto;"></iframe>
+						<iframe src="/myBlogs/admin/proton/assets/plugins/js-lunar-calendar/index.html" scrolling="no" frameborder="0" width="350" height="600" style="margin:0 auto;"></iframe>
 						</div>
 					</div>
 				</div><!--/col-->
