@@ -12,24 +12,11 @@
     <link rel="stylesheet" href="/myBlogs/blogs/css/reset.css"/>
     <link href="/myBlogs/blogs/css/blogs.css" type="text/css" rel="stylesheet"/>
     <title>BlackLee的博客 -- 专注全栈开发</title>
+    <script src="/myBlogs/blogs/js/jquery-3.0.0.min.js"></script>
 </head>
 <body>
-<header class="h40 bg-333">
-    <div class="wrap">
-        <a href="#">
-            <img class="w150 h40" src="/myBlogs/blogs/image/logo.png" alt="logo"/>
-        </a>
-        <div class="pull-right ts-0">
-            <a id="btn_search" class="inline-block w40 h40 bd-left-ccc bd-right-ccc bg-search pos-rel" href="javascript:;">
-                <div id="search" class="w260 h40 pd-5 bg-white ts-0 pos-ab right-n40 top-40 none">
-                    <input class="w200 h100p pl-5 bd-ccc ts-12" type="text" placeholder="输入关键字查询"/>
-                    <button class="w50 h100p bd-none bg-green ts-14 tc-white v-top pointer">搜索</button>
-                </div>
-            </a>
-            <a class="inline-block w40 h40 bg-admin bd-right-ccc" href="/myBlogs/admin/html/login.html" target="_blank" title="去管理员后台"></a>
-        </div>
-    </div>
-</header>
+<!-- 顶部导航 -->
+<%@include file="/blogs/html/public_header.html" %>
 <section class="bg">
     <div class="wrap">
         <h1 class="pt-50 h200 ts-30 tc-white">${requestScope.admin.username}的博客</h1>
@@ -74,7 +61,7 @@
                 </ul>
                 <div class="h60 pt-10 pb-10 ts-12 tc-999 text-center">
                     <span class="inline-block h30 lh-30 pr-5 v-top">${requestScope.blogs.size()}条</span>
-                   	<span id="pages" class="inline-block h30 lh-30 pr-5 v-top" data-classification="${requestScope.pagingClassification}" data-pages="${requestScope.pagesCount}">共${requestScope.pagesCount}页</span>
+                   	<span id="pages" class="inline-block h30 lh-30 pr-5 v-top" data-keyword="${requestScope.pagingKeyword}" data-classification="${requestScope.pagingClassification}" data-pages="${requestScope.pagesCount}">共${requestScope.pagesCount}页</span>
                     <div id="paging" class="inline-block">
                     </div>		
                 </div>
@@ -97,6 +84,5 @@
 </footer>
 <section id="btn_top" class="pos-fixed w45 h45 right-20 bottom-200 bg-top pointer none"></section>
 </body>
-<script src="/myBlogs/blogs/js/jquery-3.0.0.min.js"></script>
 <script src="/myBlogs/blogs/js/blogs.js"></script>
 </html>
