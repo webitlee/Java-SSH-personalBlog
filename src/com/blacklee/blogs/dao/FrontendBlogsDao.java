@@ -117,5 +117,12 @@ public class FrontendBlogsDao {
 		blog.setSupport(support + 1);
 	}
 	
+	//根据关键字模糊查询博客
+	public List<Blogs> getBlogsByKeyword(String keyword, Integer maxResult, Integer pageIndex){
+		String hql = "from Blogs b where b.title like ?";
+		Query query = getSession().createQuery(hql);
+		List<Blogs> blogs = query.setString(0, "%" + keyword + "%").setFirstResult(maxResult * pageIndex).setMaxResults(maxResult).list();
+		return blogs;
+	}
 	
 }

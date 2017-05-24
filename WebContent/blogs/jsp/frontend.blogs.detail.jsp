@@ -16,22 +16,8 @@
     <title>${requestScope.blog.title} -- BlackLee的博客</title>
 </head>
 <body>
-<header class="h40 bg-333">
-    <div class="wrap">
-        <a href="#">
-            <img class="w150 h40" src="/myBlogs/blogs/image/logo.png" alt="logo"/>
-        </a>
-        <div class="pull-right ts-0">
-            <a id="btn_search" class="inline-block w40 h40 bd-left-ccc bd-right-ccc bg-search pos-rel" href="javascript:;">
-                <div id="search" class="w260 h40 pd-5 bg-white ts-0 pos-ab right-n40 top-40 none">
-                    <input class="w200 h100p pl-5 bd-ccc ts-12" type="text" placeholder="输入关键字查询"/>
-                    <button class="w50 h100p bd-none bg-green ts-14 tc-white v-top pointer">搜索</button>
-                </div>
-            </a>
-            <a class="inline-block w40 h40 bg-admin bd-right-ccc" href="/myBlogs/admin/html/login.html" target="_blank" title="去管理员后台"></a>
-        </div>
-    </div>
-</header>
+<!-- 顶部导航 -->
+<%@include file="/blogs/html/public_header.html" %>
 <section class="bg">
     <div class="wrap">
         <h1 class="pt-50 h200 ts-30 tc-white">${requestScope.admin.username}的博客</h1>
@@ -73,7 +59,7 @@
                 <ul class="pt-20 pb-20">
                     <li id="btn_support" class="text-center pointer">
                         <div class="inline-block bg-999 tc-white w70 h70 pd-5 ts-30">
-                            <p class="h50 lh-50">赞</p>
+                            <p class="h50 lh-50">赞</p>
                             <span class="inline-block ts-12 h20 lh-20">${requestScope.blog.support}</span>
                         </div>
                     </li>

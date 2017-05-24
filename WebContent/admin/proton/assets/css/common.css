@@ -29,10 +29,10 @@ ul{
 .verticalcenter{
     position: relative;
     top: 50%;
-    left: 50%; /*ÉÏÏÂÒÆ¶¯ÆÁÄ»µÄ50%*/
+    left: 50%; /*ä¸Šä¸‹ç§»åŠ¨å±å¹•çš„50%*/
     margin-left: auto;
     margin-right:auto;
-    -webkit-transform: translate(-50%,-50%); /*¼õÈ¥×ÔÉíµÄ50%£¨¶àÒÆ¶¯µÄ£©*/
+    -webkit-transform: translate(-50%,-50%); /*å‡å»è‡ªèº«çš„50%ï¼ˆå¤šç§»åŠ¨çš„ï¼‰*/
     -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
 }

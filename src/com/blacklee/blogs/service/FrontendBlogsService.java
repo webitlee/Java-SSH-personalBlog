@@ -74,4 +74,9 @@ public class FrontendBlogsService {
 	public void addSupport(Integer id){
 		frontendBlogsDao.addSupport(id);
 	}
+	
+	//根据关键字模糊查询博客
+	public List<Blogs> getBlogsByKeyword(String keyword, Integer maxResult, Integer pageIndex){
+		return frontendBlogsDao.getBlogsByKeyword(keyword, maxResult, pageIndex);
+	}
 }
