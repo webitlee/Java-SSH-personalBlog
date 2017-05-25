@@ -8,7 +8,7 @@
             <a id="btn_search" class="inline-block w40 h40 bd-left-ccc bd-right-ccc bg-search pos-rel" href="javascript:;">
                 <div id="search" class="w260 h40 pd-5 bg-white ts-0 pos-ab right-n40 top-40 none">
                     <input id="keyword" class="w200 h100p pl-5 bd-ccc ts-12" type="text" placeholder="输入博客标题"/>
-                    <button id="btn_search" class="w50 h100p bd-none bg-green ts-14 tc-white v-top pointer">搜索</button>
+                    <button id="searching" class="w50 h100p bd-none bg-green ts-14 tc-white v-top pointer">搜索</button>
                 </div>
             </a>
             <a class="inline-block w40 h40 bg-admin bd-right-ccc" href="/myBlogs/admin/html/login.html" target="_blank" title="去管理员后台"></a>
@@ -16,7 +16,7 @@
     </div>
 </header>
 <script>
-	$('#btn_search').click(function(){
+	$('#searching').click(function(){
 		var keyword = $.trim($('#keyword').val());
 		if(!keyword){
 			alert('关键字不能为空');
