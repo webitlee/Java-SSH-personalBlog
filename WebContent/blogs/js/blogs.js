@@ -29,7 +29,7 @@ $(function(){
         }
     }
     var $paging = $('#paging');
-    if(pagingClassification){
+    if(pagingClassification === 'true'){
         for(var i = 0; i < pages; i++){
             if(i == 0){
                 $paging.append('<a class="page inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top bg-green tc-white" href="/myBlogs/getAll/1?pageIndex='+i+'&classificationId='+classificationId+'">'+(i+1)+'</a>');
@@ -40,7 +40,7 @@ $(function(){
         $paging.append('<a id="page_first" class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1?classificationId='+classificationId+'">首页</a>');
         $paging.append('<a id="page_last" class="inline-block w50 h30 lh-30 text-center bd-ccc tc-ccc v-top" href="/myBlogs/getAll/1?pageIndex='+(pages-1)+'&classificationId='+classificationId+'">尾页</a>');
 
-    }else if(pagingKeyword){
+    }else if(pagingKeyword === 'true'){
         for(var i = 0; i < pages; i++){
             if(i == 0){
                 $paging.append('<a class="page inline-block w30 h30 lh-30 text-center bd-ccc tc-ccc v-top bg-green tc-white" href="/myBlogs/getAll/1?pageIndex='+i+'&keyword='+keyword+'">'+(i+1)+'</a>');

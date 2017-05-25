@@ -35,12 +35,10 @@ public class FrontendBlogsController {
 	
 	//博文列表、排名、管理员信息页面
 	@RequestMapping(value="/getAll/{id}", method=RequestMethod.GET)
-	public String getAllMsg(@PathVariable("id") Integer id,@RequestParam(value="classificationId", required=false) Integer classificationId, @RequestParam(value="keywork", required=false) String keyword, @RequestParam(value="pageIndex", required=false) Integer pageIndex, HttpServletRequest request){
+	public String getAllMsg(@PathVariable("id") Integer id,@RequestParam(value="classificationId", required=false) Integer classificationId, @RequestParam(value="keyword", required=false) String keyword, @RequestParam(value="pageIndex", required=false) Integer pageIndex, HttpServletRequest request){
 		Integer maxResult = 20;
 		List<Blogs> blogs = null;
-		System.out.println(keyword);
 		if((classificationId == null) && (keyword == null)){
-			System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 			request.setAttribute("pagingClassification", false);
 			request.setAttribute("pagingKeyword", false);
 			if(pageIndex == null){
@@ -49,7 +47,6 @@ public class FrontendBlogsController {
 				blogs = frontendBlogsService.getBlogs(maxResult, pageIndex);
 			}
 		}else if(keyword != null){
-			System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
 			request.setAttribute("pagingKeyword", true);
 			request.setAttribute("pagingClassification", false);
 			if(pageIndex == null){
