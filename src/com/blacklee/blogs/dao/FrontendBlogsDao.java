@@ -1,5 +1,7 @@
 package com.blacklee.blogs.dao;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
