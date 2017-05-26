@@ -431,6 +431,19 @@
 					}
 				})
 			})
+			
+			//退出登录
+			$('.btn-logout').click(function(){
+			 $.get('/myBlogs/logout/1',{}, function(data){
+				 if(data.error){
+					 jAlert(data.error);
+				 }else{
+					 jAlert(data.message, '成功！', function(){
+						 location.reload();
+					 })
+				 }
+			 })
+		 })
 		})
 	</script>
 	<!-- end: JavaScript-->

@@ -55,7 +55,6 @@ public class FrontendBlogsController {
 				blogs = frontendBlogsService.getBlogsByKeyword(keyword, maxResult, pageIndex);
 			}
 		}else{
-			System.out.println("ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc");
 			request.setAttribute("pagingClassification", true);
 			if(pageIndex == null){
 				blogs = new ArrayList<>(frontendBlogsService.getBlogsByClassificationId(classificationId, maxResult, 0));
