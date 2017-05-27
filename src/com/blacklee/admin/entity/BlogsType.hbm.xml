@@ -9,7 +9,7 @@
             <generator class="native" />
         </id>
         <property name="name" type="java.lang.String">
-            <column name="NAME" />
+            <column name="NAME" not-null="true" default="" index="blogs_typeName_blog"/>
         </property>
         <many-to-one name="blogsId" class="com.blacklee.admin.entity.Blogs">
         	<column name="BLOGS_ID" unique="true"></column>

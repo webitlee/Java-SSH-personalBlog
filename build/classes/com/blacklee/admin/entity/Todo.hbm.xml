@@ -9,7 +9,7 @@
             <generator class="native" />
         </id>
         <property name="content" type="java.lang.String" length="200">
-            <column name="CONTENT"/>
+            <column name="CONTENT" not-null="true" default="" index="blogs_todo"/>
         </property>
         <property name="state" type="boolean">
             <column name="STATE" default="false" not-null="true"/>

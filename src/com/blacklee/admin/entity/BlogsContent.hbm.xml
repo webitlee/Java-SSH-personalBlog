@@ -9,7 +9,7 @@
             <generator class="native" />
         </id>
         <property name="content" type="text">
-            <column name="CONTENT"/>
+            <column name="CONTENT" not-null="true" default=""/>
         </property>
         <many-to-one name="blogsId" class="com.blacklee.admin.entity.Blogs">
         	<column name="BLOGS_ID" unique="true"></column>

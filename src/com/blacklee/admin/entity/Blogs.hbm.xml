@@ -9,10 +9,10 @@
             <generator class="native" />
         </id>
         <property name="title" type="java.lang.String">
-            <column name="TITLE" length="100"/>
+            <column name="TITLE" length="100" not-null="true" default="" index="blogs_title_blog"/>
         </property>
         <property name="label" type="java.lang.String">
-            <column name="LABEL" length="50"/>
+            <column name="LABEL" length="50" not-null="true" default="" index="blogs_label_blog"/>
         </property>
         <one-to-one name="typeId" class="com.blacklee.admin.entity.BlogsType" cascade="save-update" property-ref="blogsId"></one-to-one>
         <set name="classification" table="BLOGS_CLASSIFICATION" inverse="false" lazy="false" cascade="save-update">
@@ -25,16 +25,16 @@
         </set>
         <one-to-one name="contentId" class="com.blacklee.admin.entity.BlogsContent" cascade="save-update" property-ref="blogsId"></one-to-one>
         <property name="support" type="java.lang.Integer">
-            <column name="SUPPORT"/>
+            <column name="SUPPORT" not-null="true" default="0"/>
         </property>
         <property name="visit" type="java.lang.Integer">
-            <column name="VISIT"/>
+            <column name="VISIT" not-null="true" default="0"/>
         </property>
         <property name="createTime" type="timestamp">
-            <column name="CREATE_TIME" />
+            <column name="CREATE_TIME" not-null="true" default="CURRENT_TIMESTAMP" index="blogs_createTime_blog"/>
         </property>
         <property name="lastModified" type="timestamp">
-            <column name="LAST_MODIFIED" />
+            <column name="LAST_MODIFIED" not-null="true" default="CURRENT_TIMESTAMP"/>
         </property>
     </class>
 </hibernate-mapping>

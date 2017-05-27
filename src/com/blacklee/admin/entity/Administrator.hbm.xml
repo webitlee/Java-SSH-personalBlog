@@ -9,13 +9,13 @@
             <generator class="native" />
         </id>
         <property name="username" type="java.lang.String">
-            <column name="USERNAME" />
+            <column name="USERNAME" not-null="true" default="" index="blogs_adminUsername"/>
         </property>
         <property name="password" type="java.lang.String">
-            <column name="PASSWORD" />
+            <column name="PASSWORD" not-null="true" default="" index="blogs_adminPassword"/>
         </property>
         <property name="image" type="java.lang.String">
-            <column name="IMAGE" />
+            <column name="IMAGE" not-null="true" default="" index="blogs_adminImage"/>
         </property>
     </class>
 </hibernate-mapping>

@@ -9,7 +9,7 @@
             <generator class="native" />
         </id>
         <property name="name" type="java.lang.String">
-            <column name="NAME" length="50"/>
+            <column name="NAME" length="50" not-null="true" default="" index="blogs_classificationName_blog"/>
         </property>
         <set name="blogs" table="BLOGS_CLASSIFICATION" inverse="true" lazy="false">
             <key>
