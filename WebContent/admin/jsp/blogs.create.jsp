@@ -234,9 +234,9 @@
 						if(data.error){
 							jAlert(data.error, '出错啦！');
 						}else{
-							jAlert(data.message, '成功！', function(){
+							jAlert(data.message, function(){
 								location.reload();
-							});
+							}, '成功！');
 						}
 					})
 				}
