@@ -10,10 +10,10 @@
 	        <ul class="nav navbar-nav navbar-right">
 				<li class="dropdown visible-md visible-lg">
 	        		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	        			<c:if test="${applicationScope.imageUrl == null}">
+	        			<c:if test="${applicationScope.imageUrl == ''}">
 	        				<img class="user-avatar" src="/myBlogs/admin/proton/assets/img/avatar.jpg" alt="管理员头像">
 	        			</c:if>
-	        			<c:if test="${applicationScope.imageUrl != null}">
+	        			<c:if test="${applicationScope.imageUrl != ''}">
 	        				<img class="user-avatar" src="${applicationScope.imageUrl}" alt="管理员头像" style="max-width:52px;max-height:52px;width:auto;"/>
 	        			</c:if>
 	        			${applicationScope.username}
