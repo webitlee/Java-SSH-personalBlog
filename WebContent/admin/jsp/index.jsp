@@ -422,6 +422,8 @@
 			})
 			$('#btn_complete').click(function(){
 				$.post('/myBlogs/completeTodo', {'id' : $(this).attr('data-id')}, function(data){
+					$('#myModal').removeClass('in').css('display', 'none');
+					$('.modal-backdrop.fade.in').remove();
 					if(data.error){
 						jAlert(data.error);
 					}else{
@@ -434,15 +436,17 @@
 			
 			//退出登录
 			$('.btn-logout').click(function(){
-			 $.get('/myBlogs/logout/1',{}, function(data){
-				 if(data.error){
-					 jAlert(data.error);
-				 }else{
-					 jAlert(data.message, function(){
-						 location.reload();
-					 }, '成功！')
-				 }
-			 })
+				jConfirm('确定退出登录吗？', function(){
+					 $.get('/myBlogs/logout/1',{}, function(data){
+						 if(data.error){
+							 jAlert(data.error);
+						 }else{
+							 jAlert(data.message, function(){
+								 location.reload();
+							 }, '成功！')
+						 }
+					 })
+				}, '提示！');
 		 })
 		})
 	</script>

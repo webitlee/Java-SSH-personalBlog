@@ -142,7 +142,6 @@
    		$(function(){
    			$('#btn_submit').click(function(){
    				var _this = this;
-   				$(this).text('修改中...');
 	   			var originPwd = $.trim($('#origin_password').val());
 	   			var newPwd = $.trim($('#new_password').val());
 	   			var repeatPwd = $.trim($('#new_password2').val());
@@ -157,6 +156,7 @@
 	   			}else if(originPwd == newPwd){
 	   				jAlert('原密码与新密码不能相同');
 	   			}else{
+	   				$(this).text('修改中...');
 	   				var username = $(this).attr('data-username');
 	   				$.post('/myBlogs/updatePassword', {username : username, originPwd : originPwd, newPwd : repeatPwd}, function(data){
 	   					$(_this).text('确认修改');

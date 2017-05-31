@@ -5,10 +5,12 @@ import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import com.blacklee.admin.entity.Administrator;
+import com.blacklee.util.MD5Util;
 
 
 @Repository
@@ -17,6 +19,8 @@ public class AdministratorDao {
 
 	@Resource
 	private SessionFactory sessionFactory;
+	@Autowired
+	private MD5Util mD5Util;
 	
 	private Session getSession(){
 		return sessionFactory.getCurrentSession();
@@ -70,7 +74,7 @@ public class AdministratorDao {
 	//修改密码
 	public void updatePassword(Integer id, String password){
 		Administrator admin = (Administrator) getSession().get(Administrator.class, id);
-		admin.setPassword(password);
+		admin.setPassword(mD5Util.getMD5(password));
 		
 	}
 }
