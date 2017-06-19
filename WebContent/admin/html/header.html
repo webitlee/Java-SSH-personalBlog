@@ -1,13 +1,14 @@
 <%@page pageEncoding="UTF-8"%>
 <div class="navbar" role="navigation">
 	
-		<div class="container-fluid">		
-			
-			<ul class="nav navbar-nav navbar-actions navbar-left">
-				<li class="visible-md visible-lg"><a href="javascript:;" id="main-menu-toggle"><i class="fa fa-th-large"></i></a></li>
-				<li class="visible-xs visible-sm"><a href="/myBlogs/admin/jsp/index.jsp" id="sidebar-menu"><i class="fa fa-navicon"></i></a></li>			
-			</ul>
-	        <ul class="nav navbar-nav navbar-right">
+	<div class="container-fluid">		
+		
+		<ul class="nav navbar-nav navbar-actions navbar-left">
+			<li class="visible-md visible-lg"><a href="javascript:;" id="main-menu-toggle"><i class="fa fa-th-large"></i></a></li>
+			<li class="visible-xs visible-sm"><a href="/myBlogs/admin/jsp/index.jsp" id="sidebar-menu"><i class="fa fa-navicon"></i></a></li>			
+		</ul>
+		<c:if test="${applicationScope.username != null}">
+			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown visible-md visible-lg">
 	        		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	        			<c:if test="${applicationScope.imageUrl == ''}">
@@ -28,5 +29,25 @@
 	      		</li>
 				<li><a class="btn-logout" href="javascript:;"><i class="fa fa-power-off"></i></a></li>
 			</ul>
-		</div>
+  			</c:if>
+        
 	</div>
+</div>
+<script src="/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js"></script>
+<script>
+	//退出登录
+	$('.btn-logout').click(function(){
+		jConfirm('确定退出登录吗？', function(){
+			 $.get('/myBlogs/logout/1',{}, function(data){
+				 if(data.error){
+					 jAlert(data.error);
+				 }else{
+					 jAlert(data.message, function(){
+						 location.reload();
+					 }, '成功！')
+				 }
+			 })
+		}, '提示！');
+	})
+</script>
+	

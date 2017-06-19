@@ -68,7 +68,6 @@ public class AdministratorDao {
 		Session session = getSession();
 		Administrator administrator = (Administrator) session.get(Administrator.class, id);
 		administrator.setImage(imageUrl);
-		System.out.println(administrator);
 	}
 	
 	//修改密码

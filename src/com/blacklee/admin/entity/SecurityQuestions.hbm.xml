@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-6-19 11:34:05 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.blacklee.admin.entity.SecurityQuestions" table="SECURITY_QUESTIONS">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="question" type="java.lang.String">
+            <column name="QUESTION" length="50" not-null="true" default="''" index="blogs_security_question"/>
+        </property>
+        <property name="answer" type="java.lang.String">
+            <column name="ANSWER" length="50" not-null="true" default="''" index="blogs_security_answer"/>
+        </property>
+        <many-to-one name="administrator" class="com.blacklee.admin.entity.Administrator">
+            <column name="ADMINISTRATOR_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

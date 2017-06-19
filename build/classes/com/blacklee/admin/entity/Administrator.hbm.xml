@@ -17,5 +17,9 @@
         <property name="image" type="java.lang.String">
             <column name="IMAGE" length="100" not-null="true" default="''" index="blogs_adminImage"/>
         </property>
+        <set name="securityQuestions" table="SECURITY_QUESTIONS" inverse="true">
+        	<key column="ADMINISTRATOR_ID"></key>
+        	<one-to-many class="com.blacklee.admin.entity.SecurityQuestions"/>
+        </set>
     </class>
 </hibernate-mapping>

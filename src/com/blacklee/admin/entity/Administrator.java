@@ -1,5 +1,7 @@
 package com.blacklee.admin.entity;
 
+import java.util.Set;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +12,7 @@ public class Administrator {
 	private String username;
 	private String password;
 	private String image;
+	private Set<SecurityQuestions> securityQuestions;
 	public Integer getId() {
 		return id;
 	}
@@ -34,6 +37,12 @@ public class Administrator {
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+	public Set<SecurityQuestions> getSecurityQuestions() {
+		return securityQuestions;
+	}
+	public void setSecurityQuestions(Set<SecurityQuestions> securityQuestions) {
+		this.securityQuestions = securityQuestions;
 	}
 	@Override
 	public String toString() {

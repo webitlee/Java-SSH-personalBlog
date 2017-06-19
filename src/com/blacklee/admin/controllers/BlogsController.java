@@ -52,7 +52,6 @@ public class BlogsController {
 			e.printStackTrace();
 			map.put("error", e.getMessage());
 		}
-		map.put("message", "添加成功");
 		return map;
 	}
 	
