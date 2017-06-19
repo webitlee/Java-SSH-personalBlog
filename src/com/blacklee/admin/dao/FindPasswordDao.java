@@ -27,13 +27,20 @@ public class FindPasswordDao {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	//根据管理员id，获取问题信息
+	//根据管理员id，获取问题内容
 	public List<Object> getQuestionsByAdminId(Integer adminId){
 		administrator.setId(adminId);
-		String hql = "from SecurityQuestions s where s.administrator = ?";
+		String hql = "select s.id,s.question from SecurityQuestions s where s.administrator = ?";
 		Session session = getSession();
 		Query query = session.createQuery(hql).setEntity(0, administrator);
 		List<Object> questions = query.list();
 		return questions;
+	}
+	
+	//根据id，获取密保问题答案
+	public String getAnswerById(Integer id){
+		Session session = getSession();
+		SecurityQuestions questions = (SecurityQuestions) session.get(SecurityQuestions.class, id);
+		return questions.getAnswer();
 	}
 }

@@ -21,15 +21,15 @@ public class FindPasswordController {
 	
 	@ResponseBody
 	@RequestMapping("/getSecurityQuestions")
-	public Map<String, Object> getSecurityQuestion(@RequestParam("username")String username){
+	public Map<String, Object> getSecurityQuestion(@RequestParam("username") String username){
 		Map<String, Object> map = new HashMap<>();
 		try{
-			List<Object> questions = findPasswordService.findPassword(username);
+			List<Object> questions = findPasswordService.getQuestionsByAdminId(username);
 			if(questions == null){
 				throw new NoUserException("查无此用户");
 			}
 			map.put("message", "查找成功!");
-			map.put("securityQuestions", questions);
+			map.put("questions", questions);
 			System.out.println(questions);
 		}catch(NoUserException e){
 			e.printStackTrace();

@@ -1,6 +1,7 @@
 package com.blacklee.admin.service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,26 @@ public class FindPasswordService {
 	private MD5Util md5Util;
 	
 	//获取密保问题列表
-	public List<Object> findPassword(String username){
+	public List<Object> getQuestionsByAdminId(String username){
 		Administrator admin = administratorDao.getUserInfo(username);
 		List<Object> questions = findPasswordDao.getQuestionsByAdminId(admin.getId());
 		return questions;
+	}
+	
+	//对比用户填写的答案与密保问题答案是否一致，2/3正确即视为答对
+	public boolean findPasswordOrNot(Integer id1, String answer1, Integer id2, String answer2, Integer id3, String answer3){
+		Integer[] ids = {id1, id2, id3};
+		String[] answers = {answer1, answer2, answer3};
+		int num = 0;
+		for(int i = 0; i < 3; i++){
+			String answer = findPasswordDao.getAnswerById(ids[i]);
+			if(answer.equals(answers[i])){
+				num++;
+			}
+		}
+		if(num >= 2){
+			return true;
+		}
+		return false;
 	}
 }

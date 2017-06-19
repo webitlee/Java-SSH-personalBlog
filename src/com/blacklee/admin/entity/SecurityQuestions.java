@@ -34,5 +34,9 @@ public class SecurityQuestions {
 	public void setAdministrator(Administrator administrator) {
 		this.administrator = administrator;
 	}
+	@Override
+	public String toString() {
+		return "SecurityQuestions [id=" + id + ", question=" + question + ", answer=" + answer ;
+	}
 	
 }
