@@ -129,6 +129,30 @@
 											</a>
 										</div>
 									</div>
+									<div class="setting-password form-group"  style="display:none;">
+										<label class="control-label   col-md-5">新密码：
+										</label>
+										<div class="col-md-7">
+											<input id="new_password" type="password" class="form-control" placeholder="请输入新密码">
+										</div>
+									</div>
+									<div class="setting-password form-group"  style="display:none;">
+										<label class="control-label   col-md-5">再输入一次：
+										</label>
+										<div class="col-md-7">
+											<input id="repeat_password" type="password" class="form-control" placeholder="再输入一次">
+										</div>
+									</div>
+									<div class="btn-password form-group"  style="display:none;">
+										<label class="control-label   col-md-5">
+										</label>
+										<div class="col-md-7">
+											<a id="btn_password" class="btn btn-success">
+												<i class="fa fa-level-up  icon">
+												</i>确定
+											</a>
+										</div>
+									</div>
 								</form>
 							</div>
 						</div>
@@ -210,6 +234,9 @@
    			
    			//验证密保问题的正确性
    			$('#btn_submit').click(function(){
+   				$('#username').attr('disabled', 'disabled');
+   				var _this = this;
+   				var text = $(this).html();
    				var $questions = $('.questions');
    				var question1 = $.trim($($questions.get(0)).find('input').val());
    				var id1 = $($questions[0]).attr('data-id');
@@ -217,6 +244,59 @@
    				var id2 = $($questions[1]).attr('data-id');
    				var question3 = $.trim($($questions.get(2)).find('input').val());
    				var id3 = $($questions[2]).attr('data-id');
+   				if(!question1 || !question2 || !question3){
+   					jAlert('请将密保问题答案填写完整');
+   					return;
+   				}
+   				$(this).text('请稍后...');
+   				$.post('/myBlogs/findPasswordOrNot', {argument1 : id1 + ',' + question1, argument2 : id2 + ',' + question2, argument3: id3 + ',' + question3}, function(data){
+   					if(data.error){
+   						jAlert(data.error);
+   						return;
+   					}
+   					if(data.message){
+   						jAlert("您可以重置密码了", function(){
+   	   						$questions.hide();
+   	   	   					$(_this).parent().parent().hide();
+   	   	   					$('.setting-password').show();
+   	   	   					$('.btn-password').show();
+   	   					}, '密保问题验证成功');
+   						return;
+   					}
+   					jAlert('密保问题回答不正确，无法重置密码');
+   					$(_this).html(text);
+   					
+   				})
+   			})
+   			
+   			//重置密码
+   			$('#btn_password').click(function(){
+   				var username = $.trim($('#username').val());
+   				console.log(username);
+   				var newPassword = $.trim($('#new_password').val());
+   				var repeatPassword = $.trim($('#repeat_password').val());
+   				if(!newPassword){
+   					jAlert('请输入新密码');
+   					return;
+   				}
+   				if(!repeatPassword){
+   					jAlert('请再次输入密码');
+   					return;
+   				}
+   				if(newPassword != repeatPassword){
+   					jAlert('两次密码不一致');
+   					return;
+   				}
+   				$(this).text('请稍后...');
+   				$.post('/myBlogs/resetPassword', {username : username, password : newPassword}, function(data){
+   					if(data.error){
+   						jAlert(data.error);
+   						return;
+   					}
+   					jAlert(data.message, function(){
+   						location.assign('/myBlogs/admin/html/login.html');
+   					}, "成功");
+   				})
    			})
    		})
    	</script>

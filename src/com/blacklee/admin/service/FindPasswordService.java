@@ -1,7 +1,6 @@
 package com.blacklee.admin.service;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +34,7 @@ public class FindPasswordService {
 		int num = 0;
 		for(int i = 0; i < 3; i++){
 			String answer = findPasswordDao.getAnswerById(ids[i]);
-			if(answer.equals(answers[i])){
+			if(answer.equals(md5Util.getMD5(answers[i]))){
 				num++;
 			}
 		}
@@ -43,5 +42,11 @@ public class FindPasswordService {
 			return true;
 		}
 		return false;
+	}
+	
+	//重置密码
+	public void resetPassword(String username, String password){
+		int adminId = administratorDao.getIdByUsername(username);
+		administratorDao.updatePassword(adminId, password);
 	}
 }
