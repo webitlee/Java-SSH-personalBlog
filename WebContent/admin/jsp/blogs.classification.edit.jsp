@@ -83,7 +83,7 @@
 										<div class=" form-group ">
 											<label class="">类别名称
 											</label>
-											<input type="text" class="form-control classification-name" data-id="${classification.id}" value="${classification.name}" <c:if test="${status.index == 0}">disabled</c:if>/>
+											<input type="text" class="form-control classification-name" data-id="${classification.id}" value="${classification.name}" <c:if test="${classification.id == 1}">disabled</c:if>/>
 											<button class="btn btn-info btn-rename" data-id="${classification.id}">
 												<i class="fa fa-level-up  icon">
 												</i> 提交
