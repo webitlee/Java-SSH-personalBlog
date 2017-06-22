@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import org.hibernate.TransactionException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.portlet.ModelAndView;
@@ -39,6 +40,14 @@ public class Exceptions {
 	public ModelAndView threadExceptions(Exception e){
 		ModelAndView view = new ModelAndView("/admin/html/exceptions.html");
 		view.addObject("cause", "线程异常");
+		view.addObject("detail", e.getStackTrace());
+		return view;
+	}
+	
+	@ExceptionHandler({TransactionException.class})
+	public ModelAndView transactionExceptions(Exception e){
+		ModelAndView view = new ModelAndView("/admin/html/exceptions.html");
+		view.addObject("cause", "事务异常");
 		view.addObject("detail", e.getStackTrace());
 		return view;
 	}
