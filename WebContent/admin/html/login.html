@@ -57,7 +57,7 @@
 								</div>
 
 								<div class="confirm">
-									<input id="remember" type="checkbox" name="remember"/>
+									<input id="remember" type="checkbox" name="remember" checked/>
 									<label for="remember">记住我的登陆信息</label>
 								</div>	
 
@@ -143,10 +143,11 @@
 			});
 			//密码输入框失去焦点进行md5加密
 			$password.blur(function(){
-				$(this).val($.md5($(this).val()));
+				if($(this).val()){
+					$(this).val($.md5($(this).val()));
+				}
 			});
 
-			var $form = $('#login');
 			$('#btn_login').click(function(){
 				var _this = this;
 				var username = $.trim($username.val());
@@ -164,7 +165,7 @@
 					if(data.success){
 						if($('#remember:checked').length >= 1){
 							localStorage.setItem("username", $username.val());
-							localStorage.setItem("password", $.md5( $password.val()));
+							localStorage.setItem("password", $password.val());
 						}else{
 							localStorage.removeItem('username');
 							localStorage.removeItem('password');
