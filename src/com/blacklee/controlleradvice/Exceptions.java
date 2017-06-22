@@ -4,19 +4,27 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
 import org.hibernate.TransactionException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.portlet.ModelAndView;
 
+import com.blacklee.util.Log;
+
 @ControllerAdvice
 public class Exceptions {
+	@Autowired
+	private Log log;
 	
 	@ExceptionHandler({FileNotFoundException.class, NullPointerException.class, ClassCastException.class,ArrayIndexOutOfBoundsException.class, NoSuchMethodError.class, ArithmeticException.class, IndexOutOfBoundsException.class})
 	public ModelAndView codeException(Exception e){
 		ModelAndView view = new ModelAndView("/admin/html/exceptions.html");
 		view.addObject("cause", "代码书写错误");
 		view.addObject("detail", e.getStackTrace());
+		//错误日志
+		log.getLogger(e);
 		return view;
 	}
 	

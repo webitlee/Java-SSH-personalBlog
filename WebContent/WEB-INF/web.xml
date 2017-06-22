@@ -56,4 +56,10 @@
 		<error-code>500</error-code>
 		<location>/admin/html/error-500.html</location>
 	</error-page>
+	
+	<!-- log4j -->
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:log4j.properties</param-value>
+	</context-param>
 </web-app>
