@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.blacklee.admin.service.FindPasswordService;
-import com.blacklee.exceptions.NoUserException;
 
 @Controller
 public class FindPasswordController {
