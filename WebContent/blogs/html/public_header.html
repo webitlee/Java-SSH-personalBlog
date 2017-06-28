@@ -2,7 +2,7 @@
 <header class="h40 bg-333">
     <div class="wrap">
         <a href="#">
-            <img class="w150 h40" src="/myBlogs/blogs/image/logo.png" alt="logo"/>
+            <img class="w150 h40" src="blogs/image/logo.png" alt="logo"/>
         </a>
         <div class="pull-right ts-0">
             <a id="btn_search" class="inline-block w40 h40 bd-left-ccc bd-right-ccc bg-search pos-rel" href="javascript:;">
@@ -11,7 +11,7 @@
                     <button id="searching" class="w50 h100p bd-none bg-green ts-14 tc-white v-top pointer">搜索</button>
                 </div>
             </a>
-            <a class="inline-block w40 h40 bg-admin bd-right-ccc" href="/myBlogs/admin/html/login.html" target="_blank" title="去管理员后台"></a>
+            <a class="inline-block w40 h40 bg-admin bd-right-ccc" href="admin/html/login.html" target="_blank" title="去管理员后台"></a>
         </div>
     </div>
 </header>
@@ -21,7 +21,7 @@
 		if(!keyword){
 			alert('关键字不能为空');
 		}else{
-			location.assign('/myBlogs/getAll/1?keyword=' + encodeURIComponent(keyword));
+			location.assign('getAll/1?keyword=' + encodeURIComponent(keyword));
 		}
 		
 	})

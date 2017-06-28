@@ -18,7 +18,7 @@ $(function(){
     $('#btn_support').click(function(){
         var _this = this;
         var blogId = $('#blog_id').attr('data-id');
-        $.get('/myBlogs/addSupport?id=' + blogId, function(data){
+        $.get('/addSupport?id=' + blogId, function(data){
             if(data.error){
                 jAlert(data.error);
             }else{

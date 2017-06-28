@@ -11,21 +11,21 @@
 	    <title>BlackLee的博客</title>
 
 		<!-- Fav and touch icons -->
-		<link rel="shortcut icon" href="/myBlogs/admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
 
 	    <!-- Css files -->
-	    <link href="/myBlogs/admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/css/climacons-font.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/plugins/xcharts/css/xcharts.min.css" rel=" stylesheet">
-		<link href="/myBlogs/admin/proton/assets/plugins/morris/css/morris.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
-	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
-		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet">
+	    <link href="admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
+		<link href="admin/proton/assets/css/climacons-font.css" rel="stylesheet">
+		<link href="admin/proton/assets/plugins/xcharts/css/xcharts.min.css" rel=" stylesheet">
+		<link href="admin/proton/assets/plugins/morris/css/morris.css" rel="stylesheet">
+		<link href="admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+		<link href="admin/proton/assets/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+	    <link href="admin/proton/assets/css/style.min.css" rel="stylesheet">
+		<link href="admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
+		<link href="admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
+		<link href="admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
+		<link href="admin/proton/assets/css/common.css" rel="stylesheet">
 		
 
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -57,7 +57,7 @@
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="fa fa-laptop"></i> 控制面板</h3>
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="/myBlogs/index?username=${applicationScope.username}">首页</a></li>
+						<li><i class="fa fa-home"></i><a href="index?username=${applicationScope.username}">首页</a></li>
 						<li><i class="fa fa-laptop"></i>控制面板</li>						  	
 					</ol>
 				</div>
@@ -244,7 +244,7 @@
 						</div>
 						<!-- 万年历 -->
 						<div style="display:inline-block;">
-						<iframe src="/myBlogs/admin/proton/assets/plugins/js-lunar-calendar/index.html" scrolling="no" frameborder="0" width="350" height="600" style="margin:0 auto;"></iframe>
+						<iframe src="admin/proton/assets/plugins/js-lunar-calendar/index.html" scrolling="no" frameborder="0" width="350" height="600" style="margin:0 auto;"></iframe>
 						</div>
 					</div>
 				</div><!--/col-->
@@ -336,20 +336,20 @@
 	<!-- start: JavaScript-->
 	<!--[if !IE]>-->
 
-			<script src="/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js"></script>
+			<script src="admin/proton/assets/js/jquery-2.1.1.min.js"></script>
 
 	<!--<![endif]-->
 
 	<!--[if IE]>
 	
-		<script src="/myBlogs/admin/proton/assets/js/jquery-1.11.1.min.js"></script>
+		<script src="admin/proton/assets/js/jquery-1.11.1.min.js"></script>
 	
 	<![endif]-->
 
 	<!--[if !IE]>-->
 
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='admin/proton/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
 		</script>
 
 	<!--<![endif]-->
@@ -357,55 +357,55 @@
 	<!--[if IE]>
 	
 		<script type="text/javascript">
-	 	window.jQuery || document.write("<script src='/myBlogs/admin/proton/assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
+	 	window.jQuery || document.write("<script src='admin/proton/assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
 		</script>
 		
 	<![endif]-->
-	<script src="/myBlogs/admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/js/bootstrap.min.js"></script>
+	<script src="admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="admin/proton/assets/js/bootstrap.min.js"></script>
 	
 	
 	<!-- page scripts -->
-	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/moment/moment.min.js"></script>
+	<script src="admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
+	<script src="admin/proton/assets/plugins/touchpunch/jquery.ui.touch-punch.min.js"></script>
+	<script src="admin/proton/assets/plugins/moment/moment.min.js"></script>
 	<!--[if lte IE 8]>
 		<script language="javascript" type="text/javascript" src="assets/plugins/excanvas/excanvas.min.js"></script>
 	<![endif]-->
-	<script src="/myBlogs/admin/proton/assets/plugins/flot/jquery.flot.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/flot/jquery.flot.pie.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/flot/jquery.flot.stack.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/flot/jquery.flot.resize.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/flot/jquery.flot.time.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/flot/jquery.flot.spline.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/xcharts/js/xcharts.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/autosize/jquery.autosize.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/placeholder/jquery.placeholder.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/raphael/raphael.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/morris/js/morris.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/jvectormap/js/jquery-jvectormap-1.2.2.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/jvectormap/js/jquery-jvectormap-world-mill-en.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/jvectormap/js/gdp-data.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/gauge/gauge.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
+	<script src="admin/proton/assets/plugins/flot/jquery.flot.min.js"></script>
+	<script src="admin/proton/assets/plugins/flot/jquery.flot.pie.min.js"></script>
+	<script src="admin/proton/assets/plugins/flot/jquery.flot.stack.min.js"></script>
+	<script src="admin/proton/assets/plugins/flot/jquery.flot.resize.min.js"></script>
+	<script src="admin/proton/assets/plugins/flot/jquery.flot.time.min.js"></script>
+	<script src="admin/proton/assets/plugins/flot/jquery.flot.spline.min.js"></script>
+	<script src="admin/proton/assets/plugins/xcharts/js/xcharts.min.js"></script>
+	<script src="admin/proton/assets/plugins/autosize/jquery.autosize.min.js"></script>
+	<script src="admin/proton/assets/plugins/placeholder/jquery.placeholder.min.js"></script>
+	<script src="admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+	<script src="admin/proton/assets/plugins/raphael/raphael.min.js"></script>
+	<script src="admin/proton/assets/plugins/morris/js/morris.min.js"></script>
+	<script src="admin/proton/assets/plugins/jvectormap/js/jquery-jvectormap-1.2.2.min.js"></script>
+	<script src="admin/proton/assets/plugins/jvectormap/js/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="admin/proton/assets/plugins/jvectormap/js/gdp-data.js"></script>
+	<script src="admin/proton/assets/plugins/gauge/gauge.min.js"></script>
+	<script src="admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
 	
 	
 	<!-- theme scripts -->
-	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
-	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/d3/d3.min.js"></script>
+	<script src="admin/proton/assets/js/SmoothScroll.js"></script>
+	<script src="admin/proton/assets/js/jquery.mmenu.min.js"></script>
+	<script src="admin/proton/assets/js/core.min.js"></script>
+	<script src="admin/proton/assets/plugins/d3/d3.min.js"></script>
 	
 	<!-- inline scripts related to this page -->
-	<script src="/myBlogs/admin/proton/assets/js/pages/index.js"></script>
+	<script src="admin/proton/assets/js/pages/index.js"></script>
 	<script>
 		$(function(){
 			//添加任务
 			$('#btn_add').click(function(){
 				$(this).text('操作中...');
-				$.post('/myBlogs/addTodo', $('#add_todo').serialize(), function(data){
+				$.post('addTodo', $('#add_todo').serialize(), function(data){
 					if(data.error){
 						jAlert(data.error);
 					}else{
@@ -421,7 +421,7 @@
 				$('#btn_complete').attr('data-id', $(this).attr('data-id'));
 			})
 			$('#btn_complete').click(function(){
-				$.post('/myBlogs/completeTodo', {'id' : $(this).attr('data-id')}, function(data){
+				$.post('completeTodo', {'id' : $(this).attr('data-id')}, function(data){
 					$('#myModal').removeClass('in').css('display', 'none');
 					$('.modal-backdrop.fade.in').remove();
 					if(data.error){
@@ -437,7 +437,7 @@
 			//退出登录
 			$('.btn-logout').click(function(){
 				jConfirm('确定退出登录吗？', function(){
-					 $.get('/myBlogs/logout/1',{}, function(data){
+					 $.get('logout/1',{}, function(data){
 						 if(data.error){
 							 jAlert(data.error);
 						 }else{

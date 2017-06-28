@@ -5,14 +5,14 @@
 		
 		<ul class="nav navbar-nav navbar-actions navbar-left">
 			<li class="visible-md visible-lg"><a href="javascript:;" id="main-menu-toggle"><i class="fa fa-th-large"></i></a></li>
-			<li class="visible-xs visible-sm"><a href="/myBlogs/admin/jsp/index.jsp" id="sidebar-menu"><i class="fa fa-navicon"></i></a></li>			
+			<li class="visible-xs visible-sm"><a href="admin/jsp/index.jsp" id="sidebar-menu"><i class="fa fa-navicon"></i></a></li>			
 		</ul>
 		<c:if test="${applicationScope.username != null}">
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown visible-md visible-lg">
 	        		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	        			<c:if test="${applicationScope.imageUrl == ''}">
-	        				<img class="user-avatar" src="/myBlogs/admin/proton/assets/img/avatar.jpg" alt="管理员头像">
+	        				<img class="user-avatar" src="admin/proton/assets/img/avatar.jpg" alt="管理员头像">
 	        			</c:if>
 	        			<c:if test="${applicationScope.imageUrl != ''}">
 	        				<img class="user-avatar" src="${applicationScope.imageUrl}" alt="管理员头像" style="max-width:52px;max-height:52px;width:auto;"/>
@@ -23,7 +23,7 @@
 						<li class="dropdown-menu-header">
 							<strong>账户操作</strong>
 						</li>						
-						<li><a href="/myBlogs/admin/jsp/update.password.jsp"><i class="fa fa-user"></i> 修改密码</a></li>
+						<li><a href="admin/jsp/update.password.jsp"><i class="fa fa-user"></i> 修改密码</a></li>
 						<li class="btn-logout"><a href="javascript:;"><i class="fa fa-sign-out"></i> 退出登陆</a></li>	
 	        		</ul>
 	      		</li>
@@ -38,7 +38,7 @@
 		//退出登录
 		$('.btn-logout').click(function(){
 			jConfirm('确定退出登录吗？', function(){
-				 $.get('/myBlogs/logout/1',{}, function(data){
+				 $.get('logout/1',{}, function(data){
 					 if(data.error){
 						 jAlert(data.error);
 					 }else{

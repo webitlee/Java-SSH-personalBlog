@@ -5,8 +5,8 @@
 		<title></title>
 	</head>
 	<body>
-		<script type="text/javascript" src="/myBlogs/admin/proton/assets/plugins/plupload/plupload.full.min.js"></script>
-		<script type="text/javascript" src="/myBlogs/admin/proton/assets/plugins/plupload/i18n/zh_CN.js"></script>
+		<script type="text/javascript" src="admin/proton/assets/plugins/plupload/plupload.full.min.js"></script>
+		<script type="text/javascript" src="admin/proton/assets/plugins/plupload/i18n/zh_CN.js"></script>
 		<div id="drop_area"></div>
 		<div id="filelist"></div>
 		<div id="container">
@@ -49,7 +49,7 @@
 						drop_element : 'drop_area',
 						multi_selection : typeof(PageHandler.multipleSelection) == 'undefined' ? false : PageHandler.multipleSelection,
 						container: document.getElementById('container'), // ... or DOM Element itself
-						url : '/myBlogs/uploadImage',
+						url : 'uploadImage',
 						flash_swf_url : '/theme/plugins/plupload/Moxie.swf',
 						silverlight_xap_url : '/theme/plugins/plupload/Moxie.xap',
 						

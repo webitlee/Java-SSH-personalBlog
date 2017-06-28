@@ -31,10 +31,11 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
 	<!-- 配置MultipartResolver -->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- 设置默认编码方式 -->
+	<!-- froala富文本编辑器用 -->
+	<!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		设置默认编码方式
 		<property name="defaultEncoding" value="utf-8"></property>
-		<!-- 设置最大上传字节数 -->
+		设置最大上传字节数
 		<property name="maxUploadSize" value="10240000000"></property>
-	</bean>
+	</bean> -->
 </beans>

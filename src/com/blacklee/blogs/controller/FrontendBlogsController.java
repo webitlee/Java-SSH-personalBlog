@@ -89,12 +89,13 @@ public class FrontendBlogsController {
 	//博客详情页
 	@RequestMapping(value="/getBlog/{id}", method=RequestMethod.GET)
 	public String getBlogsById(@PathVariable("id") Integer id, HttpServletRequest request){
+		int userId = 1;
 		//访问量加一
 		frontendBlogsService.addVist(id);
 		
 		Blogs blog = frontendBlogsService.getBlogById(id);
 		request.setAttribute("blog", blog);
-		Administrator admin = frontendAdministratorService.getUserInfo(id);
+		Administrator admin = frontendAdministratorService.getUserInfo(userId);
 		request.setAttribute("admin", admin);
 		Long typeOriginalSum = frontendTypeService.getOriginal();
 		request.setAttribute("typeOriginalSum", typeOriginalSum);

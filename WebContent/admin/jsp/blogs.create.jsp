@@ -11,24 +11,25 @@
 	    <title>创建新博文</title>
 
 		<!-- Fav and touch icons -->
-		<link rel="shortcut icon" href="/myBlogs/admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
 
 	    <!-- Css files -->
-	    <link href="/myBlogs/admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/css/climacons-font.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/plugins/xcharts/css/xcharts.min.css" rel=" stylesheet">
-		<link href="/myBlogs/admin/proton/assets/plugins/fullcalendar/css/fullcalendar.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/plugins/morris/css/morris.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
-	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
-		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet"/>
-		<link href="/myBlogs/admin/proton/assets/plugins/blogs_editor/css/font-awesome.min.css" rel="stylesheet"/>
-		<link href="/myBlogs/admin/proton/assets/plugins/blogs_editor/css/froala_editor.min.css" rel="stylesheet"/>
-		<link href="/myBlogs/admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
+	    <link href="admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
+		<link href="admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
+		<link href="admin/proton/assets/css/climacons-font.css" rel="stylesheet">
+		<link href="admin/proton/assets/plugins/xcharts/css/xcharts.min.css" rel=" stylesheet">
+		<link href="admin/proton/assets/plugins/fullcalendar/css/fullcalendar.css" rel="stylesheet">
+		<link href="admin/proton/assets/plugins/morris/css/morris.css" rel="stylesheet">
+		<link href="admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+		<link href="admin/proton/assets/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+	    <link href="admin/proton/assets/css/style.min.css" rel="stylesheet">
+		<link href="admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
+		<link href="admin/proton/assets/css/common.css" rel="stylesheet"/>
+		<link href="admin/proton/assets/plugins/blogs_editor/css/font-awesome.min.css" rel="stylesheet"/>
+		<link href="admin/proton/assets/plugins/blogs_editor/css/froala_editor.min.css" rel="stylesheet"/>
+		<link href="admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
+		<link href="admin/proton/assets/plugins/kindeditor/themes/default/default.css" rel="stylesheet"/>
 		
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
@@ -62,7 +63,7 @@
 						</div>
 						<ol class="breadcrumb">
 							<li class="  ">
-								<a href="/myBlogs/index?username=${applicationScope.username}" class="">
+								<a href="index?username=${applicationScope.username}" class="">
 								<i class="fa fa-home"></i> 首页
 								</a>
 							</li>
@@ -78,7 +79,7 @@
 								</i>创建新博文
 							</div>
 							<div class="panel-body">
-								<form id="form" class=" form-horizontal " action="javascript:;">
+								<form id="form" name="form" class=" form-horizontal " action="javascript:;">
 									<div class=" form-group ">
 										<label class="control-label  col-md-2">标题
 										</label>
@@ -132,7 +133,8 @@
 										<label class="control-label col-md-2">正文
 										</label>
 										<div class="col-md-8">
-											<div id="editor"></div>
+											<!--<div id="editor"></div>-->
+											<textarea id="editor" style="width:100%;height:400px;"></textarea>
 											<input id="content" type="hidden" name="content"/>
 										</div>
 									</div>
@@ -161,20 +163,20 @@
 	<!-- start: JavaScript-->
 	<!--[if !IE]>-->
 
-			<script src="/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js"></script>
+			<script src="admin/proton/assets/js/jquery-2.1.1.min.js"></script>
 
 	<!--<![endif]-->
 
 	<!--[if IE]>
 	
-		<script src="/myBlogs/admin/proton/assets/js/jquery-1.11.1.min.js"></script>
+		<script src="admin/proton/assets/js/jquery-1.11.1.min.js"></script>
 	
 	<![endif]-->
 
 	<!--[if !IE]>-->
 
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='admin/proton/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
 		</script>
 
 	<!--<![endif]-->
@@ -182,44 +184,57 @@
 	<!--[if IE]>
 	
 		<script type="text/javascript">
-	 	window.jQuery || document.write("<script src='/myBlogs/admin/proton/assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
+	 	window.jQuery || document.write("<script src='admin/proton/assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
 		</script>
 		
 	<![endif]-->
-	<script src="/myBlogs/admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/js/bootstrap.min.js"></script>
+	<script src="admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="admin/proton/assets/js/bootstrap.min.js"></script>
 	<!-- page scripts -->
-   	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
- 	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
-   	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/blogs_editor/js/froala_editor.min.js"></script>
-	<script src="/myBlogs/admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
+   	<script src="admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
+ 	<script src="admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+   	<script src="admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+	<script src="admin/proton/assets/plugins/blogs_editor/js/froala_editor.min.js"></script>
+	<script src="admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
+	
+	<script src="admin/proton/assets/plugins/kindeditor/kindeditor-all-min.js"></script>
+	<script src="admin/proton/assets/plugins/kindeditor/lang/zh_CN.js"></script>
 
    	<!-- theme scripts -->
-   	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
-   	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
-   	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
+   	<script src="admin/proton/assets/js/SmoothScroll.js"></script>
+   	<script src="admin/proton/assets/js/jquery.mmenu.min.js"></script>
+   	<script src="admin/proton/assets/js/core.min.js"></script>
    	<script>
-		 window.onload = function(){
+   		//froala富文本编辑器用
+		 /* window.onload = function(){
 	  		//删除对只能上传图片的限制，严重拖慢响应速度。
 			$('#f-file-upload-1').removeAttr("accept");
-		} 
+		}  */
 		$(function(){
-			$('#editor').editable({
+			/* $('#editor').editable({
 				inlineMode : false, 
 				alwaysBlank : true,
 				height : 400,
 				allowedImageTypes: ["jpeg", "jpg", "png", "gif"],
-				imageUploadURL: '/myBlogs/upload'//上传到本地服务器,
+				imageUploadURL: 'upload'//上传到本地服务器,
+			}); */
+			var editor = null;
+			KindEditor.ready(function(K) {
+				editor = K.create('textarea[id="editor"]', {
+					uploadJson : 'uploadFile',
+					allowFileManager : false,
+				});
 			});
-			
 			
 			//提交按钮
 			$('#btn_save').click(function(){
 				var title = $.trim($('#title').val());
 				var classification = $.trim($('#classification>option:selected'));
 				var label = $.trim($('#label').val());
-				$('#content').val($('#editor>.froala-element').html());
+				//$('#content').val($('#editor>.froala-element').html());
+				
+				$('#content').val(editor.html());
+				console.log($('#content').val());
 				var content = $.trim($('#content').val());
 				if(!title){
 					jAlert('请填写博文标题后再提交');
@@ -230,7 +245,7 @@
 				}else if(!content){
 					jAlert('请填写博文内容后再提交');
 				}else{
-					$.post('/myBlogs/saveBlogs', $('#form').serialize(), function(data){
+					$.post('saveBlogs', $('#form').serialize(), function(data){
 						if(data.error){
 							jAlert(data.error, '出错啦！');
 						}else{
