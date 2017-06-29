@@ -11,22 +11,22 @@
 	    <title>博文列表</title>
 
 		<!-- Fav and touch icons -->
-		<link rel="shortcut icon" href="admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="/myBlogs/admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
 
 	    <!-- Css files -->
-	    <link href="admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/climacons-font.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/xcharts/css/xcharts.min.css" rel=" stylesheet">
-		<link href="admin/proton/assets/plugins/fullcalendar/css/fullcalendar.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/morris/css/morris.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
-	    <link href="admin/proton/assets/css/style.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/common.css" rel="stylesheet"/>
-		<link href="admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
+	    <link href="/myBlogs/admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/climacons-font.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/xcharts/css/xcharts.min.css" rel=" stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/fullcalendar/css/fullcalendar.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/morris/css/morris.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet"/>
+		<link href="/myBlogs/admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
 
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
@@ -61,7 +61,7 @@
 		</div>
 		<ol class=" breadcrumb ">
 				<li class="  ">
-					<a href="index?username=${applicationScope.username}" class="">
+					<a href="/myBlogs/index?username=${applicationScope.username}" class="">
 						<i class="fa fa-home"></i> 首页
 					</a>
 				</li>
@@ -128,7 +128,7 @@
 								</td>
 								<td class="text-center">
 									<div class="split-button btn-group">
-										<a class="btn btn-success" href="getBlogById?id=${blogs.id}">
+										<a class="btn btn-success" href="/myBlogs/getBlogById?id=${blogs.id}">
 											编辑
 										</a>
 										<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
@@ -137,7 +137,7 @@
 										</button>
 										<ul class=" dropdown-menu">
 											<li class="">
-												<a class="btn-remove" data-remove="${blogs.id}" href="/removeBlog">删除
+												<a class="btn-remove" data-id="${blogs.id}" href="javascript:;">删除
 												</a>
 											</li>
 										</ul>
@@ -150,11 +150,11 @@
 				</div>
 				<ul id="pages" data-pages="${requestScope.pages}" class="pagination">
 					<li id="btn_prev">
-						<a href="getBlogs" class="">&lt;&lt;前一页
+						<a href="/myBlogs/getBlogs" class="">&lt;&lt;前一页
 						</a>
 					</li>
 					<li id="btn_next">
-						<a href="getBlogs" class="">后一页&gt;&gt;
+						<a href="/myBlogs/getBlogs" class="">后一页&gt;&gt;
 						</a>
 					</li>
 				</ul>
@@ -174,20 +174,20 @@
 	<!-- start: JavaScript-->
 	<!--[if !IE]>-->
 
-			<script src="admin/proton/assets/js/jquery-2.1.1.min.js"></script>
+			<script src="/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js"></script>
 
 	<!--<![endif]-->
 
 	<!--[if IE]>
 	
-		<script src="admin/proton/assets/js/jquery-1.11.1.min.js"></script>
+		<script src="/myBlogs/admin/proton/assets/js/jquery-1.11.1.min.js"></script>
 	
 	<![endif]-->
 
 	<!--[if !IE]>-->
 
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='admin/proton/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
 		</script>
 
 	<!--<![endif]-->
@@ -195,22 +195,22 @@
 	<!--[if IE]>
 	
 		<script type="text/javascript">
-	 	window.jQuery || document.write("<script src='admin/proton/assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
+	 	window.jQuery || document.write("<script src='/myBlogs/admin/proton/assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
 		</script>
 		
 	<![endif]-->
-	<script src="admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="admin/proton/assets/js/bootstrap.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/js/bootstrap.min.js"></script>
 	<!-- page scripts -->
-   	<script src="admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
- 	<script src="admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
-   	<script src="admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
-   	<script src="admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
+ 	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
 
    	<!-- theme scripts -->
-   	<script src="admin/proton/assets/js/SmoothScroll.js"></script>
-   	<script src="admin/proton/assets/js/jquery.mmenu.min.js"></script>
-   	<script src="admin/proton/assets/js/core.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
    	<script>
    		$(function(){
    			//分页
@@ -219,9 +219,9 @@
    			var page = location.search.substring(1)
    			for(var i = 0; i < sum; i++){
    				if(i <= 0){
-   					$('#btn_next').before('<li class="pages active" data-index="'+i+'"><a href="getBlogs?pageIndex='+i+'">'+(i+1)+'</a></li>');
+   					$('#btn_next').before('<li class="pages active" data-index="'+i+'"><a href="/myBlogs/getBlogs?pageIndex='+i+'">'+(i+1)+'</a></li>');
    				}else{
-	   				$('#btn_next').before('<li class="pages"><a href="getBlogs?pageIndex='+i+'">'+(i+1)+'</a></li>');
+	   				$('#btn_next').before('<li class="pages"><a href="/myBlogs/getBlogs?pageIndex='+i+'">'+(i+1)+'</a></li>');
    				}
    			}
    			//选择页码
@@ -235,7 +235,7 @@
    				if(pageIndex > 0){
    					pageIndex--;
    				}
-   				$(this).children('a').attr('href', 'getBlogs?pageIndex=' + pageIndex);
+   				$(this).children('a').attr('href', '/myBlogs/getBlogs?pageIndex=' + pageIndex);
    			})
    			//后一页
    			$('#btn_next').click(function(){
@@ -244,7 +244,23 @@
    				if(pageIndex < (sum - 1)){
    					pageInde++;
    				}
-   				$(this).children('a').attr('href', 'getBlogs?pageIndex=' + pageIndex);
+   				$(this).children('a').attr('href', '/myBlogs/getBlogs?pageIndex=' + pageIndex);
+   			})
+   			
+   			//删除博客
+   			$('.btn-remove').click(function(){
+   				var id = $(this).attr('data-id');
+   				jConfirm('确定删除该博客吗？', function(){
+	   				$.post("/myBlogs/removeBlog", {id : id}, function(data){
+	   					if(data.error){
+	   						jAlert(data.error);
+	   						return;
+	   					}
+	   					jAlert(data.message, function(){
+	   						location.reload();
+	   					}, '成功');
+	   				})
+   				})
    			})
    		})
    	</script>

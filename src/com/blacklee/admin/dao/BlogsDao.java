@@ -3,7 +3,7 @@ package com.blacklee.admin.dao;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
-
+import java.util.Set;
 
 import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,6 +101,17 @@ public class BlogsDao {
 			blog.getClassification().add(classification);
 		}
 		blog.setLastModified(new Date());
+	}
+	
+	//根据id删除博客
+	public void removeBlog(Integer id){
+		Blogs blog = (Blogs) sessionUtil.getSession().get(Blogs.class, id);
+		BlogsContent blogContent = blog.getContentId();
+		BlogsType blogType = blog.getTypeId();
+		
+		sessionUtil.getSession().delete(blogType);
+		sessionUtil.getSession().delete(blogContent);
+		sessionUtil.getSession().delete(blog);
 	}
 	
 	//获取博客阅读总数量、点赞总数量

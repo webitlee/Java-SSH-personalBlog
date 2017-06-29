@@ -1,6 +1,7 @@
 package com.blacklee.admin.controllers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -114,6 +115,20 @@ public class BlogsController {
 			map.put("message", "修改成功");
 		}catch(Exception ex){
 			map.put("error", ex.getMessage());
+		}
+		return map;
+	}
+	
+	//根据id删除博客
+	@ResponseBody
+	@RequestMapping("/removeBlog")
+	public Map<String, Object> removeBlog(@RequestParam("id")Integer id){
+		Map<String, Object> map = new HashMap<>();
+		try{
+			blogsService.removeBlog(id);
+			map.put("message", "删除成功");
+		}catch(Exception e){
+			map.put("error", e.getMessage());
 		}
 		return map;
 	}

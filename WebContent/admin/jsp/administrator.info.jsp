@@ -11,22 +11,21 @@
 	    <title>BlackLee的博客</title>
 
 		<!-- Fav and touch icons -->
-		<link rel="shortcut icon" href="admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="/myBlogs/admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
 
 	    <!-- Css files -->
-	    <link href="admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/climacons-font.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/xcharts/css/xcharts.min.css" rel=" stylesheet">
-		<link href="admin/proton/assets/plugins/fullcalendar/css/fullcalendar.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/morris/css/morris.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
-	    <link href="admin/proton/assets/css/style.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/common.css" rel="stylesheet"/>
-		<link href="admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
+	    <link href="/myBlogs/admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/climacons-font.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/xcharts/css/xcharts.min.css" rel=" stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/morris/css/morris.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet"/>
+		<link href="/myBlogs/admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
 		
 
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -62,7 +61,7 @@
 						</div>
 						<ol class=" breadcrumb ">
 							<li class="  ">
-								<a href="index?username=${applicationScope.username}" class="">
+								<a href="/myBlogs/index?username=${applicationScope.username}" class="">
 									<i class="fa fa-home"></i> 首页
 								</a>
 							</li>
@@ -93,7 +92,7 @@
 											<a id="upload_img" class="inline-block bg-light-gray bd-ccc w100 h100" href="javascript:;">
 												<c:choose>
 													<c:when test="${requestScope.information.image == null}">
-														<img class="verticalcenter max-w100 max-h100" src="admin/proton/assets/img/avatar.jpg"/>
+														<img class="verticalcenter max-w100 max-h100" src="/myBlogs/admin/proton/assets/img/avatar.jpg"/>
 													</c:when>
 													<c:otherwise>
 														<img class="verticalcenter max-w100 max-h100" src="${requestScope.information.image}"/>
@@ -123,20 +122,20 @@
 	<!-- start: JavaScript-->
 	<!--[if !IE]>-->
 
-			<script src="admin/proton/assets/js/jquery-2.1.1.min.js"></script>
+			<script src="/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js"></script>
 
 	<!--<![endif]-->
 
 	<!--[if IE]>
 	
-		<script src="admin/proton/assets/js/jquery-1.11.1.min.js"></script>
+		<script src="/myBlogs/admin/proton/assets/js/jquery-1.11.1.min.js"></script>
 	
 	<![endif]-->
 
 	<!--[if !IE]>-->
 
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='admin/proton/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
 		</script>
 
 	<!--<![endif]-->
@@ -144,22 +143,22 @@
 	<!--[if IE]>
 	
 		<script type="text/javascript">
-	 	window.jQuery || document.write("<script src='admin/proton/assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
+	 	window.jQuery || document.write("<script src='/myBlogs/admin/proton/assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
 		</script>
 		
 	<![endif]-->
-	<script src="admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="admin/proton/assets/js/bootstrap.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/js/bootstrap.min.js"></script>
     <!-- page scripts -->
-   	<script src="admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
- 	<script src="admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
-   	<script src="admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
-   	<script src="admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
+ 	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
 
    	<!-- theme scripts -->
-   	<script src="admin/proton/assets/js/SmoothScroll.js"></script>
-   	<script src="admin/proton/assets/js/jquery.mmenu.min.js"></script>
-   	<script src="admin/proton/assets/js/core.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
 	<script>
 		//上传插件
 	    var UploadHandler =
@@ -169,8 +168,13 @@
 	        multipleSelection : false,
 	        fileAdded : function(browseButton, fileInfo, fileListElement)
 	        {
-	            var el = $('#' + browseButton);
-	            el.text('正在上传...');
+	   			console.log(browseButton);
+	        	if(browseButton == 'upload_upload'){
+		        	var el = $('#' + browseButton);
+		            el.text('正在上传...');
+		            return;
+	            }
+	            $('#' + 'upload_upload').text('正在上传...');
 	        },
 	        fileUploading : function(browseButton, fileInfo, percent)
 	        {
@@ -192,7 +196,7 @@
 			
 		})
 	</script>
-	<iframe src="admin/html/plupload.html" width="200" height="200" frameborder="no" scrolling="no"></iframe>
+	<iframe src="/myBlogs/admin/html/plupload.html" width="200" height="200" frameborder="no" scrolling="no"></iframe>
 	<!-- end: JavaScript-->
 	
 </body>

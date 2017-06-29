@@ -6,16 +6,16 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <title>管理员登陆 - BlackLee的博客</title>
 		
-		<link rel="shortcut icon" href="admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="/myBlogs/admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
 
 	    <!-- Css files -->
-	    <link href="admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-	    <link href="admin/proton/assets/css/style.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
+	    <link href="/myBlogs/admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
 	</head>
 <body>
 	<div class="container-fluid content">
@@ -71,7 +71,7 @@
 
 						</form>
 					
-						<a class="pull-left" href="admin/jsp/find.password.jsp">忘记密码?</a>
+						<a class="pull-left" href="/myBlogs/admin/jsp/find.password.jsp">忘记密码?</a>
 						<!-- <a class="pull-right" href="page-register.html">Sign Up!</a>-->
 					
 						<div class="clearfix"></div>				
@@ -89,20 +89,20 @@
 	<!-- start: JavaScript-->
 	<!--[if !IE]>-->
 
-			<script src="admin/proton/assets/js/jquery-2.1.1.min.js"></script>
+			<script src="/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js"></script>
 
 	<!--<![endif]-->
 
 	<!--[if IE]>
 	
-		<script src="admin/proton/assets/js/jquery-1.11.1.min.js"></script>
+		<script src="/myBlogs/admin/proton/assets/js/jquery-1.11.1.min.js"></script>
 	
 	<![endif]-->
 
 	<!--[if !IE]>-->
 
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='admin/proton/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
 		</script>
 
 	<!--<![endif]-->
@@ -110,22 +110,22 @@
 	<!--[if IE]>
 	
 		<script type="text/javascript">
-	 	window.jQuery || document.write("<script src='admin/proton/assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
+	 	window.jQuery || document.write("<script src='/myBlogs/admin/proton/assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
 		</script>
 		
 	<![endif]-->
-	<script src="admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="admin/proton/assets/js/bootstrap.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/js/bootstrap.min.js"></script>
 	
 	
 	<!-- page scripts -->
-	<script src="admin/proton/assets/js/md5.js"></script>
-	<script src="admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
+	<script src="/myBlogs/admin/proton/assets/js/md5.js"></script>
+	<script src="/myBlogs/admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
 	
 	<!-- theme scripts -->
-	<script src="admin/proton/assets/js/SmoothScroll.js"></script>
-	<script src="admin/proton/assets/js/jquery.mmenu.min.js"></script>
-	<script src="admin/proton/assets/js/core.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
+	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
 	
 	<!-- inline scripts related to this page -->
 	<script>
@@ -161,7 +161,7 @@
 					return;
 				}
 				$(this).text('登陆中...');
-				$.post("login", {username: username, password : password}, function(data){
+				$.post("/myBlogs/login", {username: username, password : password}, function(data){
 					if(data.success){
 						if($('#remember:checked').length >= 1){
 							localStorage.setItem("username", $username.val());
@@ -170,7 +170,7 @@
 							localStorage.removeItem('username');
 							localStorage.removeItem('password');
 						}
-						location.href="index?username=" + data.username;
+						location.href="/myBlogs/index?username=" + data.username;
 					}else{
 						$(_this).text('登陆');
 						$('#hint').removeClass('hidden');

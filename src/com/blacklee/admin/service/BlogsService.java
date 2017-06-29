@@ -46,6 +46,11 @@ public class BlogsService {
 		blogsDao.update(blog, title, label, content, type, classificationIds);
 	}
 	
+	//根据id删除博客
+	public void removeBlog(Integer id){
+		blogsDao.removeBlog(id);
+	}
+	
 	//获取博客阅读总数量、点赞总数量
 		public List<Object> getVisitSupportSum(){
 			return blogsDao.getVisitSupportSum();

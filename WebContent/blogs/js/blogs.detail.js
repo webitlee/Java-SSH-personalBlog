@@ -18,19 +18,19 @@ $(function(){
     $('#btn_support').click(function(){
         var _this = this;
         var blogId = $('#blog_id').attr('data-id');
-        $.get('/addSupport?id=' + blogId, function(data){
-            if(data.error){
-                jAlert(data.error);
-            }else{
-                var $support = $(_this).children('div');
-                var $sum = $support.children('span');
-                if($support.hasClass('bg-999')){
-                    $support.addClass('bg-orange').removeClass('bg-999');
-                    $sum.text(parseInt($sum.text()) + 1);
-                }
-                jAlert(data.message);
-            }
-        })
+        var $support = $(_this).children('div');
+        if($support.hasClass('bg-orange')){
+        	$.get('/myBlogs/addSupport?id=' + blogId, function(data){
+        		if(data.error){
+        			jAlert(data.error);
+        		}else{
+        			var $sum = $support.children('span');
+    				$support.addClass('bg-999').removeClass('bg-orange');
+    				$sum.text(parseInt($sum.text()) + 1);
+        			jAlert(data.message);
+        		}
+        	})
+        }
     })
 });
 function toTop(height){

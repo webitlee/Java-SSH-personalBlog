@@ -1,7 +1,7 @@
 <%@page pageEncoding="UTF-8"%>
 <%
 	if(session.getAttribute("administrator") == null){
-		response.sendRedirect("admin/html/login.html");
+		response.sendRedirect("/myBlogs/admin/html/login.html");
 		return;
 	}
 %>

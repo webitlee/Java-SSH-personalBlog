@@ -8,11 +8,11 @@
     <meta charset="UTF-8"/>
     <meta name="author" content="liyanan"/>
     <meta name="keyword" content="个人博客、技术博客、web前端、后端、HTML5、CSS3、JavaScript、java、Spring、SpringMVC、Hibernate、SSH、jsp、软件、程序设计、IT"/>
-    <link rel="shortcut icon" href="../blogs/image/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../blogs/css/reset.css"/>
-    <link href="../blogs/css/blogs.css" type="text/css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/myBlogs/blogs/image/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/myBlogs/blogs/css/reset.css"/>
+    <link href="/myBlogs/blogs/css/blogs.css" type="text/css" rel="stylesheet"/>
     <title>BlackLee的博客 -- 专注全栈开发</title>
-    <script src="../blogs/js/jquery-3.0.0.min.js"></script>
+    <script src="/myBlogs/blogs/js/jquery-3.0.0.min.js"></script>
 </head>
 <body>
 <!-- 顶部导航 -->
@@ -29,7 +29,7 @@
                 	<c:forEach var="blog" items="${requestScope.blogs}">
 	                	<li class="pb-20 bd-bottom-dotted-ccc">
 	                        <h3 class="h40 lh-40">
-	                            <a href="../getBlog/${blog.id}">
+	                            <a href="/myBlogs/getBlog/${blog.id}">
 	                            	<c:choose>
 	                            		<c:when test="${blog.typeId.name == '原创'}">
 	                            			<i class="inline-block w20 h35 bg-yuan pr-20 v-top"></i>
@@ -73,16 +73,21 @@
     <div class="wrap ts-14 tc-999 h30 lh-30">
         <a id="csdn" href="http://blog.csdn.net/qq_19891827">
             <i class="inline-block w20 h30 bg-c v-top"></i>
-            博主CSDN博客
+       		  博主CSDN博客
         </a>
         <span class="pl-5 pr-5">|</span>
         <span id="email">
             <i class="inline-block w30 h30 bg-email v-top"></i>
-            邮箱：webitlee@163.com
+          	  邮箱：webitlee@163.com
         </span>
+        <span class="pl-5 pr-5">|</span>
+        <a id="csdn" href="https://github.com/webitlee">
+        	<i class="inline-block w20 h30 bg-git v-top"></i>
+       		 博主GitHub
+        </a>
     </div>
 </footer>
 <section id="btn_top" class="pos-fixed w45 h45 right-20 bottom-200 bg-top pointer none"></section>
 </body>
-<script src="../blogs/js/blogs.js"></script>
+<script src="/myBlogs/blogs/js/blogs.js"></script>
 </html>

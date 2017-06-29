@@ -174,70 +174,82 @@
     border-bottom:1px dotted #ccc;
 }
 .bg{
-    background-image:url("../blogs/image/head-bg.jpg");
+    background-image:url("/myBlogs/blogs/image/head-bg.jpg");
     background-repeat: no-repeat;
     background-size:100% 200px;
 }
 .bg-search{
     background-color:#333;
-    background-image:url("../blogs/image/search.png");
+    background-image:url("/myBlogs/blogs/image/search.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size:20px 20px;
 }
 .bg-search:hover{
     background-color:#fff;
-    background-image:url("../blogs/image/search-hover.png");
+    background-image:url("/myBlogs/blogs/image/search-hover.png");
 }
 .bg-admin{
     background-color:#333;
-    background-image:url("../blogs/image/admin.png");
+    background-image:url("/myBlogs/blogs/image/admin.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size:20px 20px;
 }
 .bg-admin:hover{
     background-color:#fff;
-    background-image:url("../blogs/image/admin-hover.png");
+    background-image:url("/myBlogs/blogs/image/admin-hover.png");
 }
 .bg-yuan{
-    background-image:url("../blogs/image/yuan.png");
+    background-image:url("/myBlogs/blogs/image/yuan.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size:20px 20px;
 }
 .bg-zhuan{
-    background-image:url("../blogs/image/zhuan.png");
+    background-image:url("/myBlogs/blogs/image/zhuan.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size:20px 20px;
 }
 .bg-c{
-    background-image:url("../blogs/image/c.png");
+    background-image:url("/myBlogs/blogs/image/c.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size:20px 20px;
 }
-.bg-c-hover{
-    background-image:url("../blogs/image/c-hover.png");
+.bg-c:hover{
+    background-image:url("/myBlogs/blogs/image/c-hover.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size:20px 20px;
 }
 .bg-email{
-    background-image:url("../blogs/image/email.png");
+    background-image:url("/myBlogs/blogs/image/email.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size:30px 20px;
 }
-.bg-email-hover{
-    background-image:url("../blogs/image/email-hover.png");
+.bg-email:hover{
+    background-image:url("/myBlogs/blogs/image/email-hover.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size:30px 20px;
+}
+.bg-git{
+	background-image:url("/myBlogs/blogs/image/git.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:20px 20px;
+}
+.bg-git:hover{
+	background-image:url("/myBlogs/blogs/image/git-hover.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:20px 20px;
 }
 .bg-top{
-    background-image:url("../blogs/image/top.png");
+    background-image:url("/myBlogs/blogs/image/top.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size:45px 45px;

@@ -7,12 +7,13 @@
     <meta charset="UTF-8"/>
     <meta name="author" content="liyanan"/>
     <meta name="keyword" content="个人博客、技术博客、web前端、后端、HTML5、CSS3、JavaScript、java、Spring、SpringMVC、Hibernate、SSH、jsp、软件、程序设计、IT"/>
-    <link rel="shortcut icon" href="../blogs/image/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../blogs/css/reset.css"/>
-    <link href="../blogs/css/blogs.detail.css" type="text/css" rel="stylesheet"/>
-    <link href="../admin/proton/assets/plugins/blogs_editor/css/font-awesome.min.css" rel="stylesheet"/>
-    <link href="../admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/myBlogs/blogs/image/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/myBlogs/blogs/css/reset.css"/>
+    <link href="/myBlogs/blogs/css/blogs.detail.css" type="text/css" rel="stylesheet"/>
+    <link href="/myBlogs/admin/proton/assets/plugins/blogs_editor/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="/myBlogs/admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
     <title>${requestScope.blog.title} -- ${requestScope.admin.username}的博客</title>
+    <script src="/myBlogs/blogs/js/jquery-3.0.0.min.js"></script>
 </head>
 <body>
 <!-- 顶部导航 -->
@@ -26,7 +27,7 @@
            
             <div class="inline-block pl-20 pr-20 ml-5 w983 bd-ccc ts-14 v-top">
                 <p class="h60 lh-60">
-                    <a id="blog_id" data-id="${requestScope.blog.id}" href="../getBlog/${requestScope.blog.id}">
+                    <a id="blog_id" data-id="${requestScope.blog.id}" href="/myBlogs/getBlog/${requestScope.blog.id}">
                         <strong>
                         	<c:choose>
                         		<c:when test="${requestScope.blog.typeId.name == '原创'}">
@@ -57,7 +58,7 @@
                 </div>
                 <ul class="pt-20 pb-20">
                     <li id="btn_support" class="text-center pointer">
-                        <div class="inline-block bg-999 tc-white w70 h70 pd-5 ts-30">
+                        <div class="inline-block bg-orange tc-white w70 h70 pd-5 ts-30">
                             <p class="h50 lh-50">赞</p>
                             <span class="inline-block ts-12 h20 lh-20">${requestScope.blog.support}</span>
                         </div>
@@ -78,11 +79,16 @@
             <i class="inline-block w30 h30 bg-email v-top"></i>
            	 邮箱：webitlee@163.com
         </span>
+        <span class="pl-5 pr-5">|</span>
+        <a id="csdn" href="https://github.com/webitlee">
+        	<i class="inline-block w20 h30 bg-git v-top"></i>
+       		 博主GitHub
+        </a>
     </div>
 </footer>
 <section id="btn_top" class="pos-fixed w45 h45 right-20 bottom-200 bg-top pointer none"></section>
 </body>
-<script src="../blogs/js/jquery-3.0.0.min.js"></script>
-<script src="../admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
-<script src="../blogs/js/blogs.detail.js"></script>
+<script src="/myBlogs/blogs/js/jquery-3.0.0.min.js"></script>
+<script src="/myBlogs/admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
+<script src="/myBlogs/blogs/js/blogs.detail.js"></script>
 </html>

@@ -11,22 +11,22 @@
 	    <title>类别管理</title>
 
 		<!-- Fav and touch icons -->
-		<link rel="shortcut icon" href="admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="/myBlogs/admin/proton/assets/ico/favicon.ico" type="image/x-icon" />
 
 	    <!-- Css files -->
-	    <link href="admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/climacons-font.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/xcharts/css/xcharts.min.css" rel=" stylesheet">
-		<link href="admin/proton/assets/plugins/fullcalendar/css/fullcalendar.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/morris/css/morris.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
-	    <link href="admin/proton/assets/css/style.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
-		<link href="admin/proton/assets/css/common.css" rel="stylesheet"/>
-		<link href="admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
+	    <link href="/myBlogs/admin/proton/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/jquery.mmenu.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/font-awesome.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/climacons-font.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/xcharts/css/xcharts.min.css" rel=" stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/fullcalendar/css/fullcalendar.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/morris/css/morris.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/jquery-ui/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/plugins/jvectormap/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+	    <link href="/myBlogs/admin/proton/assets/css/style.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/add-ons.min.css" rel="stylesheet">
+		<link href="/myBlogs/admin/proton/assets/css/common.css" rel="stylesheet"/>
+		<link href="/myBlogs/admin/proton/assets/plugins/dialog/css/jquery.dialog.css" rel="stylesheet"/>
 
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>
@@ -61,7 +61,7 @@
 					</div>
 					<ol class="breadcrumb">
 							<li class="  ">
-								<a href="index?username=${applicationScope.username}" class="">
+								<a href="/myBlogs/index?username=${applicationScope.username}" class="">
 								<i class="fa fa-home"></i> 首页
 								</a>
 							</li>
@@ -83,7 +83,7 @@
 										<div class=" form-group ">
 											<label class="">类别名称
 											</label>
-											<input type="text" class="form-control classification-name" data-id="${classification.id}" value="${classification.name}" <c:if test="${classification.id == 1}">disabled</c:if>/>
+											<input id="modified_classification" type="text" class="form-control classification-name" data-id="${classification.id}" value="${classification.name}" <c:if test="${classification.id == 1}">disabled</c:if>/>
 											<button class="btn btn-info btn-rename" data-id="${classification.id}">
 												<i class="fa fa-level-up  icon">
 												</i> 提交
@@ -113,7 +113,7 @@
 									<div class=" form-group ">
 										<label class="">添加分类
 										</label>
-										<input type="text" class="form-control" name="name" placeholder="填写分类名称">
+										<input id="new_classification" type="text" class="form-control" name="name" placeholder="填写分类名称">
 									</div>
 									<button id="btn_add" class="btn btn-success">
 										<i class="fa fa-plus  icon">
@@ -135,20 +135,20 @@
 	<!-- start: JavaScript-->
 	<!--[if !IE]>-->
 
-			<script src="admin/proton/assets/js/jquery-2.1.1.min.js"></script>
+			<script src="/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js"></script>
 
 	<!--<![endif]-->
 
 	<!--[if IE]>
 	
-		<script src="admin/proton/assets/js/jquery-1.11.1.min.js"></script>
+		<script src="/myBlogs/admin/proton/assets/js/jquery-1.11.1.min.js"></script>
 	
 	<![endif]-->
 
 	<!--[if !IE]>-->
 
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='admin/proton/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='/myBlogs/admin/proton/assets/js/jquery-2.1.1.min.js'>"+"<"+"/script>");
 		</script>
 
 	<!--<![endif]-->
@@ -156,26 +156,34 @@
 	<!--[if IE]>
 	
 		<script type="text/javascript">
-	 	window.jQuery || document.write("<script src='admin/proton/assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
+	 	window.jQuery || document.write("<script src='/myBlogs/admin/proton/assets/js/jquery-1.11.1.min.js'>"+"<"+"/script>");
 		</script>
 		
 	<![endif]-->
-	<script src="admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="admin/proton/assets/js/bootstrap.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="/myBlogs/admin/proton/assets/js/bootstrap.min.js"></script>
 	<!-- page scripts -->
-   	<script src="admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
- 	<script src="admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
-   	<script src="admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
-   	<script src="admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js"></script>
+ 	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/datatables/js/dataTables.bootstrap.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/plugins/dialog/js/jquery.dialog.js"></script>
 
    	<!-- theme scripts -->
-   	<script src="admin/proton/assets/js/SmoothScroll.js"></script>
-   	<script src="admin/proton/assets/js/jquery.mmenu.min.js"></script>
-   	<script src="admin/proton/assets/js/core.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/SmoothScroll.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/jquery.mmenu.min.js"></script>
+   	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
    	<script>
    		//添加分类
    		$('#btn_add').click(function(){
-   			$.post('addClassification', $('#add_form').serialize(), function(data){
+   			var html = $(this).html();
+   			var classification = $.trim($('#new_classification').val());
+   			if(!classification){
+   				jAlert('分类名未填写');
+   				return;
+   			}
+   			$(this).text('操作中...');
+   			$.post('/myBlogs/addClassification', $('#add_form').serialize(), function(data){
+   				$(this).html(html);
    				if(data.error){
    					jAlert(data.error);
    				}else{
@@ -188,7 +196,15 @@
    		
    		//修改分类名称
    		$('.btn-rename').click(function(){
-   			$.post('uploadClassification', {name : $(this).prev().children('.classification-name').val(), id : $(this).attr('data-id')}, function(data){
+   			var html = $(this).html();
+   			var name = $.trim($(this).prev('.classification-name').val());
+   			if(!name){
+   				jAlert('分类名未填写');
+   				return;
+   			}
+   			$(this).text('操作中...');
+   			$.post('/myBlogs/uploadClassification', {name : name, id : $(this).attr('data-id')}, function(data){
+   				$(this).html(html);
    				if(data.error){
    					jAlert(data.error);
    				}else{
@@ -201,15 +217,25 @@
    		
    		//删除分类
    		$('.btn-remove').click(function(){
-   			$.post('deleteClassification',{id : $(this).attr('data-id')}, function(data){
-   				if(data.error){
-   					jAlert(data.error);
-   				}else{
-   					jAlert(data.message, function(){
-   						location.reload();
-   					}, '成功啦');
-   				}
-   			})
+   			if($(this).attr('data-id') == 1){
+   				jAlert('总分类不能删除');
+   				return;
+   			}
+   			var html = $(this).html();
+   			var _this = this;
+   			jConfirm('确定删除该分类吗？', function(){
+   				$(_this).text('操作中...');
+	   			$.post('/myBlogs/deleteClassification',{id : $(_this).attr('data-id')}, function(data){
+	   				$(_this).html(html);
+	   				if(data.error){
+	   					jAlert(data.error);
+	   				}else{
+	   					jAlert(data.message, function(){
+	   						location.reload();
+	   					}, '成功啦');
+	   				}
+	   			})
+   			}, '提示');
    		})
    	</script>
 	<!-- end: JavaScript-->

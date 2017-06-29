@@ -17,7 +17,7 @@
         <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">文章分类</li>
         <c:forEach var="names" items="${requestScope.classificationName}">
 	        <li class="h25 lh-25 ts-0">
-	            <a class="inline-block ts-12" href="getAll/1?classificationId=${names[1]}">${names[0]}</a>
+	            <a class="inline-block ts-12" href="/myBlogs/getAll/1?classificationId=${names[1]}">${names[0]}</a>
 	        </li>
         </c:forEach>
     </ul>
@@ -25,7 +25,7 @@
         <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">阅读排行</li>
         <c:forEach var="titles" items="${requestScope.titleByVisit}">
 	        <li class="h25 lh-25 ts-0">
-	            <a class="inline-block w70p t-ellipsis ts-12" href="getBlog/${titles[2]}">${titles[0]}</a>
+	            <a class="inline-block w70p t-ellipsis ts-12" href="/myBlogs/getBlog/${titles[2]}">${titles[0]}</a>
 	            <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(${titles[1]})</span>
 	        </li>
         </c:forEach>
@@ -34,7 +34,7 @@
         <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">点赞排行</li>
         <c:forEach var="titles" items="${requestScope.titleBySupport}">
 	        <li class="h25 lh-25 ts-0">
-	            <a class="inline-block w70p t-ellipsis ts-12" href="getBlog/${titles[2]}">${titles[0]}</a>
+	            <a class="inline-block w70p t-ellipsis ts-12" href="/myBlogs/getBlog/${titles[2]}">${titles[0]}</a>
 	            <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(${titles[1]})</span>
 	        </li>
         </c:forEach>
@@ -43,7 +43,7 @@
         <li class="text-center bg-ccc h25 lh-25 mb-10 tc-333 ts-14">推荐文章</li>
         <c:forEach var="titles" items="${requestScope.titleById}">
 	        <li class="h25 lh-25 ts-0">
-	            <a class="inline-block w70p t-ellipsis ts-12" href="getBlog/${titles[2]}">${titles[0]}</a>
+	            <a class="inline-block w70p t-ellipsis ts-12" href="/myBlogs/getBlog/${titles[2]}">${titles[0]}</a>
 	            <span class="pr-5 pull-right w25p tc-999 ts-10 text-right">(${titles[1]})</span>
 	        </li>
         </c:forEach>
