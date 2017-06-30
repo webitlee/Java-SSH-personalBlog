@@ -42,7 +42,7 @@
 	                            </a>
 	                        </h3>
 	                        <div class="content ts-14 tc-999 lh-30 pos-rel">
-	                        	${blog.contentId.content}
+	                        	<p>${blog.contentId.content}</p>
 	                            <span class="omit pos-ab bottom-0 right-0 ts-12 w28 bg-white none">...</span>
 	                        </div>
 	                        <p class="ts-12 h40 lh-40">

@@ -2,8 +2,12 @@
  * Created by liyanan on 2017/5/12.
  */
 $(function(){
-    //文章内容多余省略
     $('.content').each(function(){
+    	//内容text显示为html
+    	var html = $(this).children('p').text();
+		$(this).children('p').html(transferspecialchars(html));
+		
+		//文章内容多余省略
         var lh = parseInt($(this).css('line-height'));
         if($(this).height() >= lh * 3){
             $(this).addClass('of-hidden').height(lh * 3);
@@ -76,21 +80,6 @@ $(function(){
         $('.page').last().addClass('bg-green tc-white');
     });
 
-    //csdn博客
-    $('#csdn').mouseenter(function(){
-        $(this).children('i').removeClass('bg-c').addClass('bg-c-hover');
-    });
-    $('#csdn').mouseleave(function(){
-        $(this).children('i').removeClass('bg-c-hover').addClass('bg-c');
-    });
-    //邮箱
-    $('#email').mouseenter(function(){
-        $(this).children('i').removeClass('bg-email').addClass('bg-email-hover');
-    });
-    $('#email').mouseleave(function(){
-        $(this).children('i').removeClass('bg-email-hover').addClass('bg-email');
-    });
-
     //搜索按钮
     $('#btn_search').mouseenter(function(){
         $('#search').removeClass('none');
@@ -118,4 +107,13 @@ function toTop(height){
             toTop(scrollTop);
         },10)
     }
+}
+
+function transferspecialchars(str){
+	var result = null;
+	result = str.replace(/&amp;/ig, "&");
+	result = result.replace(/&lt;/ig, "<");
+	result = result.replace(/&gt;/ig, ">");
+	result = result.replace(/&quot;/ig, "\\");
+	return result;
 }

@@ -273,7 +273,7 @@
     color:#333;
 }
 .tc-999{
-    color:#999;
+    color:#999 !important;
 }
 .ts-0{
     font-size:0;

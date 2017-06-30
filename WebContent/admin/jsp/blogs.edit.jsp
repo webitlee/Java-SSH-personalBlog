@@ -224,6 +224,9 @@
    	<script src="/myBlogs/admin/proton/assets/js/core.min.js"></script>
    	<script>
 		$(function(){
+			//博文内容特殊字符转为html
+			transferspecialchars($('#editor').val());
+			
 			var editor = null;
 			KindEditor.ready(function(K) {
 				editor = K.create('textarea[id="editor"]', {
@@ -241,7 +244,8 @@
 				var label = $.trim($('#label').val());
 				//$('#content').val($('#editor>.froala-element').html());
 				
-				$('#content').val(editor.html());
+				var html = editor.html();
+				$('#content').val(htmlspecialchars(html));
 				console.log($('#content').val());
 				var content = $.trim($('#content').val());
 				if(!title){
@@ -268,6 +272,23 @@
 				
 			})
 		})
+		
+		function htmlspecialchars(str){
+			var result = null;
+			result = str.replace(/&/ig, "&amp;");
+			result = result.replace(/</ig, "&lt;");
+			result = result.replace(/>/ig, "&gt;");
+			result = result.replace(/\\/ig, "&quot;");
+			return result;
+		}
+		function transferspecialchars(str){
+			var result = null;
+			result = str.replace(/&amp;/ig, "&");
+			result = result.replace(/&lt;/ig, "<");
+			result = result.replace(/&gt;/ig, ">");
+			result = result.replace(/&quot;/ig, "\\");
+			return result;
+		}
    	</script>
 	<!-- end: JavaScript-->
 	

@@ -233,8 +233,8 @@
 				var label = $.trim($('#label').val());
 				//$('#content').val($('#editor>.froala-element').html());
 				
-				$('#content').val(editor.html());
-				console.log($('#content').val());
+				var html = editor.html();
+				$('#content').val(htmlspecialchars(html));
 				var content = $.trim($('#content').val());
 				if(!title){
 					jAlert('请填写博文标题后再提交');
@@ -258,6 +258,15 @@
 				
 			})
 		})
+		
+		function htmlspecialchars(str){
+			var result = null;
+			result = str.replace(/&/ig, "&amp;");
+			result = result.replace(/</ig, "&lt;");
+			result = result.replace(/>/ig, "&gt;");
+			result = result.replace(/\\/ig, "&quot;");
+			return result;
+		}
    	</script>
 	<!-- end: JavaScript-->
 	

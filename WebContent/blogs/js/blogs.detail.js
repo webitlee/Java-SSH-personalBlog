@@ -2,6 +2,9 @@
  * Created by Administrator on 2017/5/21.
  */
 $(function(){
+	//内容text显示为html
+	var html = $('#content').html();
+	$('#content').html(transferspecialchars(html));
     //返回顶部
     $(window).scroll(function(){
         if($(window).scrollTop() > $(window).height() /2){
@@ -40,4 +43,13 @@ function toTop(height){
             toTop(scrollTop);
         },10)
     }
+}
+
+function transferspecialchars(str){
+	var result = null;
+	result = str.replace(/&amp;/ig, "&");
+	result = result.replace(/&lt;/ig, "<");
+	result = result.replace(/&gt;/ig, ">");
+	result = result.replace(/&quot;/ig, "\\");
+	return result;
 }

@@ -52,9 +52,7 @@
                 </p>
                 <hr class="clearfix"/>
                 <div id="content" class="tc-333 ts-12 lh-20 pt-20 pb-20">
-                	<div class="froala-element">
-                		${requestScope.blog.contentId.content}
-                	</div>	
+               		${requestScope.blog.contentId.content}
                 </div>
                 <ul class="pt-20 pb-20">
                     <li id="btn_support" class="text-center pointer">
