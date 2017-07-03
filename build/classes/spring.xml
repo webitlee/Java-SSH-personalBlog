@@ -26,6 +26,9 @@
 		<property name="maxPoolSize" value="#{config.maxPoolSize}"></property>
 		<property name="minPoolSize" value="#{config.minPoolSize}"></property>
 		<property name="initialPoolSize" value="#{config.initialPoolSize}"></property>
+		<property name="idleConnectionTestPeriod" value="#{config.idleConnectionTestPeriod}"></property>
+		<property name="acquireRetryDelay" value="#{config.acquireRetryDelay}"></property>
+		<property name="maxIdleTime" value="#{config.maxIdleTime}"></property>
 	</bean>
 	
 	<!-- 配置hibernate的SessionFactory实例,通过spring提供的LocalSessionFactory进行配置 -->
