@@ -150,11 +150,11 @@
 				</div>
 				<ul id="pages" data-pages="${requestScope.pages}" class="pagination">
 					<li id="btn_prev">
-						<a href="/myBlogs/getBlogs" class="">&lt;&lt;前一页
+						<a href="javascript:;" class="">&lt;&lt;前一页
 						</a>
 					</li>
 					<li id="btn_next">
-						<a href="/myBlogs/getBlogs" class="">后一页&gt;&gt;
+						<a href="javascript:;" class="">后一页&gt;&gt;
 						</a>
 					</li>
 				</ul>
@@ -216,9 +216,17 @@
    			//分页
    			var $pages = $('#pages');
    			var sum = parseInt($pages.attr('data-pages'));
-   			var page = location.search.substring(1)
+   			var arguments = location.search.substring(1).split('&');
+   			var argument = null;
+   			var pageIndex = 0;
+   			for(var i = 0; i < arguments.length; i++){
+   				argument = arguments[i].split('=');
+   				if(argument[0] == 'pageIndex'){
+   					pageIndex = argument[1];
+   				}
+   			}
    			for(var i = 0; i < sum; i++){
-   				if(i <= 0){
+   				if(i == pageIndex){
    					$('#btn_next').before('<li class="pages active" data-index="'+i+'"><a href="/myBlogs/getBlogs?pageIndex='+i+'">'+(i+1)+'</a></li>');
    				}else{
 	   				$('#btn_next').before('<li class="pages"><a href="/myBlogs/getBlogs?pageIndex='+i+'">'+(i+1)+'</a></li>');
@@ -234,17 +242,21 @@
    				var pageIndex = parseInt($($('.pages.active')[0]).attr('data-index'));
    				if(pageIndex > 0){
    					pageIndex--;
+   					$(this).children('a').attr('href', '/myBlogs/getBlogs?pageIndex=' + pageIndex);
+   					return;
    				}
-   				$(this).children('a').attr('href', '/myBlogs/getBlogs?pageIndex=' + pageIndex);
+   				$(this).children('a').attr('href', 'javascript:;');
    			})
    			//后一页
    			$('#btn_next').click(function(){
-   				var pageIndex = parseInt($($('.pages.active')[0]).attr('data-index'));
+   				var pageIndex = parseInt(parseInt($($('.pages.active')[0]).attr('data-index')));
    				var sum = parseInt($('#pages').attr('data-pages'));
    				if(pageIndex < (sum - 1)){
-   					pageInde++;
+   					pageIndex++;
+   					$(this).children('a').attr('href', '/myBlogs/getBlogs?pageIndex=' + pageIndex);
+   					return;
    				}
-   				$(this).children('a').attr('href', '/myBlogs/getBlogs?pageIndex=' + pageIndex);
+   				$(this).children('a').attr('href', 'javascript:;');
    			})
    			
    			//删除博客

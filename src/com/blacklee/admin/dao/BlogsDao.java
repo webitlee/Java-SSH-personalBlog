@@ -63,8 +63,8 @@ public class BlogsDao {
 	public Integer getBlogsCount(){
 		String hql = "select count(*) from Blogs";
 		Query query = sessionUtil.getSession().createQuery(hql);
-		Integer count = query.list().size();
-		return count;
+		Long count = (Long) query.uniqueResult();
+		return count.intValue();
 	}
 	//获取前20条博文数据
 	public List<Blogs> getBlogs(int maxResult, int pageIndex){
