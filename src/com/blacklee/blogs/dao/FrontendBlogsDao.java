@@ -26,6 +26,19 @@ public class FrontendBlogsDao {
 		Long count = (Long) (query.uniqueResult());
 		return count.intValue();
 	}
+	//根据分类查询记录总条数
+	public Integer getBlogsCountByClassification(Integer id){
+		BlogsClassification classification = (BlogsClassification) sessionUtil.getSession().get(BlogsClassification.class, id); 
+		Set<Blogs> blogs = classification.getBlogs();
+		return blogs.size();
+	}
+	//根据关键字查询记录总条数
+	public Integer getBlogsCountByKeyword(String keyword){
+		String hql = "select count(*) from Blogs b where b.title like ?";
+		Query query = sessionUtil.getSession().createQuery(hql);
+		Long count = (Long) query.setString(0, "%" + keyword + "%").uniqueResult();
+		return count.intValue();
+	}
 	//获取指定条数的博文数据
 	public List<Blogs> getBlogs(int maxResult, int pageIndex){
 		String hql="select distinct b from Blogs b order by b.id desc left join fetch b.typeId left join fetch b.classification left join fetch b.contentId";
@@ -61,25 +74,28 @@ public class FrontendBlogsDao {
 	
 	//获取阅读数前10的标题
 	public List<Object> getTitleByVisit(){
-			String hql = "select b.title, b.visit, b.id from Blogs b order by b.visit desc limit 10";
+			int sum = 10;
+			String hql = "select b.title, b.visit, b.id from Blogs b order by b.visit desc";
 			Query query = sessionUtil.getSession().createQuery(hql);
-			List<Object> titleByVisit = query.list();
+			List<Object> titleByVisit = query.setFirstResult(0).setMaxResults(sum).list();
 			return titleByVisit;
 	}
 	
 	//获取点赞前10的标题
 	public List<Object> getTitleBySupport(){
-		String hql = "select b.title, b.support, b.id from Blogs b order by b.support desc limit 10";
+		int sum = 10;
+		String hql = "select b.title, b.support, b.id from Blogs b order by b.support desc";
 		Query query = sessionUtil.getSession().createQuery(hql);
-		List<Object> titleBySupport = query.list();
+		List<Object> titleBySupport = query.setFirstResult(0).setMaxResults(sum).list();
 		return titleBySupport;
 	}
 	
 	//获取按id倒序前10个标题
 	public List<Object> getTitleById(){
-		String hql = "select b.title,b.visit, b.id from Blogs b order by b.id desc limint 10";
+		int sum = 10;
+		String hql = "select b.title,b.visit, b.id from Blogs b order by b.id desc";
 		Query query = sessionUtil.getSession().createQuery(hql);
-		List<Object> titleById = query.list();
+		List<Object> titleById = query.setFirstResult(0).setMaxResults(sum).list();
 		return titleById;
 	}
 	

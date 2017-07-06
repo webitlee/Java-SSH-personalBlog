@@ -16,12 +16,7 @@ public class FrontendBlogsService {
 	
 	//获取指定条数的博文数据
 	public List<Blogs> getBlogs(int maxResult, int pageIndex){
-		Integer count = frontendBlogsDao.getBlogsCount().intValue();
-		if(count < maxResult * (pageIndex + 1)){
-			return frontendBlogsDao.getBlogs(maxResult * pageIndex, count - maxResult * pageIndex);
-		}else{
-			return frontendBlogsDao.getBlogs(maxResult * pageIndex, maxResult);
-		}
+		return frontendBlogsDao.getBlogs(maxResult, pageIndex);
 	}
 	
 	//根据分类id获取指定条数的博文数据
@@ -34,6 +29,15 @@ public class FrontendBlogsService {
 		return frontendBlogsDao.getBlogsCount();
 	}
 	
+	//根据分类查询记录总条数
+	public Integer getBlogsCountByClassification(Integer id){
+		return frontendBlogsDao.getBlogsCountByClassification(id);
+	}
+	
+	//根据关键字查询记录总条数
+	public Integer getBlogsCountByKeyword(String keyword){
+		return frontendBlogsDao.getBlogsCountByKeyword(keyword);
+	}
 	
 	//获取博客阅读总数量
 	public Long getVistSum(){

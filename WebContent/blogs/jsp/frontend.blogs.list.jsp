@@ -60,7 +60,7 @@
                 	</c:forEach>
                 </ul>
                 <div class="h60 pt-10 pb-10 ts-12 tc-999 text-center">
-                    <span class="inline-block h30 lh-30 pr-5 v-top">${requestScope.blogs.size()}条</span>
+                    <span class="inline-block h30 lh-30 pr-5 v-top">本页${requestScope.blogs.size()}条</span>
                    	<span id="pages" class="inline-block h30 lh-30 pr-5 v-top" data-keyword="${requestScope.pagingKeyword}" data-classification="${requestScope.pagingClassification}" data-pages="${requestScope.pagesCount}">共${requestScope.pagesCount}页</span>
                     <div id="paging" class="inline-block">
                     </div>		

@@ -36,8 +36,9 @@ public class FrontendBlogsController {
 	//博文列表、排名、管理员信息页面
 	@RequestMapping(value="/getAll/{id}", method=RequestMethod.GET)
 	public String getAllMsg(@PathVariable("id") Integer id,@RequestParam(value="classificationId", required=false) Integer classificationId, @RequestParam(value="keyword", required=false) String keyword, @RequestParam(value="pageIndex", required=false) Integer pageIndex, HttpServletRequest request){
-		Integer maxResult = 20;
+		Integer maxResult = 10;
 		List<Blogs> blogs = null;
+		Integer pagesCount = null;
 		if((classificationId == null) && (keyword == null)){
 			request.setAttribute("pagingClassification", false);
 			request.setAttribute("pagingKeyword", false);
@@ -46,6 +47,7 @@ public class FrontendBlogsController {
 			}else{
 				blogs = frontendBlogsService.getBlogs(maxResult, pageIndex);
 			}
+			pagesCount = (int) Math.ceil((float)frontendBlogsService.getBlogsCount() / maxResult);
 		}else if(keyword != null){
 			request.setAttribute("pagingKeyword", true);
 			request.setAttribute("pagingClassification", false);
@@ -54,6 +56,7 @@ public class FrontendBlogsController {
 			}else{
 				blogs = frontendBlogsService.getBlogsByKeyword(keyword, maxResult, pageIndex);
 			}
+			pagesCount = (int) Math.ceil((float)frontendBlogsService.getBlogsCountByKeyword(keyword) / maxResult);
 		}else{
 			request.setAttribute("pagingClassification", true);
 			if(pageIndex == null){
@@ -61,8 +64,10 @@ public class FrontendBlogsController {
 			}else{
 				blogs = new ArrayList<>(frontendBlogsService.getBlogsByClassificationId(classificationId, maxResult, pageIndex));
 			}
+			pagesCount = (int) Math.ceil((float)frontendBlogsService.getBlogsCountByClassification(classificationId) / maxResult);
 		}
 		request.setAttribute("blogs", blogs);
+		request.setAttribute("pagesCount", pagesCount);
 		Administrator admin = frontendAdministratorService.getUserInfo(id);
 		request.setAttribute("admin", admin);
 		Long typeOriginalSum = frontendTypeService.getOriginal();
@@ -73,8 +78,6 @@ public class FrontendBlogsController {
 		request.setAttribute("visitSum", visitSum);
 		Long supportSum = frontendBlogsService.getSupportSum();
 		request.setAttribute("supportSum", supportSum);
-		Integer pagesCount = (int) Math.ceil((float)frontendBlogsService.getBlogsCount() / maxResult);
-		request.setAttribute("pagesCount", pagesCount);
 		List<String> classificationName = frontendClassificationService.getClassificationName();
 		request.setAttribute("classificationName", classificationName);
 		List<Object> titleByVisit = frontendBlogsService.getTitleByVisit();
